@@ -1,6 +1,6 @@
 class_name Deck extends Node2D
 
-const CardScene = preload("res://card_game/Card.tscn")
+const Card1Scene = preload("res://card_game/cards/Card1.tscn")
 
 var _deck_contents : Array[Card]
 
@@ -13,4 +13,4 @@ func pop() -> Card:
 # TODO
 func _load_deck_contents():
 	for i in 2:
-		_deck_contents.append(CardScene.instantiate())
+		_deck_contents.append(Card1Scene.instantiate())
