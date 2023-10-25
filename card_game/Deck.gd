@@ -1,16 +1,34 @@
 class_name Deck extends Node2D
 
-const Card1Scene = preload("res://card_game/cards/FireballCard.tscn")
+@export_dir var cards_directory : String
+
+var card_scene_name_to_scene : Dictionary = {}
 
 var _deck_contents : Array[Card]
 
 func _ready():
-	_load_deck_contents()
+	_load_deck_contents();
+	print(_deck_contents);
+	shuffle();
+	print(_deck_contents);
 
 func pop() -> Card:
-	return _deck_contents.pop_front()
+	return _deck_contents.pop_front();
+
+func shuffle():
+	randomize();
+	_deck_contents.shuffle();
 
 # TODO
 func _load_deck_contents():
-	for i in 2:
-		_deck_contents.append(Card1Scene.instantiate())
+	var saved_deck_contents := {
+		"FireballCard.tscn": 10,
+	}
+	
+	for card_scene_name in saved_deck_contents:
+		var card_scene : Resource = card_scene_name_to_scene.get(card_scene_name);
+		if not card_scene:
+			card_scene = load("%s/%s" % [cards_directory, card_scene_name]);
+			card_scene_name_to_scene[card_scene_name] = card_scene;
+		for i in saved_deck_contents[card_scene_name]:
+			_deck_contents.append(card_scene.instantiate())
