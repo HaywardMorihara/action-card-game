@@ -5,7 +5,7 @@ signal animation_finished
 @export var animation_move_speed : float = 1.0
 @export_file("*.gd") var effect_filepath : String
 
-@onready var effect : CardEffect = load(effect_filepath).new()
+@onready var effect : CardEffect = load(effect_filepath).new();
 
 func play():
 	GlobalSignals.execute.emit(effect.execute)

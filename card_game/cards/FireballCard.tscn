@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxwwu74nc3h1f"]
+
+[ext_resource type="PackedScene" uid="uid://dixa05st8m4cw" path="res://card_game/Card.tscn" id="1_wfk2e"]
+
+[node name="FireballCard" instance=ExtResource("1_wfk2e")]
+effect_filepath = "res://card_game/effects/AimAndShootFireballEffect.gd"

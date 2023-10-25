@@ -1,6 +1,6 @@
 class_name Deck extends Node2D
 
-const Card1Scene = preload("res://card_game/cards/Card1.tscn")
+const Card1Scene = preload("res://card_game/cards/FireballCard.tscn")
 
 var _deck_contents : Array[Card]
 

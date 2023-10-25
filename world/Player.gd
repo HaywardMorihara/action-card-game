@@ -1,4 +1,4 @@
-class_name Player extends Node2D
+class_name Player extends CharacterBody2D
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):

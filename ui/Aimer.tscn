@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm10dkrq48qhl"]
+
+[ext_resource type="Script" path="res://ui/Aimer.gd" id="1_et153"]
+[ext_resource type="Texture2D" uid="uid://cw8e2jbeytn0e" path="res://icon.svg" id="2_afg84"]
+
+[node name="Aimer" type="Node2D"]
+script = ExtResource("1_et153")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_afg84")
