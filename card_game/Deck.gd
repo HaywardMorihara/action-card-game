@@ -1,6 +1,6 @@
 class_name Deck extends Node2D
 
-@export_dir var cards_directory : String
+@export_dir var cards_directory : String = "res://card_game/cards"
 
 var card_scene_name_to_scene : Dictionary = {}
 
@@ -8,9 +8,7 @@ var _deck_contents : Array[Card]
 
 func _ready():
 	_load_deck_contents();
-	print(_deck_contents);
 	shuffle();
-	print(_deck_contents);
 
 func pop() -> Card:
 	return _deck_contents.pop_front();
