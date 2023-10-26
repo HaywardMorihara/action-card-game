@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://x1v2pfqgxd7d"]
+
+[ext_resource type="Script" path="res://card_game/Hand.gd" id="1_juich"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yneu"]
+size = Vector2(400, 100)
+
+[node name="Hand" type="Area2D"]
+script = ExtResource("1_juich")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1yneu")
+
+[node name="Contents" type="Node2D" parent="."]

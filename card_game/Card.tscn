@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dixa05st8m4cw"]
 
 [ext_resource type="Script" path="res://card_game/Card.gd" id="1_ftvbs"]
-[ext_resource type="Texture2D" uid="uid://cw8e2jbeytn0e" path="res://icon.svg" id="2_ihedb"]
+[ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://assets/art/blank_card_front.png" id="2_uykmo"]
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_ftvbs")
-animation_move_speed = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ihedb")
+texture = ExtResource("2_uykmo")

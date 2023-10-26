@@ -1,17 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj2ni6ca0ci5"]
+[gd_scene load_steps=5 format=3 uid="uid://cj2ni6ca0ci5"]
 
-[ext_resource type="Script" path="res://card_game/Deck.gd" id="1_7ug8f"]
 [ext_resource type="Script" path="res://card_game/CardGame.gd" id="1_q7d6n"]
-[ext_resource type="Script" path="res://card_game/Hand.gd" id="3_woq7r"]
+[ext_resource type="PackedScene" uid="uid://x1v2pfqgxd7d" path="res://card_game/Hand.tscn" id="2_qrhnp"]
+[ext_resource type="PackedScene" uid="uid://4tnlkd0gc7vf" path="res://card_game/Deck.tscn" id="3_6yrxi"]
+[ext_resource type="PackedScene" uid="uid://xrnqm8q6wu6o" path="res://card_game/DiscardPile.tscn" id="4_n424s"]
 
 [node name="CardGame" type="Node2D"]
 script = ExtResource("1_q7d6n")
 
-[node name="Deck" type="Node2D" parent="."]
-script = ExtResource("1_7ug8f")
+[node name="Deck" parent="." instance=ExtResource("3_6yrxi")]
+position = Vector2(594, 295)
 
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2(268, 204)
-script = ExtResource("3_woq7r")
+[node name="DiscardPile" parent="." instance=ExtResource("4_n424s")]
+position = Vector2(43, 301)
 
-[node name="DiscardPile" type="Node2D" parent="."]
+[node name="Hand" parent="." instance=ExtResource("2_qrhnp")]
+position = Vector2(332, 298)

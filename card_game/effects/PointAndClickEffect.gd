@@ -7,8 +7,8 @@ func get_description() -> String:
 
 func execute(world : World):
 	var aimer : Aimer = AimerScene.instantiate();
-	aimer.aim_finished.connect(_on_aimer_finished);
 	world.add_child(aimer);
+	aimer.aim_finished.connect(_on_aimer_finished);
 
 func _on_aimer_finished(target : Vector2):
 	if next_effect:

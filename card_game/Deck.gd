@@ -10,7 +10,7 @@ func _ready():
 	_load_deck_contents();
 	shuffle();
 
-func pop() -> Card:
+func draw_card() -> Card:
 	return _deck_contents.pop_front();
 
 func shuffle():

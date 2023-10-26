@@ -5,9 +5,11 @@ func get_description() -> String:
 
 func execute(world : World):
 	var point_and_click_effect = PointAndClickEffect.new();
-	var create_fireball_effect = CreateFireballEffect.new();
 	
+	var create_fireball_effect = CreateFireballEffect.new();
 	point_and_click_effect.next_effect = create_fireball_effect;
-	create_fireball_effect.next_effect = next_effect;
+	
+	if next_effect:
+		create_fireball_effect.next_effect = next_effect;
 	
 	point_and_click_effect.execute(world);

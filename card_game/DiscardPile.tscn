@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xrnqm8q6wu6o"]
+
+[ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://assets/art/blank_card_front.png" id="1_o1j3t"]
+
+[node name="DiscardPile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o1j3t")
