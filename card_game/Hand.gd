@@ -8,6 +8,22 @@ func add_card(card : Card, callback : Callable):
 	card.position = Vector2.ZERO;
 	_rebalance(callback);
 
+func remove(card : Card) -> Card:
+	var hand_contents : Array = contents.get_children();
+	for i in len(contents):
+		if hand_contents[i] == card:
+			contents.remove_at(i);
+			return card;
+	return null
+
+func remove_random(count : int) -> Array[Card]:
+	# TODO
+	return []
+
+func remove_all() -> Array[Card]:
+	# TODO
+	return []
+
 func _rebalance(callback : Callable):
 	var hand_width = $CollisionShape2D.shape.get_size().x;
 	var cards_in_hand = contents.get_children();
