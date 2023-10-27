@@ -34,8 +34,8 @@ func _rebalance(callback : Callable):
 		new_pos.x += x_diff;
 		cards_in_hand[i].move_to(new_pos, callback);
 
+# TODO Remove
 func _input(event):
-	# TODO Remove
 	if event.is_action_pressed("ui_select"):
 		var children = contents.get_children();
 		if len(children) == 0:
