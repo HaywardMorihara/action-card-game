@@ -1,4 +1,4 @@
-class_name ShootFireballEffect extends CardEffect
+class_name AimAndShootFireballEffect extends CardEffect
 
 func get_description() -> String:
 	return "Summons a fireball and shoots based on the player's aim"

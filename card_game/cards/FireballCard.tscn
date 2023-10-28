@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxwwu74nc3h1f"]
+[gd_scene load_steps=3 format=3 uid="uid://cxwwu74nc3h1f"]
 
 [ext_resource type="PackedScene" uid="uid://dixa05st8m4cw" path="res://card_game/Card.tscn" id="1_wfk2e"]
+[ext_resource type="Texture2D" uid="uid://efe1r5d1osfk" path="res://assets/art/cards/fireball_card.png" id="3_ucc65"]
 
 [node name="FireballCard" instance=ExtResource("1_wfk2e")]
 effect_filepath = "res://card_game/effects/AimAndShootFireballEffect.gd"
+
+[node name="CardImage" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_ucc65")

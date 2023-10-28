@@ -1,4 +1,6 @@
-class_name CardEffect extends Node2D
+# TODO Investigate: Tried making a Resource, but then I couldn't connect signals to it (PointAndClickEffect)
+#class_name CardEffect extends Resource
+class_name CardEffect extends Node
 
 var next_effect : CardEffect
 

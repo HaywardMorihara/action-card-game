@@ -1,28 +1,23 @@
 extends Node2D
 
-var contents : Array[Card] = []
+@onready var contents : Node = $Contents;
 
-func move_from_discard_to_hand(card : Card):
-	# TODO
-	pass
-	move_child()
+func add_card(card : Card):
+	# TODO Is this the right order?
+	contents.add_child(card);
+	# Note: Necessary when you add a child (set its position)
+	card.position = Vector2.ZERO;
 
-func move_from_discard_to_top_of_deck(card : Card):
-	# TODO
-	pass
+func remove(card : Card) -> Card:
+	var hand_contents : Array = contents.get_children();
+	for i in len(contents):
+		if hand_contents[i] == card:
+			contents.remove_at(i);
+			return card;
+	return null
 
-func move_from_discard_to_bottom_of_deck(card : Card):
-	# TODO
-	pass
-
-func move_all_from_discard_to_top_of_deck():
-	# TODO
-	pass
-
-func move_all_from_discard_to_bottom_of_deck():
-	# TODO
-	pass
-
-func remove_from_discard(card : Card):
-	# TODO 
-	pass
+func remove_all() -> Array[Card]:
+	var removed_cards : Array = contents.get_children();
+	for c in removed_cards:
+		contents.remove_child(c);
+	return removed_cards;
