@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2wnebsb3crkv"]
 
-[ext_resource type="Script" path="res://world/Player.gd" id="1_y3uwx"]
-[ext_resource type="Texture2D" uid="uid://yxagrlgkmgun" path="res://world/Player.png" id="2_av4bh"]
+[ext_resource type="Script" path="res://world/player/Player.gd" id="1_y3uwx"]
+[ext_resource type="Texture2D" uid="uid://yxagrlgkmgun" path="res://world/player/Player.png" id="2_av4bh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgmyu"]
 

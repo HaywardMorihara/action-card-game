@@ -27,7 +27,7 @@ func remove(card : Card) -> Card:
 # TODO
 func _load_deck_contents():
 	var saved_deck_contents := {
-		"FireballCard.tscn": 10,
+		"fireball/FireballCard.tscn": 10,
 	}
 	
 	for card_scene_name in saved_deck_contents:

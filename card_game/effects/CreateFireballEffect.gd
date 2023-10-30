@@ -8,7 +8,7 @@ func get_description() -> String:
 	return "Summons a fireball"
 
 func execute(world : World):
-	var fireball : Fireball = FireballScene.instantiate();
+	var fireball : Fireball = FireballScene.instantiate() as Fireball;
 	fireball.position = world.player.position; 
 	fireball.target = target;
 	world.add_child(fireball);

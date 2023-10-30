@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xrnqm8q6wu6o"]
 
-[ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://assets/art/blank_card_front.png" id="1_o1j3t"]
+[ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://card_game/card/blank_card_front.png" id="1_o1j3t"]
 [ext_resource type="Script" path="res://card_game/DiscardPile.gd" id="1_tyeiq"]
 
 [node name="DiscardPile" type="Node2D"]

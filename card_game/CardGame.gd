@@ -14,7 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	while not _animation_queue.is_empty() and not _is_card_animation_in_progress:
-		var next_animation : Callable = _animation_queue.pop_front();
+		var next_animation : Callable = _animation_queue.pop_front() as Callable;
 		_is_card_animation_in_progress = true;
 		next_animation.call(_on_animation_finished);
 			
@@ -121,7 +121,7 @@ func remove_from_discard(card : Card):
 # Private Functions
 
 func _draw_card():
-	var next_card : Card = deck.draw_card();
+	var next_card : Card = deck.draw_card() as Card;
 	if not next_card:
 		return null
 	add_child(next_card);
