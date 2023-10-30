@@ -1,10 +1,106 @@
-[gd_scene load_steps=3 format=3 uid="uid://4tnlkd0gc7vf"]
+[gd_scene load_steps=5 format=3 uid="uid://4tnlkd0gc7vf"]
 
-[ext_resource type="Script" path="res://card_game/deck/Deck.gd" id="1_t7ann"]
-[ext_resource type="Texture2D" uid="uid://dtiqtg7mfxteo" path="res://card_game/card/card.png" id="2_o3cqm"]
+[ext_resource type="Script" path="res://card_game/deck/Deck.gd" id="1_xonxd"]
+[ext_resource type="Texture2D" uid="uid://dtiqtg7mfxteo" path="res://card_game/card/card.png" id="2_xxavu"]
+
+[sub_resource type="Animation" id="Animation_t5fmm"]
+resource_name = "shuffle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCard:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 6.06286, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-42, -23), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopCard:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 4.75683, 1),
+"update": 0,
+"values": [0.0, -0.264497, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MiddleCard:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 10.5561, 1),
+"update": 0,
+"values": [Vector2(6, 5), Vector2(12, -52), Vector2(6, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MiddleCard:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.095379, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BottomCard:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 7.46427, 1),
+"update": 0,
+"values": [Vector2(13, 11), Vector2(43, 4), Vector2(13, 11)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomCard:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.311863, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ouhcy"]
+_data = {
+"shuffle": SubResource("Animation_t5fmm")
+}
 
 [node name="Deck" type="Node2D"]
-script = ExtResource("1_t7ann")
+script = ExtResource("1_xonxd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_o3cqm")
+[node name="TopCard" type="Sprite2D" parent="."]
+texture = ExtResource("2_xxavu")
+
+[node name="MiddleCard" type="Sprite2D" parent="."]
+position = Vector2(6, 5)
+texture = ExtResource("2_xxavu")
+
+[node name="BottomCard" type="Sprite2D" parent="."]
+position = Vector2(13, 11)
+texture = ExtResource("2_xxavu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ouhcy")
+}
+
+[node name="ShuffleSFX" type="AudioStreamPlayer2D" parent="."]

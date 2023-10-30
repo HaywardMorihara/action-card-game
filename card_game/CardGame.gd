@@ -3,6 +3,7 @@ class_name CardGame extends Node2D
 @onready var deck : Deck = $Deck
 @onready var hand : Hand = $Hand
 
+# TODO Should this be refactored to use awaits? https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
 var _animation_queue : Array[Callable] = []
 var _is_card_animation_in_progress : bool = false
 
@@ -10,6 +11,8 @@ func _ready():
 	# TODO Is this needed? Should it be here?
 #	GlobalSignals.draw_cards.connect(draw_cards)
 	# TODO Remove - for testing
+	shuffle_deck();
+	await deck.shuffle_finished
 	draw_cards(5);
 
 func _physics_process(delta):
@@ -46,8 +49,7 @@ func discard_from_deck(card : Card) -> bool:
 	return false
 
 func shuffle_deck():
-	# TODO
-	pass
+	deck.shuffle();
 
 # Remove from Deck
 func remove_from_deck(card : Card) -> Card:
@@ -120,6 +122,7 @@ func remove_from_discard(card : Card):
 
 # Private Functions
 
+# TODO Refactor to use await?
 func _draw_card():
 	var next_card : Card = deck.draw_card() as Card;
 	if not next_card:
