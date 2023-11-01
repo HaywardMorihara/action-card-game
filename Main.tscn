@@ -7,6 +7,8 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4rdem")
 
-[node name="CardGame" parent="." instance=ExtResource("1_58oql")]
-
 [node name="World" parent="." instance=ExtResource("2_y6l4s")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CardGame" parent="CanvasLayer" instance=ExtResource("1_58oql")]
