@@ -15,4 +15,4 @@ position = Vector2(594, 295)
 position = Vector2(43, 301)
 
 [node name="Hand" parent="." instance=ExtResource("2_qrhnp")]
-position = Vector2(332, 298)
+position = Vector2(316, 336)

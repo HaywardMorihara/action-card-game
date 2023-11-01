@@ -13,7 +13,7 @@ func _ready():
 	# TODO Remove - for testing
 	shuffle_deck();
 	await deck.shuffle_finished
-	draw_cards(5);
+	draw_cards(7);
 
 func _physics_process(delta):
 	while not _animation_queue.is_empty() and not _is_card_animation_in_progress:
@@ -127,15 +127,7 @@ func _draw_card():
 	var next_card : Card = deck.draw_card() as Card;
 	if not next_card:
 		return null
-	add_child(next_card);
-	# Important: This has to come after being added as a child, or else position doesn't work
-	next_card.global_position = deck.global_position;
 	
 	_animation_queue.append(func(callback : Callable):
-		next_card.move_to(hand.global_position, callback);
-	);
-	
-	_animation_queue.append(func(callback : Callable):
-		remove_child(next_card);
-		hand.add_card(next_card, callback);
+		hand.add_card(next_card, deck.global_position, callback);
 	);

@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dixa05st8m4cw"]
+[gd_scene load_steps=4 format=3 uid="uid://dixa05st8m4cw"]
 
 [ext_resource type="Script" path="res://card_game/card/Card.gd" id="1_41olx"]
 [ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://card_game/card/blank_card_front.png" id="2_ado7w"]
 
-[node name="Card" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xj0"]
+size = Vector2(80, 160)
+
+[node name="Card" type="Area2D"]
 script = ExtResource("1_41olx")
 
 [node name="CardTemplate" type="Sprite2D" parent="."]
 texture = ExtResource("2_ado7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_d5xj0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

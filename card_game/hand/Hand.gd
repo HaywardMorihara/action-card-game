@@ -1,11 +1,19 @@
-class_name Hand extends Node2D
+class_name Hand extends Area2D
 
+@onready var collision_shape : CollisionShape2D = $CollisionShape2D
 @onready var contents : Node = $Contents;
 
-func add_card(card : Card, callback : Callable):
+var animation_speed : float = 0.1
+var hover_displacement : float = 20.0
+
+var resting_position : Vector2
+
+func _ready() -> void:
+	resting_position = position;
+
+func add_card(card : Card, start_global_pos : Vector2, callback : Callable):
 	contents.add_child(card);
-	# TODO This is a hack I don't love
-	card.position = Vector2.ZERO;
+	card.global_position = start_global_pos;
 	_rebalance(callback);
 
 func remove(card : Card) -> Card:
@@ -25,14 +33,15 @@ func remove_all() -> Array[Card]:
 	return []
 
 func _rebalance(callback : Callable):
-	var hand_width = $CollisionShape2D.shape.get_size().x;
+	var hand_width = collision_shape.shape.get_size().x;
 	var cards_in_hand = contents.get_children();
 	var num_cards_in_hand = cards_in_hand.size();
 	for i in range(num_cards_in_hand):
 		var new_pos = self.global_position;
 		var x_diff = - (hand_width / 2) + (hand_width / (num_cards_in_hand + 1)) * (i + 1);
 		new_pos.x += x_diff;
-		cards_in_hand[i].move_to(new_pos, callback);
+		cards_in_hand[i].resting_position = Vector2(x_diff, 0);
+		cards_in_hand[i].move_to_global_pos(new_pos, callback);
 
 # TODO Remove
 func _input(event):
@@ -41,3 +50,13 @@ func _input(event):
 		if len(children) == 0:
 			return;
 		children[0].play();
+
+func _on_mouse_entered() -> void:
+	if position != resting_position:
+		return
+	var tween : Tween = create_tween() as Tween;
+	tween.tween_property(self, "position", position + Vector2(0,-hover_displacement), animation_speed);
+
+func _on_mouse_exited() -> void:
+	var tween : Tween = create_tween() as Tween;
+	tween.tween_property(self, "position", resting_position, animation_speed);
