@@ -2,6 +2,7 @@ class_name CardGame extends Node2D
 
 @onready var deck : Deck = $Deck
 @onready var hand : Hand = $Hand
+@onready var discard_pile : DiscardPile = $DiscardPile
 
 # TODO Should this be refactored to use awaits? https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
 var _animation_queue : Array[Callable] = []
@@ -67,7 +68,6 @@ func move_from_hand_to_bottom_of_deck(card : Card):
 	# TODO 
 	pass
 
-# Hand to Discard (specific, random)
 func discard_from_hand(card : Card):
 	# TODO 
 	pass
@@ -131,3 +131,6 @@ func _draw_card():
 	_animation_queue.append(func(callback : Callable):
 		hand.add_card(next_card, deck.global_position, callback);
 	);
+
+func _on_hand_card_played(card : Card) -> void:
+	discard_pile.add_card(card, get_global_mouse_position());

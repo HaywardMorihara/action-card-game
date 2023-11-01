@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fe2habq28skx" path="res://card_game/card/blank_card_front.png" id="2_ado7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xj0"]
-size = Vector2(80, 160)
+size = Vector2(80, 112)
 
 [node name="Card" type="Area2D"]
 script = ExtResource("1_41olx")
@@ -13,7 +13,6 @@ script = ExtResource("1_41olx")
 texture = ExtResource("2_ado7w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_d5xj0")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

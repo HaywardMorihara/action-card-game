@@ -1,5 +1,7 @@
 class_name Hand extends Area2D
 
+signal card_played(card : Card)
+
 @onready var collision_shape : CollisionShape2D = $CollisionShape2D
 @onready var contents : Node = $Contents;
 
@@ -10,19 +12,18 @@ var resting_position : Vector2
 
 func _ready() -> void:
 	resting_position = position;
+	GlobalSignals.disable_hand.connect(disable);
+	GlobalSignals.enable_hand.connect(enable);
 
 func add_card(card : Card, start_global_pos : Vector2, callback : Callable):
 	contents.add_child(card);
 	card.global_position = start_global_pos;
+	card.played.connect(_on_card_played);
 	_rebalance(callback);
 
-func remove(card : Card) -> Card:
-	var hand_contents : Array = contents.get_children();
-	for i in len(contents):
-		if hand_contents[i] == card:
-			contents.remove_at(i);
-			return card;
-	return null
+func remove(card : Card):
+	contents.remove_child(card);
+	_rebalance();
 
 func remove_random(count : int) -> Array[Card]:
 	# TODO
@@ -31,8 +32,19 @@ func remove_random(count : int) -> Array[Card]:
 func remove_all() -> Array[Card]:
 	# TODO
 	return []
+	
+func disable() -> void:
+	collision_shape.disabled = true
+	for c in contents.get_children():
+		c.disable_hover();
 
-func _rebalance(callback : Callable):
+func enable() -> void:
+	collision_shape.disabled = false;
+	for c in contents.get_children():
+		c.enable_hover();
+
+# TODO Does this need a callback?
+func _rebalance(callback : Callable = func() : pass):
 	var hand_width = collision_shape.shape.get_size().x;
 	var cards_in_hand = contents.get_children();
 	var num_cards_in_hand = cards_in_hand.size();
@@ -60,3 +72,7 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", resting_position, animation_speed);
+
+func _on_card_played(card : Card) -> void:
+	remove(card);
+	card_played.emit(card);

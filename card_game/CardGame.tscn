@@ -16,3 +16,5 @@ position = Vector2(43, 301)
 
 [node name="Hand" parent="." instance=ExtResource("2_qrhnp")]
 position = Vector2(316, 336)
+
+[connection signal="card_played" from="Hand" to="." method="_on_hand_card_played"]
