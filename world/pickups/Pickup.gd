@@ -11,6 +11,8 @@ func picked_up() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if not can_be_picked_up():
+			# TODO SFX
+			# TODO Message
 			return
 		picked_up();
 		# TODO Animation

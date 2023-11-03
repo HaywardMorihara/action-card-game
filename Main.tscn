@@ -12,3 +12,5 @@ script = ExtResource("1_4rdem")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CardGame" parent="CanvasLayer" instance=ExtResource("1_58oql")]
+unique_name_in_owner = true
+process_mode = 3

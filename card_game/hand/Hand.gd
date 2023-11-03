@@ -64,12 +64,14 @@ func _input(event):
 		children[0].play();
 
 func _on_mouse_entered() -> void:
+	GlobalSignals.hand_hovered_change.emit(true);
 	if position != resting_position:
 		return
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", position + Vector2(0,-hover_displacement), animation_speed);
 
 func _on_mouse_exited() -> void:
+	GlobalSignals.hand_hovered_change.emit(false);
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", resting_position, animation_speed);
 
