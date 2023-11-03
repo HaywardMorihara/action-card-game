@@ -9,8 +9,7 @@ var _animation_queue : Array[Callable] = []
 var _is_card_animation_in_progress : bool = false
 
 func _ready():
-	# TODO Is this needed? Should it be here?
-#	GlobalSignals.draw_cards.connect(draw_cards)
+	GlobalSignals.draw_cards.connect(draw_cards)
 	# TODO Remove - for testing
 	shuffle_deck();
 	await deck.shuffle_finished

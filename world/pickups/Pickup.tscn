@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibi7at0tui1g"]
+
+[ext_resource type="Script" path="res://world/pickups/Pickup.gd" id="1_03p4d"]
+
+[node name="Pickup" type="Area2D" groups=["pickups"]]
+script = ExtResource("1_03p4d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

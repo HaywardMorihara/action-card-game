@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp6542vycjv8h"]
+[gd_scene load_steps=7 format=3 uid="uid://bp6542vycjv8h"]
 
 [ext_resource type="Script" path="res://world/World.gd" id="1_b5om8"]
 [ext_resource type="Texture2D" uid="uid://nbd6devysgce" path="res://world/tiles/grass-tileset.png" id="2_c7h8r"]
 [ext_resource type="PackedScene" uid="uid://b2wnebsb3crkv" path="res://world/player/Player.tscn" id="2_rwcqc"]
+[ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="4_n3xh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qdii"]
 texture = ExtResource("2_c7h8r")
@@ -28,3 +29,6 @@ layer_0/tile_data = PackedInt32Array(0, 196610, 0, 65536, 262146, 0, 131072, 131
 
 [node name="Player" parent="." instance=ExtResource("2_rwcqc")]
 position = Vector2(335, 139)
+
+[node name="DrawPickup" parent="." instance=ExtResource("4_n3xh8")]
+position = Vector2(240, 147)
