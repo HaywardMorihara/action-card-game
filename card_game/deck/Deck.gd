@@ -5,15 +5,37 @@ signal shuffle_finished
 @export_dir var cards_directory : String = "res://card_game/cards"
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-
-var card_scene_name_to_scene : Dictionary = {}
+@onready var top_card : Sprite2D = $TopCard
+@onready var middle_card : Sprite2D = $MiddleCard
+@onready var bottom_card : Sprite2D = $BottomCard
 
 var contents : Array[Card]
 
-var animation_name_shuffle : String = "shuffle";
+# TODO should this be here long term?
+var card_scene_name_to_scene : Dictionary = {}
 
-func _ready():
+func _ready() -> void:
 	_load_deck_contents();
+	GlobalGets.func_get_deck_contents = func() : return contents
+
+func _process(delta) -> void:
+	match contents.size():
+		2:
+			bottom_card.visible = true	
+			middle_card.visible = true	
+			top_card.visible = false
+		1:
+			bottom_card.visible = true	
+			middle_card.visible = false	
+			top_card.visible = false
+		0:
+			bottom_card.visible = false	
+			middle_card.visible = false	
+			top_card.visible = false
+		_:
+			bottom_card.visible = true	
+			middle_card.visible = true	
+			top_card.visible = true	
 
 func draw_card() -> Card:
 	return contents.pop_front();

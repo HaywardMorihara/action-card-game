@@ -20,6 +20,7 @@ texture = ExtResource("2_c7h8r")
 sources/2 = SubResource("TileSetAtlasSource_1qdii")
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_b5om8")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -32,3 +33,12 @@ position = Vector2(335, 139)
 
 [node name="DrawPickup" parent="." instance=ExtResource("4_n3xh8")]
 position = Vector2(240, 147)
+
+[node name="DrawPickup2" parent="." instance=ExtResource("4_n3xh8")]
+position = Vector2(299, 190)
+
+[node name="DrawPickup3" parent="." instance=ExtResource("4_n3xh8")]
+position = Vector2(302, 93)
+
+[node name="DrawPickup4" parent="." instance=ExtResource("4_n3xh8")]
+position = Vector2(343, 94)
