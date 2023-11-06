@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2wnebsb3crkv" path="res://world/player/Player.tscn" id="2_poops"]
 
 [node name="Area" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_yuf2n")
 
 [node name="Player" parent="." instance=ExtResource("2_poops")]
