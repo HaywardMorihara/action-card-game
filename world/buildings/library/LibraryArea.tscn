@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8yuugueqo01"]
+
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_4hytg"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_gt46f"]
+
+[node name="Area" instance=ExtResource("1_4hytg")]
+
+[node name="AreaTransition" parent="AreaTransitions" index="0" instance=ExtResource("2_gt46f")]
+id = "ATLibraryExit"
+transitions_to = "res://world/areas/DemoArea.tscn"
+linked_transition_area = "ATLibraryEntrance"

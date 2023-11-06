@@ -7,10 +7,12 @@
 
 [node name="Main" type="Node2D"]
 process_mode = 3
+y_sort_enabled = true
 script = ExtResource("1_4rdem")
 card_game_transition_speed = 0.5
 
 [node name="Area" parent="." instance=ExtResource("3_g1qjv")]
+y_sort_enabled = false
 
 [node name="CardGameUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
