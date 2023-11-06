@@ -8,5 +8,5 @@ var next_effect : CardEffect
 func get_description() -> String:
 	return ""
 
-func execute(world : World):
+func execute(world : Area):
 	pass

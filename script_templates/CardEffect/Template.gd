@@ -3,7 +3,7 @@ extends CardEffect
 func get_description() -> String:
 	return ""
 
-func execute(world : World):
+func execute(world : Area):
 	# TODO Effect
 	
 	# Default handling of next effect	

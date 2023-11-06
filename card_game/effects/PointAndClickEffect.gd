@@ -5,7 +5,7 @@ var AimerScene := preload("res://ui/Aimer.tscn");
 func get_description() -> String:
 	return "Allows the player to aim and designate a target"
 
-func execute(world : World):
+func execute(world : Area):
 	GlobalSignals.disable_hand.emit();
 	var aimer : Aimer = AimerScene.instantiate() as Aimer;
 	world.add_child(aimer);

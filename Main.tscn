@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://Main.gd" id="1_4rdem"]
 [ext_resource type="PackedScene" uid="uid://cj2ni6ca0ci5" path="res://card_game/CardGame.tscn" id="1_58oql"]
-[ext_resource type="PackedScene" uid="uid://bp6542vycjv8h" path="res://world/World.tscn" id="2_y6l4s"]
+[ext_resource type="PackedScene" uid="uid://bpj4xdarh2m7k" path="res://world/areas/DemoArea.tscn" id="3_g1qjv"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4rdem")
-
-[node name="World" parent="." instance=ExtResource("2_y6l4s")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CardGame" parent="CanvasLayer" instance=ExtResource("1_58oql")]
 unique_name_in_owner = true
 process_mode = 3
+
+[node name="Area" parent="." instance=ExtResource("3_g1qjv")]

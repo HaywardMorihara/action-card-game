@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://pkgy5wv8bhms"]
+
+[ext_resource type="PackedScene" uid="uid://b6ronjy3jk03g" path="res://world/buildings/Building.tscn" id="1_y8dlt"]
+[ext_resource type="Texture2D" uid="uid://nofgbtxclpsm" path="res://world/buildings/house_1/house1.png" id="2_on46j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20s2p"]
+size = Vector2(50, 50)
+
+[node name="House1" instance=ExtResource("1_y8dlt")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_20s2p")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_on46j")
+hframes = 7
+
+[node name="AreaTransition" parent="." index="2"]
+position = Vector2(0, 40)
+id = "ATHouse1"
+transitions_to = "res://world/buildings/house_1/House1Area.tscn"
+linked_transition_area = "ATHouse1Exit"

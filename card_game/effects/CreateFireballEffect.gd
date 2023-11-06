@@ -7,7 +7,7 @@ var target : Vector2
 func get_description() -> String:
 	return "Summons a fireball"
 
-func execute(world : World):
+func execute(world : Area):
 	var fireball : Fireball = FireballScene.instantiate() as Fireball;
 	fireball.position = world.player.position; 
 	fireball.target = target;
