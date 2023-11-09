@@ -6,5 +6,8 @@
 [node name="Card" instance=ExtResource("1_wgiad")]
 effect_filepath = "res://card_game/effects/AimAndShootFireballEffect.gd"
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="CardImage" parent="." index="1"]
 texture = ExtResource("1_f2rxi")
+
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false

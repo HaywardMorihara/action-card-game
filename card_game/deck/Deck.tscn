@@ -90,14 +90,17 @@ cards_directory = null
 
 [node name="TopCard" type="Sprite2D" parent="."]
 texture = ExtResource("2_xxavu")
+hframes = 2
 
 [node name="MiddleCard" type="Sprite2D" parent="."]
 position = Vector2(6, 5)
 texture = ExtResource("2_xxavu")
+hframes = 2
 
 [node name="BottomCard" type="Sprite2D" parent="."]
 position = Vector2(13, 11)
 texture = ExtResource("2_xxavu")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

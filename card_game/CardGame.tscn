@@ -9,12 +9,12 @@
 script = ExtResource("1_q7d6n")
 
 [node name="Deck" parent="." instance=ExtResource("3_6yrxi")]
-position = Vector2(423, 201)
+position = Vector2(432, 213)
 
 [node name="DiscardPile" parent="." instance=ExtResource("4_n424s")]
-position = Vector2(44, 213)
+position = Vector2(36, 223)
 
 [node name="Hand" parent="." instance=ExtResource("2_qrhnp")]
-position = Vector2(218, 249)
+position = Vector2(240, 270)
 
 [connection signal="card_played" from="Hand" to="." method="_on_hand_card_played"]

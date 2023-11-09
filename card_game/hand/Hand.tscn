@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://card_game/hand/Hand.gd" id="1_juich"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yneu"]
-size = Vector2(500, 100)
+size = Vector2(360, 100)
 
 [node name="Hand" type="Area2D"]
 script = ExtResource("1_juich")
