@@ -8,6 +8,9 @@ process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_yuf2n")
 
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
 [node name="Player" parent="." instance=ExtResource("2_poops")]
 
 [node name="AreaTransitions" type="Node2D" parent="."]
