@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdn263gjkvtu8"
-path="res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"
+uid="uid://b0ea2k4mf8ypw"
+path="res://.godot/imported/outdoor-grass-and-pathway.png-1ed643a46fcc3b2be27a031e9ceed6e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/npcs/npc-3.png"
-dest_files=["res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"]
+source_file="res://world/areas/tiles/outdoor-grass-and-pathway.png"
+dest_files=["res://.godot/imported/outdoor-grass-and-pathway.png-1ed643a46fcc3b2be27a031e9ceed6e7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdn263gjkvtu8"
-path="res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"
+uid="uid://cx3g06cssxhbs"
+path="res://.godot/imported/boss-blob.png-658bcb074e71bf7199e42e1ab977b2bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/npcs/npc-3.png"
-dest_files=["res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"]
+source_file="res://world/monsters/bosses/boss-blob.png"
+dest_files=["res://.godot/imported/boss-blob.png-658bcb074e71bf7199e42e1ab977b2bd.ctex"]
 
 [params]
 

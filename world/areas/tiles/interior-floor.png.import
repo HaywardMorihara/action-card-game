@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdn263gjkvtu8"
-path="res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"
+uid="uid://xukk3dec14dd"
+path="res://.godot/imported/interior-floor.png-f0919a69c13d98875318d744aa032c1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/npcs/npc-3.png"
-dest_files=["res://.godot/imported/npc-3.png-5d067f356bb8c5836faaa53f05f2702e.ctex"]
+source_file="res://world/areas/tiles/interior-floor.png"
+dest_files=["res://.godot/imported/interior-floor.png-f0919a69c13d98875318d744aa032c1f.ctex"]
 
 [params]
 

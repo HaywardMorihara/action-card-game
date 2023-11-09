@@ -1,23 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://pkgy5wv8bhms"]
+[gd_scene load_steps=3 format=3 uid="uid://pkgy5wv8bhms"]
 
 [ext_resource type="PackedScene" uid="uid://b6ronjy3jk03g" path="res://world/buildings/Building.tscn" id="1_y8dlt"]
-[ext_resource type="Texture2D" uid="uid://nofgbtxclpsm" path="res://world/buildings/house_1/house1.png" id="2_on46j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh33x"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://dbovqe8ww7s73" path="res://world/buildings/generic_house_blue.png" id="2_83cum"]
 
 [node name="House1" instance=ExtResource("1_y8dlt")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_on46j")
-hframes = 7
+texture = ExtResource("2_83cum")
 
 [node name="AreaTransition" parent="." index="1"]
-position = Vector2(0, 40)
+position = Vector2(0, 16)
 id = "ATHouse1"
 transitions_to = "res://world/buildings/house_1/House1Area.tscn"
 linked_transition_area = "ATHouse1Exit"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_lh33x")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-79, -34, 78, -34, 79, 34, 11, 34, 11, 4, -11, 4, -11, 34, -79, 34)
