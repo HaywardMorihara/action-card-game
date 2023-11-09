@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu0qetju1koip"]
 
 [ext_resource type="PackedScene" uid="uid://b6ronjy3jk03g" path="res://world/buildings/Building.tscn" id="1_tfspe"]
-[ext_resource type="Texture2D" uid="uid://bcmoj2fs6ml3l" path="res://world/buildings/library/library.png" id="2_nxbsf"]
+[ext_resource type="Texture2D" uid="uid://dtndwvtuxoj0n" path="res://world/buildings/library/library-new.png" id="2_r2fk8"]
 
 [node name="Building" instance=ExtResource("1_tfspe")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_nxbsf")
+texture = ExtResource("2_r2fk8")
 
 [node name="AreaTransition" parent="." index="1"]
 position = Vector2(0, 20)
@@ -15,4 +15,4 @@ transitions_to = "res://world/buildings/library/LibraryArea.tscn"
 linked_transition_area = "ATLibraryExit"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
-polygon = PackedVector2Array(-81, -51, 79, -51, 81, 50, 24, 50, 12, 9, -12, 9, -19, 50, -81, 50)
+polygon = PackedVector2Array(-81, -37, 79, -37, 81, 50, 24, 50, 12, 9, -12, 9, -19, 50, -81, 50)
