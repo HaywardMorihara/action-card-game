@@ -29,6 +29,12 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom="res://ui/ProjectTheme.tres"
+theme/custom_font="res://ui/font/Sometype_Mono/SometypeMono-VariableFont_wght.ttf"
+
 [input]
 
 left_click={
