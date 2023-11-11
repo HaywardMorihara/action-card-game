@@ -61,9 +61,12 @@ func _on_hand_hovered_change(is_hovered : bool) -> void:
 
 # World Signals
 func _on_area_transition(next_area_scene : Resource, player_starting_area_id : String) -> void:
+	GlobalSignals.disable_hand.emit();
+	pause_world();
+	
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
-	pause_world();
+	
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_OUT);
 	
 	var next_area : Area = next_area_scene.instantiate();
@@ -76,6 +79,8 @@ func _on_area_transition(next_area_scene : Resource, player_starting_area_id : S
 	world = next_area;
 	
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_IN);
+	
+	GlobalSignals.enable_hand.emit();
 	resume_world();
 	
 	await area_transition_effects.effect_finished;

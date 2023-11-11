@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cac1o7tht3klx" path="res://ui/menus/PauseMenu.tscn" id="5_loqs0"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_4rdem")
 card_game_transition_speed = 0.5
