@@ -67,6 +67,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_area_id : S
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
 	
+	area_transition_effects.visible = true;
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_OUT);
 	
 	var next_area : Area = next_area_scene.instantiate();
@@ -84,6 +85,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_area_id : S
 	resume_world();
 	
 	await area_transition_effects.effect_finished;
+	area_transition_effects.visible = false;
 	
 	tween  = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y - get_viewport_rect().size.y/2), card_game_transition_speed);

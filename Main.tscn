@@ -23,6 +23,7 @@ process_mode = 3
 
 [node name="AreaTransitionEffects" parent="." instance=ExtResource("2_05xvj")]
 process_mode = 3
+visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

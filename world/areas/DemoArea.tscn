@@ -420,7 +420,6 @@ position = Vector2(315, 147)
 y_sort_enabled = true
 
 [node name="House1" parent="Buildings" index="0" instance=ExtResource("3_2qofp")]
-y_sort_enabled = true
 position = Vector2(401, 86)
 script = null
 
