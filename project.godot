@@ -25,15 +25,15 @@ GlobalGets="*res://GlobalGets.gd"
 window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/always_on_top=true
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
 theme/custom="res://ui/ProjectTheme.tres"
-theme/custom_font="res://ui/font/Sometype_Mono/SometypeMono-VariableFont_wght.ttf"
+theme/custom_font="res://ui/font/yoster-island/yoster.ttf"
 
 [input]
 
@@ -68,3 +68,5 @@ move_down={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

@@ -1,5 +1,4 @@
 [gd_resource type="Theme" format=3 uid="uid://dim3duep53ylo"]
 
 [resource]
-Button/font_sizes/font_size = 14
-HeaderLarge/font_sizes/font_size = 40
+Button/font_sizes/font_size = 18
