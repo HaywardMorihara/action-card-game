@@ -23,7 +23,8 @@ func save_data_exists() -> bool:
 	return ResourceLoader.exists(save_path);
 
 func reset():
-	from_save_data(SaveData.new());
+	var save_data = load("res://default_save_data.tres") as SaveData;
+	from_save_data(save_data);
 	
 func load():
 	# TODO Should really error here
