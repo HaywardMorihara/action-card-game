@@ -2,9 +2,6 @@ class_name Card extends Area2D
 
 signal played(card : Card)
 
-# TODO Investigate - Tried making CardEffect a Resource, but then, I couldn't connect signals to it (PointAndClickEffect)
-#@export var effect : CardEffect
-
 @export_file("*.gd") var effect_filepath : String
 @onready var effect : CardEffect = load(effect_filepath).new();
 

@@ -3,8 +3,11 @@ extends Node2D
 @onready var world : Area = $Area as Area;
 @onready var card_game : CardGame = %CardGame as CardGame;
 @onready var area_transition_effects : AreaTransitionEffects = $AreaTransitionEffects as AreaTransitionEffects;
+@onready var pause_menu : Control = %PauseMenu as Control;
 
 @export var card_game_transition_speed : float = 0.1;
+
+var is_game_paused := false;
 
 func _ready() -> void:
 	# Card Effect Signals
@@ -16,6 +19,22 @@ func _ready() -> void:
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		pause_game();
+
+func pause_game():
+	is_game_paused = true;
+	get_tree().paused = true;
+	# TODO Hand
+	pause_menu.show();
+	
+
+func resume_game():
+	pause_menu.hide();
+	get_tree().paused = false;
+	is_game_paused = false;
+
 # Card Effect Signals
 # TODO Should this be refactored to use https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
 func _on_execute_call_card_effect(card_effect : Callable) -> void:
@@ -24,7 +43,8 @@ func _on_execute_call_card_effect(card_effect : Callable) -> void:
 # CardGame Signals
 func _on_hand_hovered_change(is_hovered : bool) -> void:
 	# NOTE: Right now, you can NOT pause subtrees. So CardGame is set to PROCESS_MODE.ALWAYS
-	get_tree().paused = is_hovered;
+	if not is_game_paused:
+		get_tree().paused = is_hovered;
 
 # World Signals
 func _on_area_transition(next_area_scene : Resource, player_starting_area_id : String) -> void:

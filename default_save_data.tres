@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://p438bgwpsbi2"]
+
+[ext_resource type="Script" path="res://data/SaveData.gd" id="1_m8rh3"]
+
+[resource]
+script = ExtResource("1_m8rh3")
+money = 5
+trunk = {}
+deck = {
+"fireball": 10
+}

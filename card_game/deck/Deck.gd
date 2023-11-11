@@ -2,20 +2,16 @@ class_name Deck extends Node2D
 
 signal shuffle_finished
 
-@export_dir var cards_directory : String = "res://card_game/cards"
-
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var top_card : Sprite2D = $TopCard
 @onready var middle_card : Sprite2D = $MiddleCard
 @onready var bottom_card : Sprite2D = $BottomCard
 
-var contents : Array[Card]
-
-# TODO should this be here long term?
-var card_scene_name_to_scene : Dictionary = {}
+var contents : Array[Card];
 
 func _ready() -> void:
 	_load_deck_contents();
+	shuffle();
 	GlobalGets.func_get_deck_contents = func() : return contents
 
 func _process(delta) -> void:
@@ -63,16 +59,8 @@ func add_to_bottom(card : Card):
 	# TODO
 	pass
 
-# TODO
 func _load_deck_contents():
-	var saved_deck_contents := {
-		"fireball/FireballCard.tscn": 10,
-	}
-	
-	for card_scene_name in saved_deck_contents:
-		var card_scene : Resource = card_scene_name_to_scene.get(card_scene_name);
-		if not card_scene:
-			card_scene = load("%s/%s" % [cards_directory, card_scene_name]);
-			card_scene_name_to_scene[card_scene_name] = card_scene;
-		for i in saved_deck_contents[card_scene_name]:
-			contents.append(card_scene.instantiate());
+	for card_id in GlobalState.deck:
+		var card_count = GlobalState.deck[card_id];
+		for i in card_count:
+			contents.append(CardDictionary.create_card(card_id));
