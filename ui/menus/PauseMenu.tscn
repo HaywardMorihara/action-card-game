@@ -38,4 +38,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Resume"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 19.0
+offset_right = 66.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "To Main Menu"
+
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

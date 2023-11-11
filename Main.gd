@@ -27,12 +27,21 @@ func _ready() -> void:
 	GlobalSignals.transition_to.connect(_on_area_transition);
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		GlobalSignals.disable_hand.emit();
-		pause_world();
-		pause_menu.show();
+	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
+		if world_pause_count <= 0:
+			pause_game();
+		else:
+			resume_game();
 
 func _on_pause_menu_resume() -> void:
+	resume_game();
+
+func pause_game():
+	GlobalSignals.disable_hand.emit();
+	pause_world();
+	pause_menu.show();
+
+func resume_game():
 	GlobalSignals.enable_hand.emit();
 	resume_world();
 	pause_menu.hide();
