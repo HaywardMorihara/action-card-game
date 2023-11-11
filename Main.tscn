@@ -28,3 +28,5 @@ process_mode = 3
 [node name="PauseMenu" parent="GUI" instance=ExtResource("5_loqs0")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="resume" from="GUI/PauseMenu" to="." method="_on_pause_menu_resume"]

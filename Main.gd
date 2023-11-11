@@ -7,7 +7,14 @@ extends Node2D
 
 @export var card_game_transition_speed : float = 0.1;
 
-var is_game_paused := false;
+# You can either
+# 1. Pause the World (e.g. the Player's hand is up)
+# 2. Disable the CardGame (e.g. when the Player is aiming)
+# and you can do both (e.g. when the game is paused)
+# Having to do a "stack" because different sources might pause the World / disable the hand 
+# (e.g. the Player looking at their hand will pause the World, and so will the menu, but the World
+# shouldn't resume until both have returned)
+var world_pause_count := 0;
 
 func _ready() -> void:
 	# Card Effect Signals
@@ -21,19 +28,23 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		pause_game();
+		GlobalSignals.disable_hand.emit();
+		pause_world();
+		pause_menu.show();
 
-func pause_game():
-	is_game_paused = true;
-	get_tree().paused = true;
-	# TODO Hand
-	pause_menu.show();
-	
-
-func resume_game():
+func _on_pause_menu_resume() -> void:
+	GlobalSignals.enable_hand.emit();
+	resume_world();
 	pause_menu.hide();
-	get_tree().paused = false;
-	is_game_paused = false;
+
+func pause_world():
+	world_pause_count += 1;
+	get_tree().paused = true;
+	
+func resume_world():
+	world_pause_count -= 1;
+	if world_pause_count == 0:
+		get_tree().paused = false;
 
 # Card Effect Signals
 # TODO Should this be refactored to use https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
@@ -43,14 +54,16 @@ func _on_execute_call_card_effect(card_effect : Callable) -> void:
 # CardGame Signals
 func _on_hand_hovered_change(is_hovered : bool) -> void:
 	# NOTE: Right now, you can NOT pause subtrees. So CardGame is set to PROCESS_MODE.ALWAYS
-	if not is_game_paused:
-		get_tree().paused = is_hovered;
+	if is_hovered:
+		pause_world();
+	if not is_hovered:
+		resume_world();
 
 # World Signals
 func _on_area_transition(next_area_scene : Resource, player_starting_area_id : String) -> void:
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
-	get_tree().paused = true;
+	pause_world();
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_OUT);
 	
 	var next_area : Area = next_area_scene.instantiate();
@@ -63,7 +76,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_area_id : S
 	world = next_area;
 	
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_IN);
-	get_tree().paused = false;
+	resume_world();
 	
 	await area_transition_effects.effect_finished;
 	
