@@ -12,7 +12,7 @@ var contents : Array[Card];
 func _ready() -> void:
 	_load_deck_contents();
 	shuffle();
-	GlobalGets.func_get_deck_contents = func() : return contents
+	GlobalGets.func_get_deck_contents = func() : return contents;
 
 func _process(delta) -> void:
 	match contents.size():
@@ -56,8 +56,7 @@ func add_to_top(card : Card):
 	pass
 
 func add_to_bottom(card : Card):
-	# TODO
-	pass
+	contents.append(card);
 
 func _load_deck_contents():
 	for card_id in GlobalState.deck:

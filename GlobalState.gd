@@ -1,6 +1,9 @@
 extends Node
 
-const save_path : String = "user://acg/data.tres";
+signal save_complete
+
+# For Windows, this is: C:\Users\natha\AppData\Roaming\Godot\app_userdata\Action Card Game
+const save_path : String = "user://save_data.tres";
 const default_save_data_path : String = "res://default_save_data.tres";
 
 var money : int;
@@ -34,6 +37,7 @@ func load():
 	
 func save():
 	ResourceSaver.save(as_save_data(), save_path);
+	save_complete.emit();
 
 func from_save_data(save_data : SaveData):
 	money = save_data.money;
@@ -41,7 +45,7 @@ func from_save_data(save_data : SaveData):
 	deck = save_data.deck;
 	
 func as_save_data() -> SaveData:
-	var save_data = SaveData.reset();
+	var save_data = SaveData.new();
 	save_data.money = money;
 	save_data.trunk = trunk;
 	save_data.deck = deck;

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_1v7hy"]
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="3_2qofp"]
 [ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_mvsgg"]
-[ext_resource type="PackedScene" uid="uid://c64b4sbsnpci3" path="res://world/objects/interactives/Playmat.tscn" id="5_nuk5v"]
+[ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/objects/interactives/Playmat.tscn" id="5_nuk5v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtesk"]
 texture = ExtResource("2_e3myh")

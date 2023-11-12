@@ -1,15 +1,18 @@
 class_name CardGame extends Node2D
 
-@onready var deck : Deck = $Deck
-@onready var hand : Hand = $Hand
-@onready var discard_pile : DiscardPile = $DiscardPile
+@export var starting_hand_size := 7;
+
+@onready var deck : Deck = $Deck as Deck;
+@onready var hand : Hand = $Hand as Hand;
+@onready var discard_pile : DiscardPile = $DiscardPile as DiscardPile;
 
 # TODO Should this be refactored to use awaits? https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
 var _animation_queue : Array[Callable] = []
 var _is_card_animation_in_progress : bool = false
 
 func _ready():
-	GlobalSignals.draw_cards.connect(draw_cards)
+	GlobalSignals.draw_cards.connect(draw_cards);
+	GlobalSignals.reshuffle.connect(reshuffle);
 	# TODO Remove - for testing
 	shuffle_deck();
 	await deck.shuffle_finished
@@ -51,7 +54,11 @@ func discard_from_deck(card : Card) -> bool:
 func shuffle_deck():
 	deck.shuffle();
 
-# Remove from Deck
+func reshuffle():
+	move_all_from_hand_to_bottom_of_deck();
+	shuffle_deck();
+	draw_cards(starting_hand_size);
+
 func remove_from_deck(card : Card) -> Card:
 	# TODO 
 	return null
@@ -60,12 +67,17 @@ func remove_from_deck(card : Card) -> Card:
 # Hand APIs
 
 func move_from_hand_to_top_of_deck(card : Card):
-	# TODO
 	pass
 
 func move_from_hand_to_bottom_of_deck(card : Card):
-	# TODO 
-	pass
+	card.move_to_global_pos(deck.global_position);
+	hand.contents.remove_child(card);
+	deck.add_to_bottom(card);
+
+func move_all_from_hand_to_bottom_of_deck():
+	# TODO There needs to be something that makes the animations occur in sequence
+	for c in hand.contents.get_children():
+		move_from_hand_to_bottom_of_deck(c);
 
 func discard_from_hand(card : Card):
 	# TODO 
