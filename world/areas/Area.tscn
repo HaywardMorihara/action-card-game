@@ -19,5 +19,12 @@ y_sort_enabled = true
 [node name="AreaTransitions" type="Node2D" parent="."]
 
 [node name="Buildings" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Interactives" type="Node2D" parent="."]
 
 [node name="Pickups" type="Node2D" parent="."]
+y_sort_enabled = true

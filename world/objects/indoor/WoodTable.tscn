@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://5wdxkxrmf4ng"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_0so56"]
+[ext_resource type="Texture2D" uid="uid://mvhxdyfdio8u" path="res://world/objects/indoor/wood-table.png" id="2_61gcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix3yv"]
+size = Vector2(32, 14)
+
+[node name="Table" instance=ExtResource("1_0so56")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_61gcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ix3yv")

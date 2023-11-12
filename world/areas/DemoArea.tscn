@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpj4xdarh2m7k"]
+[gd_scene load_steps=10 format=3 uid="uid://bpj4xdarh2m7k"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_hud1r"]
 [ext_resource type="Texture2D" uid="uid://b0ea2k4mf8ypw" path="res://world/areas/tiles/outdoor-grass-and-pathway.png" id="2_e3myh"]
 [ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="2_snqmu"]
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_1v7hy"]
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="3_2qofp"]
+[ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_mvsgg"]
+[ext_resource type="PackedScene" uid="uid://c64b4sbsnpci3" path="res://world/objects/interactives/Playmat.tscn" id="5_nuk5v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtesk"]
 texture = ExtResource("2_e3myh")
@@ -416,9 +418,6 @@ layer_0/tile_data = PackedInt32Array(0, 65537, 0, 65536, 65537, 0, 131072, 65537
 [node name="Player" parent="." index="1"]
 position = Vector2(315, 147)
 
-[node name="Buildings" parent="." index="3"]
-y_sort_enabled = true
-
 [node name="House1" parent="Buildings" index="0" instance=ExtResource("3_2qofp")]
 position = Vector2(401, 86)
 script = null
@@ -426,6 +425,15 @@ script = null
 [node name="Library" parent="Buildings" index="1" instance=ExtResource("3_1v7hy")]
 y_sort_enabled = true
 position = Vector2(146, 92)
+
+[node name="WoodTable" parent="Objects" index="0" instance=ExtResource("5_mvsgg")]
+position = Vector2(275, 117)
+
+[node name="Interactives" parent="." index="5"]
+y_sort_enabled = true
+
+[node name="Playmat" parent="Interactives" index="0" instance=ExtResource("5_nuk5v")]
+position = Vector2(275, 117)
 
 [node name="DrawPickup" parent="Pickups" index="0" instance=ExtResource("2_snqmu")]
 position = Vector2(237, 185)
