@@ -7,7 +7,8 @@ class_name SaveData extends Resource
 @export var trunk_data : TrunkData;
 @export var deck : Dictionary;
 
-# Recipes
+# TODO Recipes
 
-# Bosses Defeated
-# Treasures found
+# TODO Bosses Defeated
+
+@export var treasure_chest_data : TreasureChestData;

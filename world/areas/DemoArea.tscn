@@ -438,6 +438,7 @@ position = Vector2(275, 117)
 
 [node name="TreasureChest" parent="Interactives" index="1" instance=ExtResource("7_n3cu3")]
 position = Vector2(361, 159)
+id = "DEMO_AREA_FIREBALL_0"
 card_id = "fireball"
 
 [node name="DrawPickup" parent="Pickups" index="0" instance=ExtResource("2_snqmu")]

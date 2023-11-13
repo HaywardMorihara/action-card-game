@@ -64,8 +64,9 @@ _data = {
 "opening": SubResource("Animation_0wkpr")
 }
 
-[node name="TreasureChest" instance=ExtResource("1_rqfc4")]
+[node name="TreasureChest" groups=["treasure_chests"] instance=ExtResource("1_rqfc4")]
 script = ExtResource("2_4ur56")
+id = ""
 card_id = ""
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
