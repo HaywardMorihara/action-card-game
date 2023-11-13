@@ -1,6 +1,7 @@
 class_name Card extends Area2D
 
 signal played(card : Card)
+signal move_finished
 
 @export_file("*.gd") var effect_filepath : String
 @onready var effect : CardEffect = load(effect_filepath).new();
@@ -30,11 +31,13 @@ func move_to_global_pos(target : Vector2, callback : Callable = func() : pass):
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "global_position", target, animation_move_speed);
 	tween.tween_callback(callback);
+	move_finished.emit();
 	
 func move_to_local_pos(target : Vector2, callback : Callable = func() : pass):
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", target, animation_move_speed);
 	tween.tween_callback(callback);
+	move_finished.emit();
 
 func scale_to(target : float) -> void:
 	var tween : Tween = create_tween() as Tween;

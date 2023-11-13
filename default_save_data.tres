@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://p438bgwpsbi2"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=4 format=3 uid="uid://p438bgwpsbi2"]
 
 [ext_resource type="Script" path="res://data/SaveData.gd" id="1_m8rh3"]
+[ext_resource type="Script" path="res://data/TrunkData.gd" id="2_y0rep"]
+
+[sub_resource type="Resource" id="Resource_2y3p1"]
+script = ExtResource("2_y0rep")
+contents = {
+"fireball": 10
+}
 
 [resource]
 script = ExtResource("1_m8rh3")
 money = 5
-trunk = {}
+trunk_data = SubResource("Resource_2y3p1")
 deck = {
 "fireball": 10
 }

@@ -5,6 +5,7 @@ const main_scene_path : String = "res://Main.tscn"
 @onready var continue_button : Button = $ContinueButton as Button;
 
 func _ready() -> void:
+	GlobalState.reset();
 	if GlobalState.save_data_exists():
 		continue_button.disabled = false;
 	else:

@@ -66,6 +66,7 @@ _data = {
 
 [node name="TreasureChest" instance=ExtResource("1_rqfc4")]
 script = ExtResource("2_4ur56")
+card_id = ""
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_1usgc")

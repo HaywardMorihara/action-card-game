@@ -1,5 +1,7 @@
 extends Interactive
 
+@export var card_id : String;
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer as AnimationPlayer;
 @onready var open_button : Button = $OpenButton as Button;
 
@@ -12,6 +14,6 @@ func _exit_interaction() -> void:
 func _on_button_pressed() -> void:
 	open_button.hide();
 	animation_player.play("opening");
-	# TODO Card receive animation
-	# TODO
-#	animation_player.play("closing");
+	await animation_player.animation_finished
+	var card : Card = CardDictionary.create_card(card_id);
+	GlobalSignals.card_obtained.emit(card);
