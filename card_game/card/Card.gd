@@ -51,11 +51,11 @@ func _physics_process(delta: float) -> void:
 		global_position = get_global_mouse_position();
 
 func _input(event):
-	if event.is_action_pressed("left_click"):
+	if event.is_action_pressed("player_select"):
 		if is_hovered_over:
 			is_card_selected = true
 			scale_to(hover_scale);
-	if event.is_action_released("left_click"):
+	if event.is_action_released("player_select"):
 		if is_card_selected:
 			is_card_selected = false;
 			scale_to(1.0);

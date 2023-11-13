@@ -437,7 +437,7 @@ y_sort_enabled = true
 position = Vector2(275, 117)
 
 [node name="TreasureChest" parent="Interactives" index="1" instance=ExtResource("7_n3cu3")]
-position = Vector2(368, 172)
+position = Vector2(361, 159)
 
 [node name="DrawPickup" parent="Pickups" index="0" instance=ExtResource("2_snqmu")]
 position = Vector2(237, 185)
