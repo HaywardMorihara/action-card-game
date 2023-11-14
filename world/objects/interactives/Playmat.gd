@@ -24,3 +24,7 @@ func _on_save_button_pressed() -> void:
 func _on_save_complete() -> void:
 	save_button.text = "Save Complete!";
 	save_button.disabled = true;
+
+func _on_edit_deck_button_pressed() -> void:
+	# TODO Transition effect
+	get_tree().change_scene_to_file("res://card_game/deck_editor/DeckEditor.tscn");
