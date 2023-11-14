@@ -410,6 +410,7 @@ terrain_set_0/terrain_0/color = Color(1, 0.686275, 0.501961, 1)
 sources/1 = SubResource("TileSetAtlasSource_mtesk")
 
 [node name="DemoArea" instance=ExtResource("1_hud1r")]
+area_id = "demo_area"
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_2ntue")
@@ -435,6 +436,7 @@ y_sort_enabled = true
 
 [node name="Playmat" parent="Interactives" index="0" instance=ExtResource("5_nuk5v")]
 position = Vector2(275, 117)
+playmat_id = "demo_area_playmat_0"
 
 [node name="TreasureChest" parent="Interactives" index="1" instance=ExtResource("7_n3cu3")]
 position = Vector2(361, 159)

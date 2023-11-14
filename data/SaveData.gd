@@ -1,6 +1,6 @@
 class_name SaveData extends Resource
 
-# TODO Where you saved from (location of the player, what playmat)
+@export var last_playmat_data : LastPlaymatData;
 
 @export var money : int;
 

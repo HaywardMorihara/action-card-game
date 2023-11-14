@@ -14,7 +14,7 @@ const opened_frame : int = 2;
 var has_been_opened : bool = false;
 
 func _ready() -> void:
-	assert(id != null, "ID must be provided!");
+	assert(id, "ID must be provided!");
 	has_been_opened = GlobalState.treasure_chest_data.has_been_found(id);
 	if has_been_opened:
 		sprite.frame = opened_frame;

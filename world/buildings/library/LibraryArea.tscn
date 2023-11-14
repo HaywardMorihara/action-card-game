@@ -212,6 +212,7 @@ sources/0 = SubResource("TileSetAtlasSource_0rsmt")
 sources/2 = SubResource("TileSetAtlasSource_w4v6n")
 
 [node name="Area" instance=ExtResource("1_4hytg")]
+area_id = "library"
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_0x4p4")

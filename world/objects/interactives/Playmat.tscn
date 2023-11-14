@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwk2b"]
 size = Vector2(22, 12)
 
-[node name="Playmat" instance=ExtResource("1_6o8ws")]
+[node name="Playmat" groups=["playmats"] instance=ExtResource("1_6o8ws")]
 script = ExtResource("1_1j1y7")
+playmat_id = ""
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_g53f1")

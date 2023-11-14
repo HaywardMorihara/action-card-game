@@ -6,6 +6,9 @@ class_name AreaTransition extends Area2D
 
 var is_fully_transitioned : bool = false
 
+func _ready() -> void:
+	assert(id, 'id must be set for AreaTransition');
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and is_fully_transitioned:
 		var next_area : Resource = load(transitions_to) as Resource;

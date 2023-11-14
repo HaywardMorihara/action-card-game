@@ -19,10 +19,8 @@ var world_pause_count := 0;
 func _ready() -> void:
 	# Card Effect Signals
 	GlobalSignals.execute.connect(_on_execute_call_card_effect);
-	
 	# CardGame Signals
 	GlobalSignals.hand_hovered_change.connect(_on_hand_hovered_change);
-	
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
 
@@ -69,7 +67,7 @@ func _on_hand_hovered_change(is_hovered : bool) -> void:
 		resume_world();
 
 # World Signals
-func _on_area_transition(next_area_scene : Resource, player_starting_area_id : String) -> void:
+func _on_area_transition(next_area_scene : Resource, player_starting_id : String) -> void:
 	GlobalSignals.disable_hand.emit();
 	pause_world();
 	
@@ -80,7 +78,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_area_id : S
 	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_OUT);
 	
 	var next_area : Area = next_area_scene.instantiate();
-	next_area.player_starting_area_id = player_starting_area_id;
+	next_area.player_starting_id = player_starting_id;
 	
 	await area_transition_effects.effect_finished
 	

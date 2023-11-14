@@ -1,6 +1,5 @@
 extends Node
 
-# CardGame
 # CardGame Imperative
 signal draw_cards(count : int)
 signal reshuffle
