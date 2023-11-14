@@ -1,4 +1,4 @@
-class_name TrunkData extends Resource
+class_name DeckData extends Resource
 
 # key: CardId (str), value: Count (int)
 @export var _contents := {}
@@ -11,5 +11,5 @@ func add(cardId : String) -> void:
 	else:
 		_contents[cardId] += 1;
 
-func get_all_cards_and_counts() -> Dictionary:
-	return _contents;
+func get_all_cards() -> Dictionary:
+	return _contents

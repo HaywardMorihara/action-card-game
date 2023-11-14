@@ -8,8 +8,8 @@ const default_save_data_path : String = "res://default_save_data.tres";
 
 var money : int;
 
-var trunk_data : TrunkData; 
-var deck : Dictionary; # key: CardId (str), value: Count (int)
+var trunk_data : TrunkData = TrunkData.new() as TrunkData; 
+var deck_data : DeckData = DeckData.new() as DeckData;
 
 # TODO Recipes
 
@@ -43,13 +43,13 @@ func save():
 func from_save_data(save_data : SaveData):
 	money = save_data.money;
 	trunk_data = save_data.trunk_data;
-	deck = save_data.deck;
+	deck_data = save_data.deck_data;
 	treasure_chest_data = save_data.treasure_chest_data;
 	
 func as_save_data() -> SaveData:
 	var save_data = SaveData.new();
 	save_data.money = money;
 	save_data.trunk_data = trunk_data;
-	save_data.deck = deck;
+	save_data.deck_data = deck_data;
 	save_data.treasure_chest_data = treasure_chest_data;
 	return save_data;

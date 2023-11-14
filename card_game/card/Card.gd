@@ -3,10 +3,13 @@ class_name Card extends Area2D
 signal played(card : Card)
 signal move_finished
 
+@export var card_name : String;
+
 @export_file("*.gd") var effect_filepath : String
 @onready var effect : CardEffect = load(effect_filepath).new();
 
-@onready var collision_shape : CollisionShape2D = $CollisionShape2D as CollisionShape2D
+@onready var card_image : Sprite2D = $CardImage as Sprite2D;
+@onready var collision_shape : CollisionShape2D = $CollisionShape2D as CollisionShape2D;
 
 var animation_move_speed : float = 0.1
 var hover_scale : float = 2.0
@@ -25,6 +28,11 @@ func play():
 
 func get_effect_description() -> String:
 	return effect.get_description();
+	
+func get_image_path() -> String:
+	# Cannot use 'card_image' because might not be ready yet
+	var compressed_texture = $CardImage.texture as CompressedTexture2D;
+	return compressed_texture.resource_path;
 
 # TODO Does this need a callback?
 func move_to_global_pos(target : Vector2, callback : Callable = func() : pass):

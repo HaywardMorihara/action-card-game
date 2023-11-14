@@ -2,3 +2,6 @@
 
 [resource]
 Button/font_sizes/font_size = 18
+HeaderSmall/font_sizes/font_size = 20
+SmallText/base_type = &"Label"
+SmallText/font_sizes/font_size = 12

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b03wh4rk4dshb"]
+
+[ext_resource type="Script" path="res://card_game/deck_editor/CardOption.gd" id="1_7163k"]
+
+[node name="CardOption" type="PanelContainer"]
+custom_minimum_size = Vector2(75, 75)
+script = ExtResource("1_7163k")
+
+[node name="CardImage" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="CardName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_type_variation = &"SmallText"
+text = "<NAME>"
+
+[node name="CardCount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"SmallText"
+text = "(X)"

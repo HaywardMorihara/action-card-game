@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://d026y0fcum32v"]
+
+[ext_resource type="PackedScene" uid="uid://caod1o4w0dda8" path="res://card_game/deck_editor/TrunkCollection.tscn" id="1_0vnbp"]
+[ext_resource type="PackedScene" uid="uid://b4h3vxb4rwsd" path="res://card_game/deck_editor/DeckCollection.tscn" id="2_agkkj"]
+
+[node name="DeckEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TrunkCollection" parent="HSplitContainer" instance=ExtResource("1_0vnbp")]
+layout_mode = 2
+
+[node name="DeckCollection" parent="HSplitContainer" instance=ExtResource("2_agkkj")]
+layout_mode = 2

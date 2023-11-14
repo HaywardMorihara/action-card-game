@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://caod1o4w0dda8"]
+
+[ext_resource type="PackedScene" uid="uid://cx0frgeflpo0y" path="res://card_game/deck_editor/CardCollection.tscn" id="1_e0q2r"]
+[ext_resource type="Script" path="res://card_game/deck_editor/TrunkCollection.gd" id="2_jikyh"]
+
+[node name="TrunkCollection" instance=ExtResource("1_e0q2r")]
+script = ExtResource("2_jikyh")
+
+[node name="Header" parent="." index="0"]
+text = "Trunk"

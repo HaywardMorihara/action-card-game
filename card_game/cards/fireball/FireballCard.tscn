@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://efe1r5d1osfk" path="res://card_game/cards/fireball/fireball_card.png" id="1_f2rxi"]
 [ext_resource type="PackedScene" uid="uid://dixa05st8m4cw" path="res://card_game/card/Card.tscn" id="1_wgiad"]
 
-[node name="Card" instance=ExtResource("1_wgiad")]
+[node name="FireballCard" instance=ExtResource("1_wgiad")]
+card_name = "Fireball"
 effect_filepath = "res://card_game/effects/AimAndShootFireballEffect.gd"
 
 [node name="CardImage" parent="." index="1"]

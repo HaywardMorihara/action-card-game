@@ -5,7 +5,7 @@ class_name SaveData extends Resource
 @export var money : int;
 
 @export var trunk_data : TrunkData;
-@export var deck : Dictionary;
+@export var deck_data : DeckData;
 
 # TODO Recipes
 

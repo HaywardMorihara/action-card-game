@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=6 format=3 uid="uid://p438bgwpsbi2"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=8 format=3 uid="uid://p438bgwpsbi2"]
 
+[ext_resource type="Script" path="res://data/DeckData.gd" id="1_1aqs6"]
 [ext_resource type="Script" path="res://data/SaveData.gd" id="1_m8rh3"]
 [ext_resource type="Script" path="res://data/TreasureChestData.gd" id="2_vjnk7"]
 [ext_resource type="Script" path="res://data/TrunkData.gd" id="2_y0rep"]
+
+[sub_resource type="Resource" id="Resource_ax87g"]
+script = ExtResource("1_1aqs6")
+_contents = {
+"fireball": 10
+}
 
 [sub_resource type="Resource" id="Resource_06buq"]
 script = ExtResource("2_vjnk7")
@@ -12,15 +19,13 @@ id_to_has_been_found = {
 
 [sub_resource type="Resource" id="Resource_2y3p1"]
 script = ExtResource("2_y0rep")
-contents = {
-"fireball": 10
+_contents = {
+"fireball": 15
 }
 
 [resource]
 script = ExtResource("1_m8rh3")
 money = 5
 trunk_data = SubResource("Resource_2y3p1")
-deck = {
-"fireball": 10
-}
+deck_data = SubResource("Resource_ax87g")
 treasure_chest_data = SubResource("Resource_06buq")

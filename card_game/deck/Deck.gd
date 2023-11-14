@@ -59,7 +59,8 @@ func add_to_bottom(card : Card):
 	contents.append(card);
 
 func _load_deck_contents():
-	for card_id in GlobalState.deck:
-		var card_count = GlobalState.deck[card_id];
+	var all_cards_in_deck_with_counts = GlobalState.deck_data.get_all_cards();
+	for card_id in all_cards_in_deck_with_counts:
+		var card_count = all_cards_in_deck_with_counts[card_id];
 		for i in card_count:
 			contents.append(CardDictionary.create_card(card_id));
