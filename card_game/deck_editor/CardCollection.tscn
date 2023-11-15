@@ -11,7 +11,10 @@ grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_wccjv")
 
-[node name="Header" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0

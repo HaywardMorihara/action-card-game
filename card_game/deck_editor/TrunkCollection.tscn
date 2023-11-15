@@ -6,5 +6,5 @@
 [node name="TrunkCollection" instance=ExtResource("1_e0q2r")]
 script = ExtResource("2_jikyh")
 
-[node name="Header" parent="." index="0"]
+[node name="Header" parent="HBoxContainer" index="0"]
 text = "Trunk"

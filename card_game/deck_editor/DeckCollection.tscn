@@ -6,5 +6,10 @@
 [node name="DeckCollection" instance=ExtResource("1_18sui")]
 script = ExtResource("2_x7auk")
 
-[node name="Header" parent="." index="0"]
+[node name="Header" parent="HBoxContainer" index="0"]
 text = "Deck"
+
+[node name="CountLabel" type="Label" parent="HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "(X)"
