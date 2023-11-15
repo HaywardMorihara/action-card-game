@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var world : Area = $Area as Area;
+@onready var world : Area;
 @onready var card_game : CardGame = %CardGame as CardGame;
-@onready var area_transition_effects : AreaTransitionEffects = $AreaTransitionEffects as AreaTransitionEffects;
+@onready var transition_effects : TransitionEffects = $TransitionEffects as TransitionEffects;
 @onready var pause_menu : Control = %PauseMenu as Control;
 
 @export var card_game_transition_speed : float = 0.1;
@@ -23,6 +23,16 @@ func _ready() -> void:
 	GlobalSignals.hand_hovered_change.connect(_on_hand_hovered_change);
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
+	GlobalSignals.scene_transition_to.connect(_on_scene_transition_to);
+	
+	if GlobalState.last_playmat_data.area_id != null:
+		var area_id := GlobalState.last_playmat_data.area_id;
+		var area_scene_path = AreaRegistry.area_id_to_scene_path[GlobalState.last_playmat_data.area_id];
+		var area_scene : Resource = load(AreaRegistry.area_id_to_scene_path[GlobalState.last_playmat_data.area_id]);
+		world = area_scene.instantiate();
+		add_child(world);
+	
+	_transition_in();
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
@@ -74,25 +84,49 @@ func _on_area_transition(next_area_scene : Resource, player_starting_id : String
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
 	
-	area_transition_effects.visible = true;
-	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_OUT);
+	transition_effects.visible = true;
+	transition_effects.play(TransitionEffects.Effect.DIM_OUT);
 	
 	var next_area : Area = next_area_scene.instantiate();
 	next_area.player_starting_id = player_starting_id;
 	
-	await area_transition_effects.effect_finished
+	await transition_effects.effect_finished
 	
 	world.queue_free();
 	add_child(next_area);
 	world = next_area;
 	
-	area_transition_effects.play(AreaTransitionEffects.Effect.DIM_IN);
+	transition_effects.play(TransitionEffects.Effect.DIM_IN);
 	
 	GlobalSignals.enable_hand.emit();
 	resume_world();
 	
-	await area_transition_effects.effect_finished;
-	area_transition_effects.visible = false;
+	await transition_effects.effect_finished;
+	transition_effects.visible = false;
 	
 	tween  = create_tween() as Tween;
 	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y - get_viewport_rect().size.y/2), card_game_transition_speed);
+
+func _on_scene_transition_to(next_scene_path : String) -> void:
+	GlobalSignals.disable_hand.emit();
+	pause_world();
+	
+	var tween : Tween = create_tween() as Tween;
+	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
+	
+	transition_effects.visible = true;
+	transition_effects.play(TransitionEffects.Effect.DIM_OUT);
+	
+	await transition_effects.effect_finished
+	
+	GlobalSignals.enable_hand.emit();
+	resume_world();
+	
+	get_tree().change_scene_to_file(next_scene_path);
+	
+func _transition_in() -> void:
+	transition_effects.visible = true;
+	transition_effects.play(TransitionEffects.Effect.DIM_IN);
+
+	await transition_effects.effect_finished;
+	transition_effects.visible = false;

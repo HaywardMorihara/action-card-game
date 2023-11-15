@@ -11,6 +11,7 @@ var player_starting_id : String;
 
 func _ready() -> void:
 	assert(area_id, "area_id must be set");
+	assert(AreaRegistry.area_id_to_scene_path.get(area_id), "area_id must be registered in AreaRegistry");
 	if player_starting_id:
 		for area_transition in get_tree().get_nodes_in_group("area_transitions"):
 			if area_transition.id == player_starting_id:
@@ -20,3 +21,5 @@ func _ready() -> void:
 			playmat = playmat as Playmat;
 			if playmat.playmat_id == GlobalState.last_playmat_data.playmat_id:
 				player.global_position = playmat.global_position;
+	
+	GlobalState.last_playmat_data.area_id = area_id;

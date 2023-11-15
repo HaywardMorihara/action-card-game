@@ -31,6 +31,5 @@ func _on_save_complete() -> void:
 	save_button.disabled = true;
 
 func _on_edit_deck_button_pressed() -> void:
-	# TODO Transition effect
 	GlobalState.last_playmat_data.playmat_id = playmat_id;
-	get_tree().change_scene_to_file("res://card_game/deck_editor/DeckEditor.tscn");
+	GlobalSignals.scene_transition_to.emit("res://card_game/deck_editor/DeckEditor.tscn");

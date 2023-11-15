@@ -14,6 +14,7 @@ _contents = {
 
 [sub_resource type="Resource" id="Resource_bwp66"]
 script = ExtResource("2_w5a2k")
+area_id = "demo_area"
 playmat_id = ""
 
 [sub_resource type="Resource" id="Resource_06buq"]

@@ -14,4 +14,5 @@ signal execute(card_effect : Callable)
 
 # World
 signal transition_to(next_area_scene : Resource, player_starting_area_id : String)
+signal scene_transition_to(next_scene_path : String)
 signal card_obtained(card : Card)

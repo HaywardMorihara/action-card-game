@@ -1,4 +1,4 @@
-class_name AreaTransitionEffects extends CanvasLayer
+class_name TransitionEffects extends CanvasLayer
 
 signal effect_finished
 
