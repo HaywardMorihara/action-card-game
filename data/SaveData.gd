@@ -1,5 +1,8 @@
 class_name SaveData extends Resource
 
+# IDEA: Have a data_to_save() function on objects that need to save certain attributes.
+# They own the logic about what data to provide
+
 @export var last_playmat_data : LastPlaymatData;
 
 @export var money : int;
