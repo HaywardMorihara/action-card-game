@@ -26,8 +26,15 @@ func _load_contents():
 func _update_contents_for(card_id : String) -> void:
 	var all_cards_and_counts : Dictionary = _get_all_cards_and_counts();
 	var card_option_node : CardOption
-	if card_id_to_card_option_node.has(card_id):
-		card_option_node = card_id_to_card_option_node.get(card_id) as CardOption;
+	if card_id_to_card_option_node.has(card_id): 
+		if card_id_to_card_option_node.get(card_id) != null: # Node has NOT been freed
+			card_option_node = card_id_to_card_option_node.get(card_id);
+		elif card_id_to_card_option_node.get(card_id) == null: # has been freed
+			if all_cards_and_counts[card_id] > 0:
+				card_option_node = _init_card_option(card_id, all_cards_and_counts[card_id]);
+				card_option_container.add_child(card_option_node);
+			else:
+				return
 	else:
 		card_option_node = _init_card_option(card_id, all_cards_and_counts[card_id]);
 		card_option_container.add_child(card_option_node);

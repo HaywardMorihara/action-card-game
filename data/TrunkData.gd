@@ -22,3 +22,9 @@ func remove(card_id : String) -> void:
 
 func get_all_cards_and_counts() -> Dictionary:
 	return _contents;
+
+func is_empty() -> bool:
+	for card_id in _contents:
+		if _contents[card_id] > 0:
+			return false
+	return true

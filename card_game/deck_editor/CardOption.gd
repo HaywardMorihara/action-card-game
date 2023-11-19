@@ -39,13 +39,15 @@ func _get_drag_data(_pos):
 	match collection:
 		Collection.TRUNK:
 			GlobalState.trunk_data.remove(card_id);
+			if GlobalState.trunk_data.is_empty():
+				queue_free();
 		Collection.DECK:
 			GlobalState.deck_data.remove(card_id);
+			if GlobalState.deck_data.is_empty():
+				queue_free();
 	var texture_rect = TextureRect.new();
 	texture_rect.texture = card_image.texture;
 	set_drag_preview(texture_rect);
-	# TODO If the count is now down to zero...
-#	queue_free();
 	update.emit(card_id);
 	return card_id;
 

@@ -10,6 +10,7 @@ script = ExtResource("2_x7auk")
 text = "Deck"
 
 [node name="CountLabel" type="Label" parent="HBoxContainer" index="1"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "(X)"
