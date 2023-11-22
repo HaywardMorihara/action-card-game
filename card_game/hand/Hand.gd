@@ -15,6 +15,9 @@ func _ready() -> void:
 	GlobalSignals.disable_hand.connect(disable);
 	GlobalSignals.enable_hand.connect(enable);
 
+func get_size() -> int:
+	return contents.get_child_count();
+
 func add_card(card : Card, start_global_pos : Vector2, callback : Callable):
 	contents.add_child(card);
 	card.global_position = start_global_pos;

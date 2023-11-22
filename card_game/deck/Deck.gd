@@ -12,7 +12,6 @@ var contents : Array[Card];
 func _ready() -> void:
 	_load_deck_contents();
 	shuffle();
-	GlobalGets.func_get_deck_contents = func() : return contents;
 
 func _process(delta) -> void:
 	match contents.size():

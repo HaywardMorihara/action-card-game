@@ -1,6 +1,7 @@
 class_name CardGame extends Node2D
 
-@export var starting_hand_size := 7;
+@export var starting_hand_size : int = 5;
+@export var max_hand_size : int = 7;
 
 @onready var deck : Deck = $Deck as Deck;
 @onready var hand : Hand = $Hand as Hand;
@@ -11,12 +12,13 @@ var _animation_queue : Array[Callable] = []
 var _is_card_animation_in_progress : bool = false
 
 func _ready():
+	GlobalAccess.card_game = self;
 	GlobalSignals.draw_cards.connect(draw_cards);
 	GlobalSignals.reshuffle.connect(reshuffle);
 	# TODO Remove - for testing
 	shuffle_deck();
 	await deck.shuffle_finished
-	draw_cards(7);
+	draw_cards(starting_hand_size);
 
 func _physics_process(delta):
 	while not _animation_queue.is_empty() and not _is_card_animation_in_progress:
@@ -34,6 +36,9 @@ func _on_animation_finished():
 func get_deck_contents() -> Array[Card]:
 	# TODO
 	return []
+
+func can_draw() -> bool:
+	return len(deck.contents) > 0 and hand.get_size() < max_hand_size;
 
 func draw_cards(count : int):
 	for i in count:
@@ -135,6 +140,8 @@ func remove_from_discard(card : Card):
 
 # TODO Refactor to use await?
 func _draw_card():
+	if not can_draw():
+		return
 	var next_card : Card = deck.draw_card() as Card;
 	if not next_card:
 		return null
