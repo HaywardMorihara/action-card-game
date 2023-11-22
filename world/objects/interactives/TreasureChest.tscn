@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_wy27m"]
@@ -72,7 +72,6 @@ card_id = ""
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_1usgc")
 hframes = 3
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 3)
