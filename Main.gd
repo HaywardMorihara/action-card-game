@@ -6,6 +6,8 @@ extends Node2D
 @onready var pause_menu : Control = %PauseMenu as Control;
 
 @export var card_game_transition_speed : float = 0.1;
+var card_game_default_pos : Vector2;
+var card_game_offset_pos : Vector2;
 
 # You can either
 # 1. Pause the World (e.g. the Player's hand is up)
@@ -31,6 +33,9 @@ func _ready() -> void:
 		var area_scene : Resource = load(AreaRegistry.area_id_to_scene_path[GlobalState.last_playmat_data.area_id]);
 		world = area_scene.instantiate();
 		add_child(world);
+	
+	card_game_default_pos = card_game.position;
+	card_game_offset_pos = card_game.position + Vector2(0, get_viewport_rect().size.y/2);
 	
 	_transition_in();
 
@@ -82,7 +87,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_id : String
 	pause_world();
 	
 	var tween : Tween = create_tween() as Tween;
-	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
+	tween.tween_property(card_game, "position", card_game_offset_pos, card_game_transition_speed);
 	
 	transition_effects.visible = true;
 	transition_effects.play(TransitionEffects.Effect.DIM_OUT);
@@ -105,14 +110,14 @@ func _on_area_transition(next_area_scene : Resource, player_starting_id : String
 	transition_effects.visible = false;
 	
 	tween  = create_tween() as Tween;
-	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y - get_viewport_rect().size.y/2), card_game_transition_speed);
+	tween.tween_property(card_game, "position", card_game_default_pos, card_game_transition_speed);
 
 func _on_scene_transition_to(next_scene_path : String) -> void:
 	GlobalSignals.disable_hand.emit();
 	pause_world();
 	
 	var tween : Tween = create_tween() as Tween;
-	tween.tween_property(card_game, "position", Vector2(card_game.position.x, card_game.position.y + get_viewport_rect().size.y/2), card_game_transition_speed);
+	tween.tween_property(card_game, "position", card_game_offset_pos, card_game_transition_speed);
 	
 	transition_effects.visible = true;
 	transition_effects.play(TransitionEffects.Effect.DIM_OUT);
