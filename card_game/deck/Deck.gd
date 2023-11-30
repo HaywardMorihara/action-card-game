@@ -1,7 +1,5 @@
 class_name Deck extends Node2D
 
-signal shuffle_finished
-
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var top_card : Sprite2D = $TopCard
 @onready var middle_card : Sprite2D = $MiddleCard
@@ -41,7 +39,6 @@ func shuffle():
 	animation_player.play("shuffle");
 	# TODO SFX
 	await animation_player.animation_finished
-	shuffle_finished.emit();
 
 func remove(card : Card) -> Card:
 	for i in len(contents):

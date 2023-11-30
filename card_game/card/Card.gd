@@ -1,7 +1,5 @@
 class_name Card extends Area2D
 
-# TODO Refactor away callbacks in favor of awais https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
-
 signal played(card : Card)
 signal move_finished
 
@@ -36,17 +34,16 @@ func get_image_path() -> String:
 	var compressed_texture = $CardImage.texture as CompressedTexture2D;
 	return compressed_texture.resource_path;
 
-# TODO Does this need a callback?
-func move_to_global_pos(target : Vector2, callback : Callable = func() : pass):
+func move_to_global_pos(target : Vector2):
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "global_position", target, animation_move_speed);
-	tween.tween_callback(callback);
+	await tween.finished;
 	move_finished.emit();
 	
-func move_to_local_pos(target : Vector2, callback : Callable = func() : pass):
+func move_to_local_pos(target : Vector2):
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", target, animation_move_speed);
-	tween.tween_callback(callback);
+	await tween.finished;
 	move_finished.emit();
 
 func scale_to(target : float) -> void:

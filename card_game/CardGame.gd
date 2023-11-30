@@ -7,28 +7,15 @@ class_name CardGame extends Node2D
 @onready var hand : Hand = $Hand as Hand;
 @onready var discard_pile : DiscardPile = $DiscardPile as DiscardPile;
 
-# TODO Refactor away callbacks in favor of awais https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
-
-var _animation_queue : Array[Callable] = []
-var _is_card_animation_in_progress : bool = false
 
 func _ready():
 	GlobalAccess.card_game = self;
 	GlobalSignals.draw_cards.connect(draw_cards);
 	GlobalSignals.reshuffle.connect(reshuffle);
-	# TODO Remove - for testing
-	shuffle_deck();
-	await deck.shuffle_finished
+
+	await shuffle_deck();
 	draw_cards(starting_hand_size);
 
-func _physics_process(delta):
-	while not _animation_queue.is_empty() and not _is_card_animation_in_progress:
-		var next_animation : Callable = _animation_queue.pop_front() as Callable;
-		_is_card_animation_in_progress = true;
-		next_animation.call(_on_animation_finished);
-			
-func _on_animation_finished():
-	_is_card_animation_in_progress = false;
 
 # APIs
 
@@ -41,9 +28,11 @@ func get_deck_contents() -> Array[Card]:
 func can_draw() -> bool:
 	return deck and len(deck.contents) > 0 and hand.get_size() < max_hand_size;
 
-func draw_cards(count : int):
+func draw_cards(count : int) -> void:
 	for i in count:
-		_draw_card();
+		var next_card : Card = _draw_card();
+		if next_card:
+			await next_card.move_finished;
 
 func move_from_deck_to_hand(card : Card) -> Card:
 	# TODO
@@ -58,13 +47,13 @@ func discard_from_deck(card : Card) -> bool:
 	return false
 
 func shuffle_deck():
-	deck.shuffle();
+	await deck.shuffle();
 
 func reshuffle():
-	move_all_from_hand_to_bottom_of_deck();
-	move_all_from_discard_to_bottom_of_deck();
-	shuffle_deck();
-	draw_cards(starting_hand_size);
+	await move_all_from_hand_to_bottom_of_deck();
+	await move_all_from_discard_to_bottom_of_deck();
+	await shuffle_deck();
+	await draw_cards(starting_hand_size);
 
 func remove_from_deck(card : Card) -> Card:
 	# TODO 
@@ -78,6 +67,7 @@ func move_from_hand_to_top_of_deck(card : Card):
 
 func move_from_hand_to_bottom_of_deck(card : Card):
 	card.move_to_global_pos(deck.global_position);
+	await card.move_finished;
 	hand.contents.remove_child(card);
 	deck.add_to_bottom(card);
 
@@ -85,6 +75,7 @@ func move_all_from_hand_to_bottom_of_deck():
 	# TODO There needs to be something that makes the animations occur in sequence
 	for c in hand.contents.get_children():
 		move_from_hand_to_bottom_of_deck(c);
+		await c.move_finished;
 
 func discard_from_hand(card : Card):
 	# TODO 
@@ -120,10 +111,10 @@ func move_from_discard_to_top_of_deck(card : Card):
 	pass
 
 func move_from_discard_to_bottom_of_deck(card : Card):
-	card.move_to_global_pos(deck.global_position, func():
-		discard_pile.remove(card);
-		deck.add_to_bottom(card);
-	);
+	card.move_to_global_pos(deck.global_position);
+	await card.move_finished;
+	discard_pile.remove(card);
+	deck.add_to_bottom(card);
 	
 
 func move_all_from_discard_to_top_of_deck():
@@ -133,7 +124,7 @@ func move_all_from_discard_to_bottom_of_deck():
 	for c in get_discard_pile_contents():
 		var card : Card = c as Card;
 		move_from_discard_to_bottom_of_deck(card);
-		await card.move_finished
+		await card.move_finished;
 
 func remove_from_discard(card : Card):
 	discard_pile.remove(card);
@@ -141,17 +132,16 @@ func remove_from_discard(card : Card):
 
 # Private Functions
 
-# TODO Refactor to use await?
-func _draw_card():
+func _draw_card() -> Card:
 	if not can_draw():
-		return
+		return null
 	var next_card : Card = deck.draw_card() as Card;
 	if not next_card:
 		return null
-	
-	_animation_queue.append(func(callback : Callable):
-		hand.add_card(next_card, deck.global_position, callback);
-	);
+	hand.add_card(next_card, deck.global_position);
+	return next_card;
+
+# Signal Callbacks
 
 func _on_hand_card_played(card : Card) -> void:
 	discard_pile.add_card(card, get_global_mouse_position());

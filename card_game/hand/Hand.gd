@@ -18,11 +18,11 @@ func _ready() -> void:
 func get_size() -> int:
 	return contents.get_child_count();
 
-func add_card(card : Card, start_global_pos : Vector2, callback : Callable):
+func add_card(card : Card, start_global_pos : Vector2):
 	contents.add_child(card);
 	card.global_position = start_global_pos;
 	card.played.connect(_on_card_played);
-	_rebalance(callback);
+	_rebalance();
 
 func remove(card : Card):
 	contents.remove_child(card);
@@ -46,8 +46,7 @@ func enable() -> void:
 	for c in contents.get_children():
 		c.enable_hover();
 
-# TODO Does this need a callback?
-func _rebalance(callback : Callable = func() : pass):
+func _rebalance():
 	var hand_width = collision_shape.shape.get_size().x;
 	var cards_in_hand = contents.get_children();
 	var num_cards_in_hand = cards_in_hand.size();
@@ -56,7 +55,7 @@ func _rebalance(callback : Callable = func() : pass):
 		var x_diff = - (hand_width / 2) + (hand_width / (num_cards_in_hand + 1)) * (i + 1);
 		new_pos.x += x_diff;
 		cards_in_hand[i].resting_position = Vector2(x_diff, 0);
-		cards_in_hand[i].move_to_global_pos(new_pos, callback);
+		cards_in_hand[i].move_to_global_pos(new_pos);
 
 # TODO Remove
 func _input(event):
