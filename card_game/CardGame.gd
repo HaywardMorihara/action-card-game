@@ -7,7 +7,8 @@ class_name CardGame extends Node2D
 @onready var hand : Hand = $Hand as Hand;
 @onready var discard_pile : DiscardPile = $DiscardPile as DiscardPile;
 
-# TODO Should this be refactored to use awaits? https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
+# TODO Refactor away callbacks in favor of awais https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
+
 var _animation_queue : Array[Callable] = []
 var _is_card_animation_in_progress : bool = false
 
@@ -61,6 +62,7 @@ func shuffle_deck():
 
 func reshuffle():
 	move_all_from_hand_to_bottom_of_deck();
+	move_all_from_discard_to_bottom_of_deck();
 	shuffle_deck();
 	draw_cards(starting_hand_size);
 
@@ -107,33 +109,34 @@ func remove_random_from_hand(count : int) -> Array[Card]:
 
 # Discard PIle APIs
 
-func get_discard_pile_contents() -> Array[Card]:
-	# TODO
-	return []
+func get_discard_pile_contents() -> Array[Node]:
+	return discard_pile.contents.get_children();
 
 func move_from_discard_to_hand(card : Card):
 	# TODO
 	pass
 
 func move_from_discard_to_top_of_deck(card : Card):
-	# TODO
 	pass
 
 func move_from_discard_to_bottom_of_deck(card : Card):
-	# TODO
-	pass
+	card.move_to_global_pos(deck.global_position, func():
+		discard_pile.remove(card);
+		deck.add_to_bottom(card);
+	);
+	
 
 func move_all_from_discard_to_top_of_deck():
-	# TODO
 	pass
 
 func move_all_from_discard_to_bottom_of_deck():
-	# TODO
-	pass
+	for c in get_discard_pile_contents():
+		var card : Card = c as Card;
+		move_from_discard_to_bottom_of_deck(card);
+		await card.move_finished
 
 func remove_from_discard(card : Card):
-	# TODO 
-	pass
+	discard_pile.remove(card);
 
 
 # Private Functions

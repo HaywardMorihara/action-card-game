@@ -7,6 +7,7 @@
 script = ExtResource("1_tyeiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_wjkdk")
 hframes = 2
 frame = 1

@@ -2,6 +2,7 @@ class_name DiscardPile extends Node2D
 
 @onready var contents : Node = $Contents;
 
+
 func add_card(card : Card, start_global_pos : Vector2):
 	card.resting_position = Vector2.ZERO;
 	card.disable_hover();

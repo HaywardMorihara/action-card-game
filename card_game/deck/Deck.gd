@@ -51,8 +51,7 @@ func remove(card : Card) -> Card:
 	return null
 
 func add_to_top(card : Card):
-	# TODO 
-	pass
+	contents.push_front(card);
 
 func add_to_bottom(card : Card):
 	contents.append(card);

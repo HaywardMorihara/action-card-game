@@ -1,5 +1,7 @@
 class_name Card extends Area2D
 
+# TODO Refactor away callbacks in favor of awais https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#awaiting-for-signals-or-coroutines
+
 signal played(card : Card)
 signal move_finished
 
