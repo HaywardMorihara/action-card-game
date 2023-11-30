@@ -1,6 +1,7 @@
 class_name Fireball extends CharacterBody2D
 
 @export var speed : float = 15.0
+@export var damage : int = 1
 
 @onready var sprite : Sprite2D = $Sprite2D as Sprite2D;
 @onready var animation_player : AnimationPlayer = $AnimationPlayer as AnimationPlayer;
@@ -14,8 +15,12 @@ func _ready() -> void:
 	animation_player.play("flying");
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(velocity);
-	# TODO Collision logic with enemies or walls
+	var collision : KinematicCollision2D = move_and_collide(velocity);
+	if collision:
+		var body : Object = collision.get_collider();
+		if body is Monster:
+			body.deal_damage(damage);
+		queue_free();
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

@@ -38,7 +38,7 @@ func get_deck_contents() -> Array[Card]:
 	return []
 
 func can_draw() -> bool:
-	return len(deck.contents) > 0 and hand.get_size() < max_hand_size;
+	return deck and len(deck.contents) > 0 and hand.get_size() < max_hand_size;
 
 func draw_cards(count : int):
 	for i in count:

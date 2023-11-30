@@ -67,6 +67,17 @@ move_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="All"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Buidings"
+2d_physics/layer_4="Objects"
+2d_physics/layer_5="Entities"
+2d_physics/layer_6="Monsters"
+2d_physics/layer_7="NPCs"
+2d_physics/layer_8="Attacks"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

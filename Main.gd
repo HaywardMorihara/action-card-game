@@ -9,6 +9,8 @@ extends Node2D
 var card_game_default_pos : Vector2;
 var card_game_offset_pos : Vector2;
 
+const main_menu_scene_path : String = "res://ui/menus/MainMenu.tscn" as String;
+
 # You can either
 # 1. Pause the World (e.g. the Player's hand is up)
 # 2. Disable the CardGame (e.g. when the Player is aiming)
@@ -26,6 +28,7 @@ func _ready() -> void:
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
 	GlobalSignals.scene_transition_to.connect(_on_scene_transition_to);
+	GlobalSignals.player_loses.connect(_on_player_loses);
 	
 	if GlobalState.last_playmat_data.area_id != null:
 		var area_id := GlobalState.last_playmat_data.area_id;
@@ -135,3 +138,7 @@ func _transition_in() -> void:
 
 	await transition_effects.effect_finished;
 	transition_effects.visible = false;
+
+func _on_player_loses() -> void:
+	# TODO Game Over Menu and transition
+	get_tree().change_scene_to_file(main_menu_scene_path);

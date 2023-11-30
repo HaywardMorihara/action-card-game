@@ -12,6 +12,9 @@ var player_starting_id : String;
 func _ready() -> void:
 	assert(area_id, "area_id must be set");
 	assert(AreaRegistry.area_id_to_scene_path.get(area_id), "area_id must be registered in AreaRegistry");
+	
+	GlobalAccess.world = self;
+	
 	if player_starting_id:
 		for area_transition in get_tree().get_nodes_in_group("area_transitions"):
 			if area_transition.id == player_starting_id:

@@ -2,7 +2,7 @@ class_name CardCollection extends VBoxContainer
 
 @onready var card_option_container : HFlowContainer = $ScrollContainer/HFlowContainer;
 
-@onready var card_option_scene : Resource = preload("res://card_game/deck_editor/CardOption.tscn");
+var card_option_scene : Resource = preload("res://card_game/deck_editor/CardOption.tscn");
 
 var card_id_to_card_option_node : Dictionary = {}
 

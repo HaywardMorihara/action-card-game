@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://guuk4d3td5gx"]
+
+[ext_resource type="PackedScene" uid="uid://ony66nyyhx3y" path="res://world/entities/Entity.tscn" id="1_fe78w"]
+[ext_resource type="Script" path="res://world/entities/monsters/Monster.gd" id="2_ksqe1"]
+
+[node name="Monster" instance=ExtResource("1_fe78w")]
+collision_layer = 49
+script = ExtResource("2_ksqe1")
+health = 1
+damage = 1
+draw_pickup_probability = 1.0
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." index="2"]

@@ -5,7 +5,8 @@ class_name Player extends CharacterBody2D
 #signal player_new_card(cardId : ActionCardGameGlobal.CardId)
 #signal player_heal(amount : int)
 
-@export var default_speed :float = 100.0
+@export var default_speed : float = 100.0;
+@export var health : int = 1; 
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer as AnimationPlayer;
 @onready var interactor : Area2D = $Interactor as Area2D;
@@ -47,6 +48,11 @@ func _process(delta: float) -> void:
 func _get_input_direction() -> Vector2:
 	# Auto-normalized
 	return Input.get_vector("move_left", "move_right", "move_up", "move_down");
+
+func damage(amount : int) -> void:
+	health -= amount;
+	if health <= 0:
+		GlobalSignals.player_loses.emit();
 
 func _point_interactor(direction : Vector2) -> void:
 	if abs(direction.x) > abs(direction.y):
