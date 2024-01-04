@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://pkgy5wv8bhms"]
 
 [ext_resource type="PackedScene" uid="uid://b6ronjy3jk03g" path="res://world/buildings/Building.tscn" id="1_y8dlt"]
-[ext_resource type="Texture2D" uid="uid://dbovqe8ww7s73" path="res://world/buildings/generic_house_blue.png" id="2_83cum"]
+[ext_resource type="Texture2D" uid="uid://3opdq4tfkrmi" path="res://world/buildings/house_1/generic_house.png" id="2_thhxb"]
 
 [node name="House1" instance=ExtResource("1_y8dlt")]
 y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]
 y_sort_enabled = true
-texture = ExtResource("2_83cum")
+texture = ExtResource("2_thhxb")
+hframes = 4
 
 [node name="AreaTransition" parent="." index="1"]
 position = Vector2(0, 16)
