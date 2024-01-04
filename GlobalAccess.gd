@@ -1,5 +1,7 @@
 extends Node
 
+# TODO GET RID OF THIS
+
 # Note: This feels a lot like an ant-pattern that I shouldn't be doing.
 # See how it goes
 

@@ -14,6 +14,3 @@ polygon = PackedVector2Array(-79, -34, 78, -34, 79, 34, 11, 34, 11, 4, -11, 4, -
 
 [node name="AreaTransition" parent="." index="1"]
 position = Vector2(0, 16)
-id = "ATHouse1"
-transitions_to = "res://world/buildings/house_1/House1Area.tscn"
-linked_transition_area = "ATHouse1Exit"

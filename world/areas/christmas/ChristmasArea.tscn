@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://8s67d2jb8d35"]
+[gd_scene load_steps=9 format=3 uid="uid://8s67d2jb8d35"]
 
-[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_71nio"]
-[ext_resource type="Texture2D" uid="uid://cl1jiqf5v0233" path="res://world/areas/tiles/outdoor-snow-and-pathway.png" id="2_iyb5g"]
-[ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_krgfh"]
-[ext_resource type="Texture2D" uid="uid://lxktnrg4g0nx" path="res://world/buildings/library/library-snow.png" id="4_fvyio"]
-[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_g6w1c"]
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_abqtw"]
+[ext_resource type="Texture2D" uid="uid://cl1jiqf5v0233" path="res://world/areas/tiles/outdoor-snow-and-pathway.png" id="2_2rli3"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="3_43crv"]
+[ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_p6gqn"]
+[ext_resource type="Texture2D" uid="uid://lxktnrg4g0nx" path="res://world/buildings/library/library-snow.png" id="4_0hhly"]
+[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="5_t8ny8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_telt3"]
-texture = ExtResource("2_iyb5g")
+texture = ExtResource("2_2rli3")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -448,7 +449,7 @@ terrain_set_0/terrain_0/name = "Pathway + Snow Border"
 terrain_set_0/terrain_0/color = Color(0.886275, 0.607843, 0.443137, 1)
 sources/0 = SubResource("TileSetAtlasSource_telt3")
 
-[node name="ChristmasArea" instance=ExtResource("1_71nio")]
+[node name="ChristmasArea" instance=ExtResource("1_abqtw")]
 area_id = "christmas_area"
 
 [node name="TileMap" parent="." index="0"]
@@ -460,10 +461,22 @@ layer_0/tile_data = PackedInt32Array(-131070, 262144, 0, -65535, 262144, 0, -655
 [node name="Player" parent="." index="1"]
 position = Vector2(24, 66)
 
-[node name="Library" parent="Buildings" index="0" instance=ExtResource("3_krgfh")]
-position = Vector2(3, -148)
-texture = ExtResource("4_fvyio")
+[node name="DemoAreaTransition" parent="AreaTransitions" index="0" instance=ExtResource("3_43crv")]
+position = Vector2(0, 145)
+id = "christmas_area_to_demo_area"
+transitions_to = "res://world/areas/demo/DemoArea.tscn"
+linked_transition_area = "demo_area_to_christmas_area"
 
-[node name="House1" parent="Buildings" index="1" instance=ExtResource("4_g6w1c")]
+[node name="Library" parent="Buildings" index="0" instance=ExtResource("3_p6gqn")]
+position = Vector2(3, -148)
+texture = ExtResource("4_0hhly")
+entrance_id = "library_entrance"
+transitions_to = "res://world/areas/christmas/buildings/LibraryArea.tscn"
+exit_id = "entrance"
+
+[node name="House1" parent="Buildings" index="1" instance=ExtResource("5_t8ny8")]
 position = Vector2(-209, -132)
 frame = 1
+entrance_id = "house_1_entrance"
+transitions_to = "res://world/areas/christmas/buildings/House1Area.tscn"
+exit_id = "entrance"

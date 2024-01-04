@@ -1,17 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpj4xdarh2m7k"]
+[gd_scene load_steps=13 format=3 uid="uid://bpj4xdarh2m7k"]
 
-[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_hud1r"]
-[ext_resource type="Texture2D" uid="uid://b0ea2k4mf8ypw" path="res://world/areas/tiles/outdoor-grass-and-pathway.png" id="2_e3myh"]
-[ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="2_snqmu"]
-[ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_1v7hy"]
-[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="3_2qofp"]
-[ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_mvsgg"]
-[ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/objects/interactives/Playmat.tscn" id="5_nuk5v"]
-[ext_resource type="PackedScene" uid="uid://0pcryys7xxl3" path="res://world/entities/monsters/blob/BlobMonster.tscn" id="6_wus2q"]
-[ext_resource type="PackedScene" uid="uid://0xw7c534ahml" path="res://world/objects/interactives/TreasureChest.tscn" id="7_n3cu3"]
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_py633"]
+[ext_resource type="Texture2D" uid="uid://b0ea2k4mf8ypw" path="res://world/areas/tiles/outdoor-grass-and-pathway.png" id="2_mgdgu"]
+[ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_k3lku"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="3_wm2hn"]
+[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_fwp8s"]
+[ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_rch68"]
+[ext_resource type="PackedScene" uid="uid://0pcryys7xxl3" path="res://world/entities/monsters/blob/BlobMonster.tscn" id="6_v8ygi"]
+[ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/objects/interactives/Playmat.tscn" id="7_kh0iu"]
+[ext_resource type="PackedScene" uid="uid://0xw7c534ahml" path="res://world/objects/interactives/TreasureChest.tscn" id="8_xg3ia"]
+[ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="9_yqmau"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtesk"]
-texture = ExtResource("2_e3myh")
+texture = ExtResource("2_mgdgu")
 1:0/0 = 0
 1:0/0/probability = 200.0
 2:0/0 = 0
@@ -411,7 +412,7 @@ terrain_set_0/terrain_0/name = "Pathway"
 terrain_set_0/terrain_0/color = Color(1, 0.686275, 0.501961, 1)
 sources/1 = SubResource("TileSetAtlasSource_mtesk")
 
-[node name="DemoArea" instance=ExtResource("1_hud1r")]
+[node name="DemoArea" instance=ExtResource("1_py633")]
 area_id = "demo_area"
 
 [node name="TileMap" parent="." index="0"]
@@ -423,29 +424,41 @@ layer_0/tile_data = PackedInt32Array(-131070, 65537, 0, -65535, 65537, 0, -65536
 [node name="Player" parent="." index="1"]
 position = Vector2(315, 147)
 
-[node name="Library" parent="Buildings" index="0" instance=ExtResource("3_1v7hy")]
+[node name="ChristmasAreaTransition" parent="AreaTransitions" index="0" instance=ExtResource("3_wm2hn")]
+position = Vector2(105, 216)
+id = "demo_area_to_christmas_area"
+transitions_to = "res://world/areas/christmas/ChristmasArea.tscn"
+linked_transition_area = "christmas_area_to_demo_area"
+
+[node name="Library" parent="Buildings" index="0" instance=ExtResource("3_k3lku")]
 position = Vector2(149, 60)
+entrance_id = "library_entrance"
+transitions_to = "res://world/areas/demo/buildings/LibraryArea.tscn"
+exit_id = "entrance"
 
-[node name="House1" parent="Buildings" index="1" instance=ExtResource("3_2qofp")]
+[node name="House1" parent="Buildings" index="1" instance=ExtResource("4_fwp8s")]
 position = Vector2(409, 53)
+entrance_id = "house_1_entrance"
+transitions_to = "res://world/areas/demo/buildings/House1Area.tscn"
+exit_id = "entrance"
 
-[node name="WoodTable" parent="Objects" index="0" instance=ExtResource("5_mvsgg")]
+[node name="WoodTable" parent="Objects" index="0" instance=ExtResource("5_rch68")]
 position = Vector2(275, 117)
 
-[node name="BlobMonster" parent="Monsters" index="0" instance=ExtResource("6_wus2q")]
+[node name="BlobMonster" parent="Monsters" index="0" instance=ExtResource("6_v8ygi")]
 position = Vector2(410, 216)
 
 [node name="Interactives" parent="." index="6"]
 y_sort_enabled = true
 
-[node name="Playmat" parent="Interactives" index="0" instance=ExtResource("5_nuk5v")]
+[node name="Playmat" parent="Interactives" index="0" instance=ExtResource("7_kh0iu")]
 position = Vector2(275, 117)
 playmat_id = "demo_area_playmat_0"
 
-[node name="TreasureChest" parent="Interactives" index="1" instance=ExtResource("7_n3cu3")]
+[node name="TreasureChest" parent="Interactives" index="1" instance=ExtResource("8_xg3ia")]
 position = Vector2(361, 159)
 id = "DEMO_AREA_FIREBALL_0"
 card_id = "fireball"
 
-[node name="DrawPickup" parent="Pickups" index="0" instance=ExtResource("2_snqmu")]
+[node name="DrawPickup" parent="Pickups" index="0" instance=ExtResource("9_yqmau")]
 position = Vector2(237, 185)

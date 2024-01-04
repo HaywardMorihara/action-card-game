@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfcc1ep622j7q"]
+
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_apk6k"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_30jfh"]
+
+[node name="House1Area" instance=ExtResource("1_apk6k")]
+area_id = "christmas_area_house_1"
+
+[node name="AreatTransitionExit" parent="AreaTransitions" index="0" instance=ExtResource("2_30jfh")]
+position = Vector2(3, 39)
+id = "entrance"
+transitions_to = "res://world/areas/christmas/ChristmasArea.tscn"
+linked_transition_area = "house_1_entrance"
