@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="1_jpf3e"]
 [ext_resource type="Script" path="res://world/buildings/Building.gd" id="1_scth6"]
 
-[node name="Building" type="StaticBody2D"]
+[node name="Building" type="Sprite2D"]
 script = ExtResource("1_scth6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="AreaTransition" parent="." instance=ExtResource("1_jpf3e")]

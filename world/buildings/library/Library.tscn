@@ -4,15 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dtndwvtuxoj0n" path="res://world/buildings/library/library.png" id="2_r2fk8"]
 
 [node name="Library" instance=ExtResource("1_tfspe")]
-
-[node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_r2fk8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(-81, -37, 79, -37, 80, 32, 16, 40, 12, 9, -12, 9, -16, 40, -80, 32)
 
 [node name="AreaTransition" parent="." index="1"]
 position = Vector2(0, 20)
 id = "ATLibraryEntrance"
 transitions_to = "res://world/buildings/library/LibraryArea.tscn"
 linked_transition_area = "ATLibraryExit"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
-polygon = PackedVector2Array(-81, -37, 79, -37, 80, 32, 16, 40, 12, 9, -12, 9, -16, 40, -80, 32)

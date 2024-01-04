@@ -5,18 +5,15 @@
 
 [node name="House1" instance=ExtResource("1_y8dlt")]
 y_sort_enabled = true
-
-[node name="Sprite2D" parent="." index="0"]
-y_sort_enabled = true
 texture = ExtResource("2_thhxb")
 hframes = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+y_sort_enabled = true
+polygon = PackedVector2Array(-79, -34, 78, -34, 79, 34, 11, 34, 11, 4, -11, 4, -11, 34, -79, 34)
 
 [node name="AreaTransition" parent="." index="1"]
 position = Vector2(0, 16)
 id = "ATHouse1"
 transitions_to = "res://world/buildings/house_1/House1Area.tscn"
 linked_transition_area = "ATHouse1Exit"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
-y_sort_enabled = true
-polygon = PackedVector2Array(-79, -34, 78, -34, 79, 34, 11, 34, 11, 4, -11, 4, -11, 34, -79, 34)

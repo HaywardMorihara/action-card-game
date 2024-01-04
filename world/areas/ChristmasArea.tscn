@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://8s67d2jb8d35"]
+[gd_scene load_steps=8 format=3 uid="uid://8s67d2jb8d35"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_71nio"]
 [ext_resource type="Texture2D" uid="uid://cl1jiqf5v0233" path="res://world/areas/tiles/outdoor-snow-and-pathway.png" id="2_iyb5g"]
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_krgfh"]
+[ext_resource type="Texture2D" uid="uid://lxktnrg4g0nx" path="res://world/buildings/library/library-snow.png" id="4_fvyio"]
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_g6w1c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_telt3"]
@@ -461,6 +462,8 @@ position = Vector2(24, 66)
 
 [node name="Library" parent="Buildings" index="0" instance=ExtResource("3_krgfh")]
 position = Vector2(3, -148)
+texture = ExtResource("4_fvyio")
 
 [node name="House1" parent="Buildings" index="1" instance=ExtResource("4_g6w1c")]
 position = Vector2(-209, -132)
+frame = 1

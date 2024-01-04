@@ -423,13 +423,11 @@ layer_0/tile_data = PackedInt32Array(-131070, 65537, 0, -65535, 65537, 0, -65536
 [node name="Player" parent="." index="1"]
 position = Vector2(315, 147)
 
-[node name="House1" parent="Buildings" index="0" instance=ExtResource("3_2qofp")]
-position = Vector2(401, 86)
-script = null
+[node name="Library" parent="Buildings" index="0" instance=ExtResource("3_1v7hy")]
+position = Vector2(149, 60)
 
-[node name="Library" parent="Buildings" index="1" instance=ExtResource("3_1v7hy")]
-y_sort_enabled = true
-position = Vector2(146, 92)
+[node name="House1" parent="Buildings" index="1" instance=ExtResource("3_2qofp")]
+position = Vector2(409, 53)
 
 [node name="WoodTable" parent="Objects" index="0" instance=ExtResource("5_mvsgg")]
 position = Vector2(275, 117)

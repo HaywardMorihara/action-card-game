@@ -1,3 +1,3 @@
-class_name Building extends StaticBody2D
+class_name Building extends Sprite2D
 
 @onready var area_transition : AreaTransition = $AreaTransition as AreaTransition;
