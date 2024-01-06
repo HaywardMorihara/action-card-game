@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdk63h587kklh"]
+
+[ext_resource type="Texture2D" uid="uid://cumiwd7ie8odo" path="res://world/decoratives/rug.png" id="1_3wo70"]
+
+[node name="Rug" type="Sprite2D"]
+texture = ExtResource("1_3wo70")

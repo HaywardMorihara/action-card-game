@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwiboycmnihux"]
+
+[ext_resource type="Texture2D" uid="uid://ehtn42jbx6r1" path="res://world/decoratives/wreath.png" id="1_lp4sx"]
+
+[node name="Wreath" type="Sprite2D"]
+texture = ExtResource("1_lp4sx")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://djnvj0h8kvvfr"]
+
+[ext_resource type="Texture2D" uid="uid://dm24whgvkijjf" path="res://world/decoratives/christmas-lights.png" id="1_po7hl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig471"]
+atlas = ExtResource("1_po7hl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvgiy"]
+atlas = ExtResource("1_po7hl")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koovl"]
+atlas = ExtResource("1_po7hl")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dagli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig471")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvgiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koovl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="ChristmasLights" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dagli")
+autoplay = "default"
+frame_progress = 0.62905

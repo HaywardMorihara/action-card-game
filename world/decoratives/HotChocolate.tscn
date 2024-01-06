@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn3d07yt10hpa"]
+
+[ext_resource type="Texture2D" uid="uid://cyu77aqme6mqi" path="res://world/decoratives/hot-chocolate.png" id="1_u211v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6e4c"]
+atlas = ExtResource("1_u211v")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s51f5"]
+atlas = ExtResource("1_u211v")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8js3"]
+atlas = ExtResource("1_u211v")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra8im"]
+atlas = ExtResource("1_u211v")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uof17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6e4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s51f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8js3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra8im")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HotChocolate" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_uof17")
+autoplay = "default"
+frame_progress = 0.272558
