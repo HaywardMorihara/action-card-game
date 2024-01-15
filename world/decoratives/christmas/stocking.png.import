@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyu77aqme6mqi"
-path="res://.godot/imported/hot-chocolate.png-5c896952c452f166a3c37205f9ccdb49.ctex"
+uid="uid://kxjheu8inkki"
+path="res://.godot/imported/stocking.png-e7bd2d329753db758fb7c591a9a66757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/decoratives/hot-chocolate.png"
-dest_files=["res://.godot/imported/hot-chocolate.png-5c896952c452f166a3c37205f9ccdb49.ctex"]
+source_file="res://world/decoratives/christmas/stocking.png"
+dest_files=["res://.godot/imported/stocking.png-e7bd2d329753db758fb7c591a9a66757.ctex"]
 
 [params]
 

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfcc1ep622j7q"]
+[gd_scene load_steps=8 format=3 uid="uid://cfcc1ep622j7q"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_apk6k"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_30jfh"]
 [ext_resource type="TileSet" uid="uid://qc5lb5w17ci7" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_uvr4a"]
+[ext_resource type="PackedScene" uid="uid://djnvj0h8kvvfr" path="res://world/decoratives/christmas/ChristmasLights.tscn" id="4_ne7vx"]
+[ext_resource type="PackedScene" uid="uid://cn3d07yt10hpa" path="res://world/decoratives/christmas/HotChocolate.tscn" id="5_gyfmv"]
+[ext_resource type="PackedScene" uid="uid://b6o3kvabyp4le" path="res://world/decoratives/christmas/Stocking.tscn" id="6_n8ho2"]
+[ext_resource type="PackedScene" uid="uid://cwiboycmnihux" path="res://world/decoratives/christmas/Wreath.tscn" id="7_jckd6"]
 
 [node name="House1Area" instance=ExtResource("1_apk6k")]
 area_id = "christmas_area_house_1"
@@ -16,8 +20,76 @@ layer_2/name = "Decoratives"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-524288, 4, 0)
 
+[node name="Player" parent="." index="1"]
+position = Vector2(12, -86)
+
 [node name="AreatTransitionExit" parent="AreaTransitions" index="0" instance=ExtResource("2_30jfh")]
 position = Vector2(0, 94)
 id = "entrance"
 transitions_to = "res://world/areas/christmas/ChristmasArea.tscn"
 linked_transition_area = "house_1_entrance"
+
+[node name="ChristmasLights19" type="Node2D" parent="Decoratives" index="0"]
+
+[node name="ChristmasLights" parent="Decoratives/ChristmasLights19" index="0" instance=ExtResource("4_ne7vx")]
+position = Vector2(-120, -132)
+
+[node name="ChristmasLights2" parent="Decoratives/ChristmasLights19" index="1" instance=ExtResource("4_ne7vx")]
+position = Vector2(-105, -132)
+
+[node name="ChristmasLights3" parent="Decoratives/ChristmasLights19" index="2" instance=ExtResource("4_ne7vx")]
+position = Vector2(-89, -132)
+
+[node name="ChristmasLights4" parent="Decoratives/ChristmasLights19" index="3" instance=ExtResource("4_ne7vx")]
+position = Vector2(-74, -132)
+
+[node name="ChristmasLights5" parent="Decoratives/ChristmasLights19" index="4" instance=ExtResource("4_ne7vx")]
+position = Vector2(-58, -132)
+
+[node name="ChristmasLights6" parent="Decoratives/ChristmasLights19" index="5" instance=ExtResource("4_ne7vx")]
+position = Vector2(-46, -133)
+
+[node name="ChristmasLights7" parent="Decoratives/ChristmasLights19" index="6" instance=ExtResource("4_ne7vx")]
+position = Vector2(-32, -132)
+
+[node name="ChristmasLights8" parent="Decoratives/ChristmasLights19" index="7" instance=ExtResource("4_ne7vx")]
+position = Vector2(-17, -132)
+
+[node name="ChristmasLights9" parent="Decoratives/ChristmasLights19" index="8" instance=ExtResource("4_ne7vx")]
+position = Vector2(-3, -132)
+
+[node name="ChristmasLights10" parent="Decoratives/ChristmasLights19" index="9" instance=ExtResource("4_ne7vx")]
+position = Vector2(11, -132)
+
+[node name="ChristmasLights11" parent="Decoratives/ChristmasLights19" index="10" instance=ExtResource("4_ne7vx")]
+position = Vector2(25, -132)
+
+[node name="ChristmasLights12" parent="Decoratives/ChristmasLights19" index="11" instance=ExtResource("4_ne7vx")]
+position = Vector2(40, -132)
+
+[node name="ChristmasLights13" parent="Decoratives/ChristmasLights19" index="12" instance=ExtResource("4_ne7vx")]
+position = Vector2(56, -132)
+
+[node name="ChristmasLights14" parent="Decoratives/ChristmasLights19" index="13" instance=ExtResource("4_ne7vx")]
+position = Vector2(70, -132)
+
+[node name="ChristmasLights15" parent="Decoratives/ChristmasLights19" index="14" instance=ExtResource("4_ne7vx")]
+position = Vector2(84, -132)
+
+[node name="ChristmasLights16" parent="Decoratives/ChristmasLights19" index="15" instance=ExtResource("4_ne7vx")]
+position = Vector2(98, -132)
+
+[node name="ChristmasLights17" parent="Decoratives/ChristmasLights19" index="16" instance=ExtResource("4_ne7vx")]
+position = Vector2(112, -132)
+
+[node name="ChristmasLights18" parent="Decoratives/ChristmasLights19" index="17" instance=ExtResource("4_ne7vx")]
+position = Vector2(120, -132)
+
+[node name="HotChocolate" parent="Decoratives" index="1" instance=ExtResource("5_gyfmv")]
+position = Vector2(-21, -100)
+
+[node name="Stocking" parent="Decoratives" index="2" instance=ExtResource("6_n8ho2")]
+position = Vector2(25, -123)
+
+[node name="Wreath" parent="Decoratives" index="3" instance=ExtResource("7_jckd6")]
+position = Vector2(9, -141)

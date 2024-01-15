@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djnvj0h8kvvfr"]
 
-[ext_resource type="Texture2D" uid="uid://dm24whgvkijjf" path="res://world/decoratives/christmas-lights.png" id="1_po7hl"]
+[ext_resource type="Texture2D" uid="uid://dm24whgvkijjf" path="res://world/decoratives/christmas/christmas-lights.png" id="1_po7hl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ig471"]
 atlas = ExtResource("1_po7hl")

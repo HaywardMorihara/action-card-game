@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm24whgvkijjf"
-path="res://.godot/imported/christmas-lights.png-17e2dfd0cc37001dbd60dd8117c78413.ctex"
+path="res://.godot/imported/christmas-lights.png-baab3bce3ac6c4d630da727fbf5b4bc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/decoratives/christmas-lights.png"
-dest_files=["res://.godot/imported/christmas-lights.png-17e2dfd0cc37001dbd60dd8117c78413.ctex"]
+source_file="res://world/decoratives/christmas/christmas-lights.png"
+dest_files=["res://.godot/imported/christmas-lights.png-baab3bce3ac6c4d630da727fbf5b4bc2.ctex"]
 
 [params]
 

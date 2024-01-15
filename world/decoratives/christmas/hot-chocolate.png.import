@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ehtn42jbx6r1"
-path="res://.godot/imported/wreath.png-731a9c573fdf683ccb2fdcfc035d2c93.ctex"
+uid="uid://cyu77aqme6mqi"
+path="res://.godot/imported/hot-chocolate.png-17147b2a0980265203b7f5ec3604a125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/decoratives/wreath.png"
-dest_files=["res://.godot/imported/wreath.png-731a9c573fdf683ccb2fdcfc035d2c93.ctex"]
+source_file="res://world/decoratives/christmas/hot-chocolate.png"
+dest_files=["res://.godot/imported/hot-chocolate.png-17147b2a0980265203b7f5ec3604a125.ctex"]
 
 [params]
 

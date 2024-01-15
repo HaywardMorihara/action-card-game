@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kxjheu8inkki"
-path="res://.godot/imported/stocking.png-20d0f5a4f1137f2900975fc423e8e42a.ctex"
+uid="uid://ehtn42jbx6r1"
+path="res://.godot/imported/wreath.png-24b89211555fbf5764e18cc151ac004f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/decoratives/stocking.png"
-dest_files=["res://.godot/imported/stocking.png-20d0f5a4f1137f2900975fc423e8e42a.ctex"]
+source_file="res://world/decoratives/christmas/wreath.png"
+dest_files=["res://.godot/imported/wreath.png-24b89211555fbf5764e18cc151ac004f.ctex"]
 
 [params]
 
