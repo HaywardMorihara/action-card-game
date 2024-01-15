@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://qc5lb5w17ci7"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://qc5lb5w17ci7"]
 
 [ext_resource type="Texture2D" uid="uid://xukk3dec14dd" path="res://world/areas/tiles/interior-floor.png" id="1_vggbm"]
 [ext_resource type="Texture2D" uid="uid://cdjwvmc7g2lm8" path="res://world/areas/tiles/interior-walls.png" id="2_7oedx"]
 [ext_resource type="Texture2D" uid="uid://ch7714x7j6u0o" path="res://world/areas/tiles/exit_mat.png" id="3_je5bo"]
+[ext_resource type="Texture2D" uid="uid://dx47766cp44t0" path="res://world/areas/tiles/fireplace.png" id="4_1otjs"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4ruwk"]
 tile_data = PackedInt32Array(0, 917504, 0, 1, 983040, 0)
@@ -257,6 +258,17 @@ texture = ExtResource("3_je5bo")
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54dis"]
+texture = ExtResource("4_1otjs")
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.11
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 2
@@ -267,5 +279,6 @@ terrain_set_0/terrain_1/color = Color(0.890196, 0.0431373, 0.14902, 1)
 sources/0 = SubResource("TileSetAtlasSource_0rsmt")
 sources/2 = SubResource("TileSetAtlasSource_w4v6n")
 sources/3 = SubResource("TileSetAtlasSource_15psw")
+sources/4 = SubResource("TileSetAtlasSource_54dis")
 pattern_0 = SubResource("TileMapPattern_4ruwk")
 pattern_1 = SubResource("TileMapPattern_cwirx")
