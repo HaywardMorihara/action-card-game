@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://lupctsy4rh27"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_jrp4w"]
+[ext_resource type="Texture2D" uid="uid://bbcwannio1807" path="res://world/objects/indoor/book_open.png" id="2_eha0j"]
+
+[node name="BookOpen" instance=ExtResource("1_jrp4w")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_eha0j")
+hframes = 7

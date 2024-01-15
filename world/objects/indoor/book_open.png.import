@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbcwannio1807"
-path="res://.godot/imported/open-book.png-e63b604d588118b81d541f26eaeaace7.ctex"
+path="res://.godot/imported/book_open.png-ce70c04dcbf1e51a6fb5cf8eae090df0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/objects/indoor/open-book.png"
-dest_files=["res://.godot/imported/open-book.png-e63b604d588118b81d541f26eaeaace7.ctex"]
+source_file="res://world/objects/indoor/book_open.png"
+dest_files=["res://.godot/imported/book_open.png-ce70c04dcbf1e51a6fb5cf8eae090df0.ctex"]
 
 [params]
 
