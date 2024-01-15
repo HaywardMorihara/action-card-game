@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx47766cp44t0"
-path="res://.godot/imported/fireplace.png-77156194eda787b1dc2b938bb08b3757.ctex"
+path="res://.godot/imported/fireplace.png-77dcaefc18571f22c38ff1eb7a3caa56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/decoratives/fireplace.png"
-dest_files=["res://.godot/imported/fireplace.png-77156194eda787b1dc2b938bb08b3757.ctex"]
+source_file="res://world/areas/tiles/fireplace.png"
+dest_files=["res://.godot/imported/fireplace.png-77dcaefc18571f22c38ff1eb7a3caa56.ctex"]
 
 [params]
 

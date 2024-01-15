@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_apk6k"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_30jfh"]
-[ext_resource type="TileSet" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_uvr4a"]
+[ext_resource type="TileSet" uid="uid://qc5lb5w17ci7" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_uvr4a"]
 
 [node name="House1Area" instance=ExtResource("1_apk6k")]
 area_id = "christmas_area_house_1"

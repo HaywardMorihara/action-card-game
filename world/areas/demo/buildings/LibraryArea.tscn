@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o8yuugueqo01"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_1e53x"]
-[ext_resource type="TileSet" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_rq37f"]
+[ext_resource type="TileSet" uid="uid://qc5lb5w17ci7" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_rq37f"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="4_roubk"]
 
 [node name="LibraryArea" instance=ExtResource("1_1e53x")]
