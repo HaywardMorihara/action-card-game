@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8s67d2jb8d35"]
+[gd_scene load_steps=18 format=3 uid="uid://8s67d2jb8d35"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_abqtw"]
 [ext_resource type="Texture2D" uid="uid://cl1jiqf5v0233" path="res://world/areas/tiles/outdoor-snow-and-pathway.png" id="2_2rli3"]
@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_p6gqn"]
 [ext_resource type="Texture2D" uid="uid://lxktnrg4g0nx" path="res://world/buildings/library/library-snow.png" id="4_0hhly"]
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="5_t8ny8"]
+[ext_resource type="PackedScene" uid="uid://brve88sshis3s" path="res://world/objects/outdoor/Bench.tscn" id="7_huqvd"]
+[ext_resource type="PackedScene" uid="uid://c5ahj5heldsdj" path="res://world/objects/outdoor/Snowman.tscn" id="8_gkc68"]
+[ext_resource type="PackedScene" uid="uid://c3f1su13qqmwy" path="res://world/objects/outdoor/LampPost.tscn" id="9_gwmnu"]
+[ext_resource type="PackedScene" uid="uid://blv2bd0rs3jl3" path="res://world/objects/outdoor/SignPost.tscn" id="10_1w14y"]
+[ext_resource type="PackedScene" uid="uid://dg3v1oxxaumdv" path="res://world/objects/outdoor/StreetSignPost.tscn" id="11_gksy8"]
+[ext_resource type="PackedScene" uid="uid://dbf2nmq41b3i3" path="res://world/objects/outdoor/FenceVertical.tscn" id="12_b2nxq"]
+[ext_resource type="PackedScene" uid="uid://e36w8lhtwbyy" path="res://world/objects/outdoor/FenceHorizontal.tscn" id="13_tshsx"]
+[ext_resource type="PackedScene" uid="uid://dhp8ni7klmsu1" path="res://world/objects/trees/PineTreeBig.tscn" id="14_fl80a"]
+[ext_resource type="PackedScene" uid="uid://c3u6p2r6rtapr" path="res://world/objects/trees/PineTreeSmall.tscn" id="15_vwfjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_telt3"]
 texture = ExtResource("2_2rli3")
@@ -473,8 +482,306 @@ transitions_to = "res://world/areas/christmas/buildings/LibraryArea.tscn"
 exit_id = "entrance"
 
 [node name="House1" parent="Buildings" index="1" instance=ExtResource("5_t8ny8")]
-position = Vector2(235, -15)
+position = Vector2(-178, -111)
 frame = 1
 entrance_id = "house_1_entrance"
 transitions_to = "res://world/areas/christmas/buildings/House1Area.tscn"
 exit_id = "entrance"
+
+[node name="Bench" parent="Objects" index="0" instance=ExtResource("7_huqvd")]
+position = Vector2(-67, -76)
+
+[node name="Snowman" parent="Objects" index="1" instance=ExtResource("8_gkc68")]
+position = Vector2(88, -82)
+
+[node name="LampPost" parent="Objects" index="2" instance=ExtResource("9_gwmnu")]
+position = Vector2(130, -67)
+
+[node name="SignPost" parent="Objects" index="3" instance=ExtResource("10_1w14y")]
+position = Vector2(51, -75)
+
+[node name="StreetSignPost" parent="Objects" index="4" instance=ExtResource("11_gksy8")]
+position = Vector2(-136, -72)
+
+[node name="Trees" type="Node2D" parent="Objects" index="5"]
+
+[node name="PineTreeBig" parent="Objects/Trees" index="0" instance=ExtResource("14_fl80a")]
+frame = 1
+
+[node name="PineTreeSmall" parent="Objects/Trees" index="1" instance=ExtResource("15_vwfjy")]
+position = Vector2(166, -54)
+frame = 3
+
+[node name="PineTreeSmall2" parent="Objects/Trees" index="2" instance=ExtResource("15_vwfjy")]
+position = Vector2(222, -23)
+frame = 3
+
+[node name="PineTreeSmall3" parent="Objects/Trees" index="3" instance=ExtResource("15_vwfjy")]
+position = Vector2(186, 12)
+frame = 3
+
+[node name="PineTreeSmall4" parent="Objects/Trees" index="4" instance=ExtResource("15_vwfjy")]
+position = Vector2(114, -100)
+frame = 3
+
+[node name="PineTreeSmall5" parent="Objects/Trees" index="5" instance=ExtResource("15_vwfjy")]
+position = Vector2(142, -92)
+frame = 3
+
+[node name="PineTreeSmall6" parent="Objects/Trees" index="6" instance=ExtResource("15_vwfjy")]
+position = Vector2(166, -94)
+frame = 3
+
+[node name="PineTreeSmall7" parent="Objects/Trees" index="7" instance=ExtResource("15_vwfjy")]
+position = Vector2(188, -70)
+frame = 3
+
+[node name="PineTreeSmall8" parent="Objects/Trees" index="8" instance=ExtResource("15_vwfjy")]
+position = Vector2(184, -30)
+frame = 3
+
+[node name="PineTreeSmall9" parent="Objects/Trees" index="9" instance=ExtResource("15_vwfjy")]
+position = Vector2(214, -55)
+frame = 3
+
+[node name="PineTreeSmall10" parent="Objects/Trees" index="10" instance=ExtResource("15_vwfjy")]
+position = Vector2(202, -11)
+frame = 3
+
+[node name="PineTreeSmall11" parent="Objects/Trees" index="11" instance=ExtResource("15_vwfjy")]
+position = Vector2(161, -12)
+frame = 3
+
+[node name="PineTreeSmall12" parent="Objects/Trees" index="12" instance=ExtResource("15_vwfjy")]
+position = Vector2(162, 14)
+frame = 3
+
+[node name="PineTreeSmall13" parent="Objects/Trees" index="13" instance=ExtResource("15_vwfjy")]
+position = Vector2(220, 12)
+frame = 3
+
+[node name="PineTreeSmall14" parent="Objects/Trees" index="14" instance=ExtResource("15_vwfjy")]
+position = Vector2(201, 39)
+frame = 3
+
+[node name="PineTreeSmall15" parent="Objects/Trees" index="15" instance=ExtResource("15_vwfjy")]
+position = Vector2(173, 43)
+frame = 3
+
+[node name="PineTreeSmall16" parent="Objects/Trees" index="16" instance=ExtResource("15_vwfjy")]
+position = Vector2(183, 75)
+frame = 3
+
+[node name="PineTreeSmall17" parent="Objects/Trees" index="17" instance=ExtResource("15_vwfjy")]
+position = Vector2(214, 54)
+frame = 3
+
+[node name="PineTreeSmall18" parent="Objects/Trees" index="18" instance=ExtResource("15_vwfjy")]
+position = Vector2(230, 37)
+frame = 3
+
+[node name="PineTreeSmall19" parent="Objects/Trees" index="19" instance=ExtResource("15_vwfjy")]
+position = Vector2(232, 69)
+frame = 3
+
+[node name="PineTreeSmall20" parent="Objects/Trees" index="20" instance=ExtResource("15_vwfjy")]
+position = Vector2(212, 79)
+frame = 3
+
+[node name="PineTreeSmall21" parent="Objects/Trees" index="21" instance=ExtResource("15_vwfjy")]
+position = Vector2(155, 72)
+frame = 3
+
+[node name="PineTreeSmall22" parent="Objects/Trees" index="22" instance=ExtResource("15_vwfjy")]
+position = Vector2(170, 94)
+frame = 3
+
+[node name="PineTreeSmall23" parent="Objects/Trees" index="23" instance=ExtResource("15_vwfjy")]
+position = Vector2(196, 98)
+frame = 3
+
+[node name="PineTreeSmall24" parent="Objects/Trees" index="24" instance=ExtResource("15_vwfjy")]
+position = Vector2(228, 105)
+frame = 3
+
+[node name="PineTreeSmall25" parent="Objects/Trees" index="25" instance=ExtResource("15_vwfjy")]
+position = Vector2(-194, -33)
+frame = 3
+
+[node name="PineTreeSmall26" parent="Objects/Trees" index="26" instance=ExtResource("15_vwfjy")]
+position = Vector2(-224, -6)
+frame = 3
+
+[node name="PineTreeSmall27" parent="Objects/Trees" index="27" instance=ExtResource("15_vwfjy")]
+position = Vector2(-181, 17)
+frame = 3
+
+[node name="PineTreeSmall28" parent="Objects/Trees" index="28" instance=ExtResource("15_vwfjy")]
+position = Vector2(-181, 17)
+frame = 3
+
+[node name="PineTreeSmall29" parent="Objects/Trees" index="29" instance=ExtResource("15_vwfjy")]
+position = Vector2(-207, 45)
+frame = 3
+
+[node name="PineTreeSmall30" parent="Objects/Trees" index="30" instance=ExtResource("15_vwfjy")]
+position = Vector2(-169, 62)
+frame = 3
+
+[node name="PineTreeSmall31" parent="Objects/Trees" index="31" instance=ExtResource("15_vwfjy")]
+position = Vector2(-202, 85)
+frame = 3
+
+[node name="PineTreeSmall32" parent="Objects/Trees" index="32" instance=ExtResource("15_vwfjy")]
+position = Vector2(-166, 97)
+frame = 3
+
+[node name="PineTreeSmall33" parent="Objects/Trees" index="33" instance=ExtResource("15_vwfjy")]
+position = Vector2(-195, 112)
+frame = 3
+
+[node name="PineTreeSmall34" parent="Objects/Trees" index="34" instance=ExtResource("15_vwfjy")]
+position = Vector2(-177, 122)
+frame = 3
+
+[node name="PineTreeSmall35" parent="Objects/Trees" index="35" instance=ExtResource("15_vwfjy")]
+position = Vector2(-238, 49)
+frame = 3
+
+[node name="PineTreeSmall36" parent="Objects/Trees" index="36" instance=ExtResource("15_vwfjy")]
+position = Vector2(-225, 82)
+frame = 3
+
+[node name="PineTreeSmall37" parent="Objects/Trees" index="37" instance=ExtResource("15_vwfjy")]
+position = Vector2(-239, 117)
+frame = 3
+
+[node name="PineTreeSmall38" parent="Objects/Trees" index="38" instance=ExtResource("15_vwfjy")]
+position = Vector2(-243, 12)
+frame = 3
+
+[node name="PineTreeSmall39" parent="Objects/Trees" index="39" instance=ExtResource("15_vwfjy")]
+position = Vector2(-164, -5)
+frame = 3
+
+[node name="Fencing" type="Node2D" parent="Objects" index="6"]
+
+[node name="FenceVertical" parent="Objects/Fencing" index="0" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, -54)
+
+[node name="FenceVertical2" parent="Objects/Fencing" index="1" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, -39)
+
+[node name="FenceVertical3" parent="Objects/Fencing" index="2" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, -24)
+
+[node name="FenceVertical4" parent="Objects/Fencing" index="3" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, -9)
+
+[node name="FenceVertical5" parent="Objects/Fencing" index="4" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 6)
+
+[node name="FenceVertical6" parent="Objects/Fencing" index="5" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 21)
+
+[node name="FenceVertical7" parent="Objects/Fencing" index="6" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 36)
+
+[node name="FenceVertical8" parent="Objects/Fencing" index="7" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 51)
+
+[node name="FenceVertical9" parent="Objects/Fencing" index="8" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 66)
+
+[node name="FenceVertical10" parent="Objects/Fencing" index="9" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 81)
+
+[node name="FenceVertical11" parent="Objects/Fencing" index="10" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 96)
+
+[node name="FenceVertical12" parent="Objects/Fencing" index="11" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 111)
+
+[node name="FenceVertical13" parent="Objects/Fencing" index="12" instance=ExtResource("12_b2nxq")]
+position = Vector2(146, 126)
+
+[node name="FenceVertical16" parent="Objects/Fencing" index="13" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, -19)
+
+[node name="FenceVertical17" parent="Objects/Fencing" index="14" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, -4)
+
+[node name="FenceVertical18" parent="Objects/Fencing" index="15" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 11)
+
+[node name="FenceVertical19" parent="Objects/Fencing" index="16" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 26)
+
+[node name="FenceVertical20" parent="Objects/Fencing" index="17" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 41)
+
+[node name="FenceVertical21" parent="Objects/Fencing" index="18" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 56)
+
+[node name="FenceVertical22" parent="Objects/Fencing" index="19" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 71)
+
+[node name="FenceVertical23" parent="Objects/Fencing" index="20" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 86)
+
+[node name="FenceVertical24" parent="Objects/Fencing" index="21" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 101)
+
+[node name="FenceVertical25" parent="Objects/Fencing" index="22" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 116)
+
+[node name="FenceVertical26" parent="Objects/Fencing" index="23" instance=ExtResource("12_b2nxq")]
+position = Vector2(-140, 131)
+
+[node name="FenceHorizontal" parent="Objects/Fencing" index="24" instance=ExtResource("13_tshsx")]
+position = Vector2(28, 146)
+
+[node name="FenceHorizontal2" parent="Objects/Fencing" index="25" instance=ExtResource("13_tshsx")]
+position = Vector2(44, 146)
+
+[node name="FenceHorizontal3" parent="Objects/Fencing" index="26" instance=ExtResource("13_tshsx")]
+position = Vector2(60, 146)
+
+[node name="FenceHorizontal4" parent="Objects/Fencing" index="27" instance=ExtResource("13_tshsx")]
+position = Vector2(76, 146)
+
+[node name="FenceHorizontal5" parent="Objects/Fencing" index="28" instance=ExtResource("13_tshsx")]
+position = Vector2(92, 146)
+
+[node name="FenceHorizontal6" parent="Objects/Fencing" index="29" instance=ExtResource("13_tshsx")]
+position = Vector2(108, 146)
+
+[node name="FenceHorizontal7" parent="Objects/Fencing" index="30" instance=ExtResource("13_tshsx")]
+position = Vector2(124, 146)
+
+[node name="FenceHorizontal8" parent="Objects/Fencing" index="31" instance=ExtResource("13_tshsx")]
+position = Vector2(140, 146)
+
+[node name="FenceHorizontal9" parent="Objects/Fencing" index="32" instance=ExtResource("13_tshsx")]
+position = Vector2(-134, 146)
+
+[node name="FenceHorizontal10" parent="Objects/Fencing" index="33" instance=ExtResource("13_tshsx")]
+position = Vector2(-118, 146)
+
+[node name="FenceHorizontal11" parent="Objects/Fencing" index="34" instance=ExtResource("13_tshsx")]
+position = Vector2(-102, 146)
+
+[node name="FenceHorizontal12" parent="Objects/Fencing" index="35" instance=ExtResource("13_tshsx")]
+position = Vector2(-86, 146)
+
+[node name="FenceHorizontal13" parent="Objects/Fencing" index="36" instance=ExtResource("13_tshsx")]
+position = Vector2(-70, 146)
+
+[node name="FenceHorizontal14" parent="Objects/Fencing" index="37" instance=ExtResource("13_tshsx")]
+position = Vector2(-54, 146)
+
+[node name="FenceHorizontal15" parent="Objects/Fencing" index="38" instance=ExtResource("13_tshsx")]
+position = Vector2(-38, 146)
+
+[node name="FenceHorizontal16" parent="Objects/Fencing" index="39" instance=ExtResource("13_tshsx")]
+position = Vector2(-22, 146)

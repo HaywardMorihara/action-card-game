@@ -7,7 +7,7 @@
 radius = 1.0
 height = 8.0
 
-[node name="Sprite2D" instance=ExtResource("1_de73o")]
+[node name="StreetSignPost" instance=ExtResource("1_de73o")]
 texture = ExtResource("2_e50cu")
 hframes = 4
 

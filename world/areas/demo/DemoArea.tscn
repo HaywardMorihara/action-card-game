@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpj4xdarh2m7k"]
+[gd_scene load_steps=20 format=3 uid="uid://bpj4xdarh2m7k"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_py633"]
 [ext_resource type="Texture2D" uid="uid://b0ea2k4mf8ypw" path="res://world/areas/tiles/outdoor-grass-and-pathway.png" id="2_mgdgu"]
@@ -7,9 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_fwp8s"]
 [ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_rch68"]
 [ext_resource type="PackedScene" uid="uid://0pcryys7xxl3" path="res://world/entities/monsters/blob/BlobMonster.tscn" id="6_v8ygi"]
+[ext_resource type="PackedScene" uid="uid://brve88sshis3s" path="res://world/objects/outdoor/Bench.tscn" id="7_08ak5"]
 [ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/interactives/Playmat.tscn" id="7_kh0iu"]
+[ext_resource type="PackedScene" uid="uid://c3f1su13qqmwy" path="res://world/objects/outdoor/LampPost.tscn" id="8_gocq7"]
 [ext_resource type="PackedScene" uid="uid://0xw7c534ahml" path="res://world/interactives/TreasureChest.tscn" id="8_xg3ia"]
+[ext_resource type="PackedScene" uid="uid://blv2bd0rs3jl3" path="res://world/objects/outdoor/SignPost.tscn" id="9_ayd4t"]
 [ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="9_yqmau"]
+[ext_resource type="PackedScene" uid="uid://dg3v1oxxaumdv" path="res://world/objects/outdoor/StreetSignPost.tscn" id="10_fjxxp"]
+[ext_resource type="PackedScene" uid="uid://dbf2nmq41b3i3" path="res://world/objects/outdoor/FenceVertical.tscn" id="11_ygsvb"]
+[ext_resource type="PackedScene" uid="uid://e36w8lhtwbyy" path="res://world/objects/outdoor/FenceHorizontal.tscn" id="12_ywpce"]
+[ext_resource type="PackedScene" uid="uid://cxbhbv0lpxc4n" path="res://world/objects/trees/Tree1.tscn" id="13_7ewmm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtesk"]
 texture = ExtResource("2_mgdgu")
@@ -442,6 +449,64 @@ exit_id = "entrance"
 
 [node name="WoodTable" parent="Objects" index="0" instance=ExtResource("5_rch68")]
 position = Vector2(275, 117)
+
+[node name="Bench" parent="Objects" index="1" instance=ExtResource("7_08ak5")]
+position = Vector2(190, 196)
+
+[node name="LampPost" parent="Objects" index="2" instance=ExtResource("8_gocq7")]
+position = Vector2(115, 184)
+
+[node name="SignPost" parent="Objects" index="3" instance=ExtResource("9_ayd4t")]
+position = Vector2(166, 193)
+
+[node name="StreetSignPost" parent="Objects" index="4" instance=ExtResource("10_fjxxp")]
+position = Vector2(381, 192)
+
+[node name="Fencing" type="Node2D" parent="Objects" index="5"]
+
+[node name="FenceVertical" parent="Objects/Fencing" index="0" instance=ExtResource("11_ygsvb")]
+position = Vector2(125, 243)
+
+[node name="FenceVertical2" parent="Objects/Fencing" index="1" instance=ExtResource("11_ygsvb")]
+position = Vector2(125, 258)
+
+[node name="FenceVertical3" parent="Objects/Fencing" index="2" instance=ExtResource("11_ygsvb")]
+position = Vector2(125, 273)
+
+[node name="FenceVertical4" parent="Objects/Fencing" index="3" instance=ExtResource("11_ygsvb")]
+position = Vector2(125, 288)
+
+[node name="FenceHorizontal" parent="Objects/Fencing" index="4" instance=ExtResource("12_ywpce")]
+position = Vector2(220, 204)
+
+[node name="FenceHorizontal2" parent="Objects/Fencing" index="5" instance=ExtResource("12_ywpce")]
+position = Vector2(236, 204)
+
+[node name="FenceHorizontal3" parent="Objects/Fencing" index="6" instance=ExtResource("12_ywpce")]
+position = Vector2(252, 204)
+
+[node name="FenceHorizontal4" parent="Objects/Fencing" index="7" instance=ExtResource("12_ywpce")]
+position = Vector2(268, 204)
+
+[node name="Trees" type="Node2D" parent="Objects" index="6"]
+
+[node name="Tree1" parent="Objects/Trees" index="0" instance=ExtResource("13_7ewmm")]
+position = Vector2(519, 209)
+
+[node name="Tree2" parent="Objects/Trees" index="1" instance=ExtResource("13_7ewmm")]
+position = Vector2(516, 172)
+
+[node name="Tree3" parent="Objects/Trees" index="2" instance=ExtResource("13_7ewmm")]
+position = Vector2(68, 145)
+
+[node name="Tree4" parent="Objects/Trees" index="3" instance=ExtResource("13_7ewmm")]
+position = Vector2(286, 69)
+
+[node name="Tree5" parent="Objects/Trees" index="4" instance=ExtResource("13_7ewmm")]
+position = Vector2(522, 122)
+
+[node name="Tree6" parent="Objects/Trees" index="5" instance=ExtResource("13_7ewmm")]
+position = Vector2(57, 187)
 
 [node name="BlobMonster" parent="Monsters" index="0" instance=ExtResource("6_v8ygi")]
 position = Vector2(410, 216)
