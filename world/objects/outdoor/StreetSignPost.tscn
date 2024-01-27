@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg3v1oxxaumdv"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_de73o"]
+[ext_resource type="Texture2D" uid="uid://dcjayab85lj22" path="res://world/objects/outdoor/street-sign-post.png" id="2_e50cu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0sho"]
+radius = 1.0
+height = 8.0
+
+[node name="Sprite2D" instance=ExtResource("1_de73o")]
+texture = ExtResource("2_e50cu")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_n0sho")

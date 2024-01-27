@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://e36w8lhtwbyy"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_ckn8c"]
+[ext_resource type="Texture2D" uid="uid://btb3m5wobfqhp" path="res://world/objects/outdoor/fence.png" id="2_2jimm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quvc1"]
+size = Vector2(16, 8)
+
+[node name="FenceHorizontal" instance=ExtResource("1_ckn8c")]
+position = Vector2(4, 0)
+texture = ExtResource("2_2jimm")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(-4, -6)
+shape = SubResource("RectangleShape2D_quvc1")

@@ -1,4 +1,4 @@
-class_name Interactive extends Area2D
+class_name Interactive extends Sprite2D
 
 func _interaction() -> void:
 	print("IMPLEMENT ME");

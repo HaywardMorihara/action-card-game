@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://d1scs5c32o8n"]
 
-[node name="Object" type="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Object" type="StaticBody2D" parent="."]

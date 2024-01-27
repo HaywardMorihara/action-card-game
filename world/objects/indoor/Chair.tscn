@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://de2lik8o2si2c"]
+[gd_scene load_steps=4 format=3 uid="uid://de2lik8o2si2c"]
 
 [ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_q2pqq"]
+[ext_resource type="Texture2D" uid="uid://ba60uvwmd5ong" path="res://world/objects/indoor/chair.png" id="2_eox4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lylok"]
+size = Vector2(8, 4)
 
 [node name="Chair" instance=ExtResource("1_q2pqq")]
+texture = ExtResource("2_eox4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_lylok")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhp8ni7klmsu1"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_5rlbp"]
+[ext_resource type="Texture2D" uid="uid://5mgeqoyr75p8" path="res://world/objects/trees/big-pine-tree.png" id="2_w0h6c"]
+
+[node name="PineTreeBig" instance=ExtResource("1_5rlbp")]
+texture = ExtResource("2_w0h6c")
+hframes = 2
+vframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Object" index="0"]
+polygon = PackedVector2Array(-13, 0, 14, 0, 20, 15, 4, 17, 4, 24, -4, 24, -4, 17, -18, 14)

@@ -1,5 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkolwitg8f2qc"]
+[gd_scene load_steps=4 format=3 uid="uid://dkolwitg8f2qc"]
 
 [ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_23v28"]
+[ext_resource type="Texture2D" uid="uid://dg1iym40uoe7e" path="res://world/objects/indoor/present2.png" id="2_xjvcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35vld"]
+size = Vector2(5, 4)
 
 [node name="Present2" instance=ExtResource("1_23v28")]
+texture = ExtResource("2_xjvcx")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_35vld")
+disabled = true

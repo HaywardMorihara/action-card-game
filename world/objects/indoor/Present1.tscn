@@ -1,5 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwm01no6nrqd6"]
+[gd_scene load_steps=4 format=3 uid="uid://cwm01no6nrqd6"]
 
 [ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_8yf5v"]
+[ext_resource type="Texture2D" uid="uid://qbxv5b65l4c3" path="res://world/objects/indoor/present1.png" id="2_7bkeh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0s2c"]
+size = Vector2(6, 2)
 
 [node name="Present1" instance=ExtResource("1_8yf5v")]
+texture = ExtResource("2_7bkeh")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_j0s2c")

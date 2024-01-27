@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bksxxwbdppc00"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_amscr"]
+[ext_resource type="Texture2D" uid="uid://c3ioibtgcw3tp" path="res://world/objects/indoor/couch.png" id="2_cxcam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8qo"]
+size = Vector2(16, 24)
+
+[node name="CouchVertical" instance=ExtResource("1_amscr")]
+texture = ExtResource("2_cxcam")
+hframes = 4
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+shape = SubResource("RectangleShape2D_jq8qo")

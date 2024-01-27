@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_fwp8s"]
 [ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_rch68"]
 [ext_resource type="PackedScene" uid="uid://0pcryys7xxl3" path="res://world/entities/monsters/blob/BlobMonster.tscn" id="6_v8ygi"]
-[ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/objects/interactives/Playmat.tscn" id="7_kh0iu"]
-[ext_resource type="PackedScene" uid="uid://0xw7c534ahml" path="res://world/objects/interactives/TreasureChest.tscn" id="8_xg3ia"]
+[ext_resource type="PackedScene" uid="uid://pxs6mhmdxdxm" path="res://world/interactives/Playmat.tscn" id="7_kh0iu"]
+[ext_resource type="PackedScene" uid="uid://0xw7c534ahml" path="res://world/interactives/TreasureChest.tscn" id="8_xg3ia"]
 [ext_resource type="PackedScene" uid="uid://e2txx05m3o2y" path="res://world/pickups/DrawPickup.tscn" id="9_yqmau"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtesk"]

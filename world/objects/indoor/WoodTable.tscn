@@ -7,10 +7,7 @@
 size = Vector2(32, 14)
 
 [node name="Table" instance=ExtResource("1_0so56")]
-
-[node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 4)
 texture = ExtResource("2_61gcp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
 shape = SubResource("RectangleShape2D_ix3yv")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://brve88sshis3s"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_lp8xd"]
+[ext_resource type="Texture2D" uid="uid://j1xpdtpmuwd1" path="res://world/objects/outdoor/bench.png" id="2_ieflc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yb4s"]
+size = Vector2(14, 4)
+
+[node name="Bench" instance=ExtResource("1_lp8xd")]
+texture = ExtResource("2_ieflc")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+shape = SubResource("RectangleShape2D_0yb4s")

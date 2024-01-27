@@ -1,12 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfcc1ep622j7q"]
+[gd_scene load_steps=20 format=3 uid="uid://cfcc1ep622j7q"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_apk6k"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_30jfh"]
 [ext_resource type="TileSet" uid="uid://qc5lb5w17ci7" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_uvr4a"]
 [ext_resource type="PackedScene" uid="uid://djnvj0h8kvvfr" path="res://world/decoratives/christmas/ChristmasLights.tscn" id="4_ne7vx"]
+[ext_resource type="PackedScene" uid="uid://lupctsy4rh27" path="res://world/objects/indoor/BookOpen.tscn" id="4_v8yya"]
+[ext_resource type="PackedScene" uid="uid://ik1ut5r8wbqj" path="res://world/objects/indoor/BookshelfLarge.tscn" id="5_5tmm0"]
 [ext_resource type="PackedScene" uid="uid://cn3d07yt10hpa" path="res://world/decoratives/christmas/HotChocolate.tscn" id="5_gyfmv"]
 [ext_resource type="PackedScene" uid="uid://b6o3kvabyp4le" path="res://world/decoratives/christmas/Stocking.tscn" id="6_n8ho2"]
+[ext_resource type="PackedScene" uid="uid://de2lik8o2si2c" path="res://world/objects/indoor/Chair.tscn" id="6_xagh6"]
 [ext_resource type="PackedScene" uid="uid://cwiboycmnihux" path="res://world/decoratives/christmas/Wreath.tscn" id="7_jckd6"]
+[ext_resource type="PackedScene" uid="uid://bksxxwbdppc00" path="res://world/objects/indoor/CouchVertical.tscn" id="7_mgi68"]
+[ext_resource type="PackedScene" uid="uid://0rpocgikrxu8" path="res://world/objects/indoor/CouchHorizontal.tscn" id="8_ijtre"]
+[ext_resource type="PackedScene" uid="uid://cwm01no6nrqd6" path="res://world/objects/indoor/Present1.tscn" id="9_o03mv"]
+[ext_resource type="PackedScene" uid="uid://dkolwitg8f2qc" path="res://world/objects/indoor/Present2.tscn" id="10_m3twh"]
+[ext_resource type="PackedScene" uid="uid://dj6t2css2vus0" path="res://world/objects/indoor/Present3.tscn" id="11_dyttd"]
+[ext_resource type="PackedScene" uid="uid://c0ldw7gjgsx8u" path="res://world/objects/indoor/Present4.tscn" id="12_e5lv7"]
+[ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="13_oeove"]
+[ext_resource type="PackedScene" uid="uid://c3u6p2r6rtapr" path="res://world/objects/trees/PineTreeSmall.tscn" id="14_86byu"]
+[ext_resource type="PackedScene" uid="uid://bdk63h587kklh" path="res://world/decoratives/Rug.tscn" id="18_ggnkx"]
 
 [node name="House1Area" instance=ExtResource("1_apk6k")]
 area_id = "christmas_area_house_1"
@@ -14,82 +26,113 @@ area_id = "christmas_area_house_1"
 [node name="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_uvr4a")
 layer_0/name = "Floor"
-layer_0/tile_data = PackedInt32Array(-131070, 458752, 0, -65535, 131072, 0, -65536, 589824, 0, -1, 131072, 0, -2, 131072, 0, 65534, 131072, 0, 65535, 131072, 0, 0, 131072, 0, 327687, 131072, 0, 327686, 131072, 0, 327685, 131072, 0, 327684, 131072, 0, 327683, 131072, 0, 327682, 131072, 0, 393213, 131072, 0, 393212, 131072, 0, 393211, 131072, 0, 393210, 131072, 0, 393209, 131072, 0, 393208, 589824, 0, 327681, 131072, 0, 393214, 131072, 0, 393215, 917504, 0, 327680, 983040, 0, 262151, 131072, 0, 196615, 131072, 0, 131079, 131072, 0, 65543, 131072, 0, 7, 131072, 0, -131065, 131072, 0, -196601, 131072, 0, -262137, 131072, 0, -327673, 131072, 0, -393209, 131072, 0, -458745, 131072, 0, 262150, 131072, 0, 196614, 131072, 0, 131078, 131072, 0, 6, 131072, 0, -196602, 131072, 0, -262138, 131072, 0, -327674, 131072, 0, -393210, 131072, 0, -458746, 131072, 0, 262149, 131072, 0, 196613, 131072, 0, 131077, 131072, 0, -393211, 131072, 0, -458747, 131072, 0, 262148, 131072, 0, 196612, 131072, 0, 65540, 131072, 0, -262140, 131072, 0, -393212, 131072, 0, -458748, 131072, 0, 262147, 131072, 0, 196611, 131072, 0, 65539, 131072, 0, -131069, 131072, 0, -196605, 131072, 0, -262141, 131072, 0, -393213, 131072, 0, -458749, 131072, 0, 262146, 131072, 0, 196610, 131072, 0, 2, 131072, 0, -196606, 131072, 0, -262142, 131072, 0, -393214, 131072, 0, -458750, 131072, 0, 262145, 131072, 0, 196609, 131072, 0, 131073, 131072, 0, 65537, 131072, 0, 1, 131072, 0, -393215, 131072, 0, -458751, 131072, 0, 262144, 131072, 0, 196608, 131072, 0, 131072, 131072, 0, 65536, 131072, 0, -262144, 131072, 0, -327680, 131072, 0, -393216, 131072, 0, -458752, 131072, 0, 327679, 131072, 0, 262143, 131072, 0, 196607, 131072, 0, 131071, 131072, 0, -196609, 131072, 0, -262145, 131072, 0, -327681, 131072, 0, -393217, 131072, 0, 327678, 131072, 0, 262142, 131072, 0, 196606, 131072, 0, 131070, 131072, 0, -65538, 131072, 0, -327682, 131072, 0, -393218, 131072, 0, 327677, 131072, 0, 262141, 131072, 0, 196605, 131072, 0, -65539, 131072, 0, -131075, 131072, 0, -327683, 131072, 0, -393219, 131072, 0, 327676, 131072, 0, 262140, 131072, 0, 196604, 131072, 0, -65540, 131072, 0, -131076, 131072, 0, -262148, 131072, 0, -327684, 131072, 0, -393220, 131072, 0, 327675, 131072, 0, 262139, 131072, 0, 196603, 131072, 0, -65541, 589824, 0, -131077, 458752, 0, -262149, 131072, 0, -327685, 131072, 0, -393221, 131072, 0, 327674, 131072, 0, 262138, 458752, 0, 196602, 131072, 0, -262150, 458752, 0, -327686, 131072, 0, -393222, 589824, 0, 327673, 131072, 0, 262137, 131072, 0, 196601, 131072, 0, 131065, 131072, 0, -196615, 131072, 0, -262151, 131072, 0, -327687, 131072, 0, -393223, 131072, 0, 327672, 131072, 0, 262136, 131072, 0, 196600, 131072, 0, 131064, 131072, 0, 65528, 131072, 0, -8, 131072, 0, -65544, 131072, 0, -131080, 131072, 0, -196616, 458752, 0, -262152, 131072, 0, -327688, 131072, 0, -393224, 131072, 0, -131066, 131072, 0, -131067, 131072, 0, -196603, 131072, 0, -262139, 131072, 0, -327675, 131072, 0, -65532, 131072, 0, -131068, 131072, 0, -196604, 131072, 0, -327676, 131072, 0, -65533, 131072, 0, -327677, 131072, 0, -65534, 131072, 0, -327678, 131072, 0, -131071, 131072, 0, -196607, 131072, 0, -262143, 131072, 0, -327679, 131072, 0, -131072, 131072, 0, -196608, 131072, 0, -65537, 131072, 0, -131073, 131072, 0, -131074, 131072, 0, -196610, 131072, 0, -262146, 131072, 0, 65533, 131072, 0, -3, 131072, 0, -196611, 131072, 0, -262147, 131072, 0, -4, 131072, 0, -196612, 131072, 0, -196613, 131072, 0, -131078, 131072, 0, -196614, 131072, 0, 65531, 131072, 0, 65530, 131072, 0, -131079, 131072, 0, -65543, 131072, 0, -65542, 131072, 0, -65529, 131072, 0, -65530, 131072, 0, -65531, 131072, 0, 5, 131072, 0, 4, 131072, 0, 3, 131072, 0, 65538, 131072, 0, 131074, 131072, 0, 131075, 131072, 0, 131076, 131072, 0, 65541, 131072, 0, 65542, 458752, 0, -6, 131072, 0, -7, 131072, 0, 65529, 131072, 0, 131066, 131072, 0, 131067, 131072, 0, -5, 131072, 0, 65532, 131072, 0, 131068, 131072, 0, 131069, 131072, 0)
-layer_1/tile_data = PackedInt32Array(-458760, 2, 2, -458759, 2, 2, -458758, 2, 2, -458757, 2, 2, -458756, 2, 2, -458755, 2, 2, -458754, 2, 2, -458753, 2, 2, -524288, 2, 2, -524287, 2, 2, -524286, 2, 2, -524285, 2, 2, -524284, 2, 2, -524283, 2, 2, -524282, 2, 2, -524281, 2, 2, -589832, 131074, 3, -589831, 131074, 3, -589830, 131074, 3, -589829, 131074, 3, -589828, 131074, 3, -589827, 131074, 3, -589826, 131074, 3, -589825, 131074, 3, -655360, 131074, 3, -655359, 131074, 3, -655358, 131074, 3, -655357, 131074, 3, -655356, 131074, 3, -655355, 131074, 3, -655354, 131074, 3, -655353, 131074, 3, -524296, 131074, 2, -524295, 131074, 2, -524294, 131074, 2, -524293, 131074, 2, -524292, 131074, 2, -524291, 131074, 2, -524290, 131074, 2, -524289, 131074, 2, -589824, 131074, 2, -589823, 131074, 2, -589822, 131074, 2, -589821, 131074, 2, -589820, 131074, 2, -589819, 131074, 2, -589818, 131074, 2, -589817, 131074, 2, -589833, 196610, 0, -655352, 327682, 0, -524297, 2, 3, -458761, 2, 3, -393225, 2, 3, -327689, 2, 3, -262153, 2, 3, -196617, 2, 3, -131081, 2, 3, -65545, 2, 3, -9, 2, 3, 65527, 2, 3, 131063, 2, 3, 196599, 2, 3, 262135, 2, 3, 327671, 2, 3, 393207, 2, 3, 458744, 196610, 2, 458745, 196610, 2, 458746, 196610, 2, 458747, 196610, 2, 458748, 196610, 2, 458749, 196610, 2, 458750, 196610, 2, 458751, 196610, 3, 393216, 262146, 3, 393217, 196610, 2, 393218, 196610, 2, 393219, 196610, 2, 393220, 196610, 2, 393221, 196610, 2, 393222, 196610, 2, 393223, 196610, 2, 458743, 131074, 1, 393224, 262146, 1, -589816, 65538, 3, -524280, 65538, 3, -458744, 65538, 3, -393208, 65538, 3, -327672, 65538, 3, -262136, 65538, 3, -196600, 65538, 3, -131064, 65538, 3, -65528, 65538, 3, 8, 65538, 3, 65544, 65538, 3, 131080, 65538, 3, 196616, 65538, 3, 262152, 65538, 3, 327688, 65538, 3, 524280, 262146, 2, 524281, 262146, 2, 524282, 262146, 2, 524283, 262146, 2, 524284, 262146, 2, 524285, 262146, 2, 524286, 262146, 2, 524287, 327682, 3, 458752, 2, 4, 458753, 262146, 2, 458754, 262146, 2, 458755, 262146, 2, 458756, 262146, 2, 458757, 262146, 2, 458758, 262146, 2, 458759, 262146, 2, 524279, 196610, 1, 458760, 327682, 1)
+layer_0/tile_data = PackedInt32Array(65540, 131072, 0, 4, 131072, 0, -65532, 131072, 0, -131068, 131072, 0, -196604, 131072, 0, -262140, 131072, 0, 65539, 131072, 0, 3, 131072, 0, -65533, 131072, 0, -131069, 131072, 0, -196605, 131072, 0, -262141, 131072, 0, 65538, 131072, 0, 2, 131072, 0, -65534, 131072, 0, -131070, 131072, 0, -196606, 131072, 0, -262142, 131072, 0, 65537, 131072, 0, 1, 131072, 0, -65535, 589824, 0, -131071, 131072, 0, -196607, 458752, 0, -262143, 131072, 0, 65536, 131072, 0, 0, 983040, 0, -65536, 131072, 0, -131072, 131072, 0, -196608, 131072, 0, -262144, 131072, 0, 131071, 131072, 0, 65535, 917504, 0, -1, 131072, 0, -65537, 131072, 0, -131073, 131072, 0, -196609, 458752, 0, 131070, 131072, 0, 65534, 131072, 0, -2, 131072, 0, -65538, 131072, 0, -131074, 131072, 0, -196610, 131072, 0, 131069, 131072, 0, 65533, 131072, 0, -3, 131072, 0, -65539, 131072, 0, -131075, 131072, 0, -196611, 131072, 0, 131068, 131072, 0, 65532, 131072, 0, -4, 131072, 0, -65540, 131072, 0, -131076, 131072, 0, -196612, 131072, 0, 131067, 131072, 0, 65531, 131072, 0, -5, 131072, 0, -65541, 131072, 0, -131077, 131072, 0, -196613, 131072, 0, 65541, 131072, 0, 5, 131072, 0, -65531, 131072, 0, -131067, 131072, 0, -196603, 131072, 0, -262139, 131072, 0, -327675, 131072, 0, -327676, 131072, 0, -327677, 131072, 0, -327678, 131072, 0, -327679, 131072, 0, -327680, 131072, 0, -262145, 131072, 0, -262146, 131072, 0, -262147, 131072, 0, -262148, 131072, 0, -262149, 131072, 0, 131066, 131072, 0, 65530, 131072, 0, -6, 131072, 0, -65542, 131072, 0, -131078, 131072, 0, -196614, 131072, 0, -262150, 131072, 0)
+layer_1/tile_data = PackedInt32Array(-131079, 2, 3, -65543, 2, 3, -7, 2, 3, 65529, 2, 3, -196602, 65538, 3, -131066, 65538, 3, -65530, 65538, 3, 6, 65538, 3, -327687, 196610, 0, -262151, 2, 3, -196615, 2, 3, -327686, 131074, 3, -327685, 131074, 3, -327684, 131074, 3, -327683, 131074, 3, -327682, 131074, 3, -327681, 131074, 3, -393216, 131074, 3, -393215, 131074, 3, -393214, 131074, 3, -393213, 131074, 3, -393212, 131074, 3, -393211, 131074, 3, -393210, 327682, 0, -327674, 65538, 3, -262138, 65538, 3, -262150, 131074, 2, -196614, 2, 2, -262149, 131074, 2, -196613, 2, 2, -262148, 131074, 2, -196612, 2, 2, -262147, 131074, 2, -196611, 2, 2, -262146, 131074, 2, -196610, 2, 2, -262145, 131074, 2, -196609, 2, 2, -327680, 131074, 2, -262144, 2, 2, -327679, 131074, 2, -262143, 2, 2, -327678, 131074, 2, -262142, 2, 2, -327677, 131074, 2, -262141, 2, 2, -327676, 131074, 2, -262140, 2, 2, -327675, 131074, 2, -262139, 2, 2, 131065, 131074, 1, 196601, 196610, 1, 65542, 262146, 1, 131078, 327682, 1, 131066, 196610, 2, 196602, 262146, 2, 131067, 196610, 2, 196603, 262146, 2, 131068, 196610, 2, 196604, 262146, 2, 131069, 196610, 2, 196605, 262146, 2, 131070, 196610, 2, 196606, 262146, 2, 131071, 196610, 3, 196607, 327682, 3, 65536, 262146, 3, 131072, 2, 4, 65537, 196610, 2, 131073, 262146, 2, 65538, 196610, 2, 131074, 262146, 2, 65539, 196610, 2, 131075, 262146, 2, 65540, 196610, 2, 131076, 262146, 2, 65541, 196610, 2, 131077, 262146, 2)
 layer_2/name = "Decoratives"
 layer_2/y_sort_enabled = true
-layer_2/tile_data = PackedInt32Array(-524288, 4, 0)
+layer_2/tile_data = PackedInt32Array(-196612, 4, 0)
 
 [node name="Player" parent="." index="1"]
-position = Vector2(12, -86)
+position = Vector2(-7, 13)
 
 [node name="AreatTransitionExit" parent="AreaTransitions" index="0" instance=ExtResource("2_30jfh")]
-position = Vector2(0, 94)
+position = Vector2(0, 16)
 id = "entrance"
 transitions_to = "res://world/areas/christmas/ChristmasArea.tscn"
 linked_transition_area = "house_1_entrance"
 
-[node name="ChristmasLights19" type="Node2D" parent="Decoratives" index="0"]
+[node name="Objects" parent="." index="4"]
+position = Vector2(101, 80)
 
-[node name="ChristmasLights" parent="Decoratives/ChristmasLights19" index="0" instance=ExtResource("4_ne7vx")]
+[node name="BookOpen" parent="Objects" index="0" instance=ExtResource("4_v8yya")]
+z_index = 1
+position = Vector2(-164, -104)
+
+[node name="BookshelfLarge" parent="Objects" index="1" instance=ExtResource("5_5tmm0")]
+position = Vector2(-102, -136)
+
+[node name="Chair" parent="Objects" index="2" instance=ExtResource("6_xagh6")]
+position = Vector2(-164, -119)
+
+[node name="CouchVertical" parent="Objects" index="3" instance=ExtResource("7_mgi68")]
+position = Vector2(-13, -92)
+
+[node name="CouchHorizontal" parent="Objects" index="4" instance=ExtResource("8_ijtre")]
+position = Vector2(-51, -115)
+
+[node name="Present1" parent="Objects" index="5" instance=ExtResource("9_o03mv")]
+position = Vector2(-28, -116)
+
+[node name="Present2" parent="Objects" index="6" instance=ExtResource("10_m3twh")]
+position = Vector2(-21, -113)
+
+[node name="Present3" parent="Objects" index="7" instance=ExtResource("11_dyttd")]
+position = Vector2(-10, -116)
+
+[node name="Present4" parent="Objects" index="8" instance=ExtResource("12_e5lv7")]
+position = Vector2(-28, -123)
+
+[node name="Table" parent="Objects" index="9" instance=ExtResource("13_oeove")]
+position = Vector2(-164, -100)
+
+[node name="PineTreeSmall" parent="Objects" index="10" instance=ExtResource("14_86byu")]
+position = Vector2(-18, -131)
+frame = 2
+
+[node name="ChristmasLights" type="Node2D" parent="Decoratives" index="0"]
+position = Vector2(31, 47)
+
+[node name="ChristmasLights" parent="Decoratives/ChristmasLights" index="0" instance=ExtResource("4_ne7vx")]
 position = Vector2(-120, -132)
 
-[node name="ChristmasLights2" parent="Decoratives/ChristmasLights19" index="1" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights2" parent="Decoratives/ChristmasLights" index="1" instance=ExtResource("4_ne7vx")]
 position = Vector2(-105, -132)
 
-[node name="ChristmasLights3" parent="Decoratives/ChristmasLights19" index="2" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights3" parent="Decoratives/ChristmasLights" index="2" instance=ExtResource("4_ne7vx")]
 position = Vector2(-89, -132)
 
-[node name="ChristmasLights4" parent="Decoratives/ChristmasLights19" index="3" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights4" parent="Decoratives/ChristmasLights" index="3" instance=ExtResource("4_ne7vx")]
 position = Vector2(-74, -132)
 
-[node name="ChristmasLights5" parent="Decoratives/ChristmasLights19" index="4" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights5" parent="Decoratives/ChristmasLights" index="4" instance=ExtResource("4_ne7vx")]
 position = Vector2(-58, -132)
 
-[node name="ChristmasLights6" parent="Decoratives/ChristmasLights19" index="5" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights6" parent="Decoratives/ChristmasLights" index="5" instance=ExtResource("4_ne7vx")]
 position = Vector2(-46, -133)
 
-[node name="ChristmasLights7" parent="Decoratives/ChristmasLights19" index="6" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights7" parent="Decoratives/ChristmasLights" index="6" instance=ExtResource("4_ne7vx")]
 position = Vector2(-32, -132)
 
-[node name="ChristmasLights8" parent="Decoratives/ChristmasLights19" index="7" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights8" parent="Decoratives/ChristmasLights" index="7" instance=ExtResource("4_ne7vx")]
 position = Vector2(-17, -132)
 
-[node name="ChristmasLights9" parent="Decoratives/ChristmasLights19" index="8" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights9" parent="Decoratives/ChristmasLights" index="8" instance=ExtResource("4_ne7vx")]
 position = Vector2(-3, -132)
 
-[node name="ChristmasLights10" parent="Decoratives/ChristmasLights19" index="9" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights10" parent="Decoratives/ChristmasLights" index="9" instance=ExtResource("4_ne7vx")]
 position = Vector2(11, -132)
 
-[node name="ChristmasLights11" parent="Decoratives/ChristmasLights19" index="10" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights11" parent="Decoratives/ChristmasLights" index="10" instance=ExtResource("4_ne7vx")]
 position = Vector2(25, -132)
 
-[node name="ChristmasLights12" parent="Decoratives/ChristmasLights19" index="11" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights12" parent="Decoratives/ChristmasLights" index="11" instance=ExtResource("4_ne7vx")]
 position = Vector2(40, -132)
 
-[node name="ChristmasLights13" parent="Decoratives/ChristmasLights19" index="12" instance=ExtResource("4_ne7vx")]
+[node name="ChristmasLights13" parent="Decoratives/ChristmasLights" index="12" instance=ExtResource("4_ne7vx")]
 position = Vector2(56, -132)
 
-[node name="ChristmasLights14" parent="Decoratives/ChristmasLights19" index="13" instance=ExtResource("4_ne7vx")]
-position = Vector2(70, -132)
-
-[node name="ChristmasLights15" parent="Decoratives/ChristmasLights19" index="14" instance=ExtResource("4_ne7vx")]
-position = Vector2(84, -132)
-
-[node name="ChristmasLights16" parent="Decoratives/ChristmasLights19" index="15" instance=ExtResource("4_ne7vx")]
-position = Vector2(98, -132)
-
-[node name="ChristmasLights17" parent="Decoratives/ChristmasLights19" index="16" instance=ExtResource("4_ne7vx")]
-position = Vector2(112, -132)
-
-[node name="ChristmasLights18" parent="Decoratives/ChristmasLights19" index="17" instance=ExtResource("4_ne7vx")]
-position = Vector2(120, -132)
-
 [node name="HotChocolate" parent="Decoratives" index="1" instance=ExtResource("5_gyfmv")]
-position = Vector2(-21, -100)
+position = Vector2(-51, -28)
 
 [node name="Stocking" parent="Decoratives" index="2" instance=ExtResource("6_n8ho2")]
-position = Vector2(25, -123)
+position = Vector2(-64, -57)
 
-[node name="Wreath" parent="Decoratives" index="3" instance=ExtResource("7_jckd6")]
-position = Vector2(9, -141)
+[node name="Stocking2" parent="Decoratives" index="3" instance=ExtResource("6_n8ho2")]
+position = Vector2(-49, -57)
+
+[node name="Wreath" parent="Decoratives" index="4" instance=ExtResource("7_jckd6")]
+position = Vector2(-55, -67)
+
+[node name="Rug" parent="Decoratives" index="5" instance=ExtResource("18_ggnkx")]
+z_index = -1
+position = Vector2(52, -15)

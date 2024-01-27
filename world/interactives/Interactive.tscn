@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxkhujs6shlws"]
+
+[ext_resource type="Script" path="res://world/interactives/Interactive.gd" id="1_wlj1w"]
+
+[node name="Sprite2D" type="Sprite2D"]
+script = ExtResource("1_wlj1w")
+
+[node name="Interactive" type="Area2D" parent="."]
+
+[connection signal="area_entered" from="Interactive" to="Interactive" method="_on_area_entered"]
+[connection signal="area_exited" from="Interactive" to="Interactive" method="_on_area_exited"]

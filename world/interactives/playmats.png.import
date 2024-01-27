@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmdww35l5fmo7"
-path="res://.godot/imported/treasure_chest.png-59417b5f4cc010565436ab71e34da0e7.ctex"
+uid="uid://c4gr6gwb8op2j"
+path="res://.godot/imported/playmats.png-b1d78ab41d80a9cb0b26cd33bd8bb9fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/objects/interactives/treasure_chest.png"
-dest_files=["res://.godot/imported/treasure_chest.png-59417b5f4cc010565436ab71e34da0e7.ctex"]
+source_file="res://world/interactives/playmats.png"
+dest_files=["res://.godot/imported/playmats.png-b1d78ab41d80a9cb0b26cd33bd8bb9fa.ctex"]
 
 [params]
 

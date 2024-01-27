@@ -1,24 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://pxs6mhmdxdxm"]
 
-[ext_resource type="Script" path="res://world/objects/interactives/Playmat.gd" id="1_1j1y7"]
-[ext_resource type="PackedScene" uid="uid://cxkhujs6shlws" path="res://world/objects/interactives/Interactive.tscn" id="1_6o8ws"]
-[ext_resource type="Texture2D" uid="uid://c4gr6gwb8op2j" path="res://world/objects/interactives/playmats.png" id="2_g53f1"]
+[ext_resource type="Script" path="res://world/interactives/Playmat.gd" id="1_1j1y7"]
+[ext_resource type="PackedScene" uid="uid://cxkhujs6shlws" path="res://world/interactives/Interactive.tscn" id="1_6o8ws"]
+[ext_resource type="Texture2D" uid="uid://c4gr6gwb8op2j" path="res://world/interactives/playmats.png" id="2_g53f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwk2b"]
 size = Vector2(22, 12)
 
 [node name="Playmat" groups=["playmats"] instance=ExtResource("1_6o8ws")]
-script = ExtResource("1_1j1y7")
-playmat_id = ""
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_g53f1")
 hframes = 4
+script = ExtResource("1_1j1y7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-shape = SubResource("RectangleShape2D_iwk2b")
-
-[node name="PlaymatOptions" type="Control" parent="." index="2"]
+[node name="PlaymatOptions" type="Control" parent="." index="0"]
 visible = false
 layout_mode = 3
 anchors_preset = 7
@@ -65,6 +59,9 @@ offset_right = 49.0
 offset_bottom = 26.0
 grow_horizontal = 2
 text = "Edit Deck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" index="0"]
+shape = SubResource("RectangleShape2D_iwk2b")
 
 [connection signal="pressed" from="PlaymatOptions/ShuffleButton" to="." method="_on_shuffle_button_pressed"]
 [connection signal="pressed" from="PlaymatOptions/SaveButton" to="." method="_on_save_button_pressed"]

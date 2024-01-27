@@ -7,7 +7,6 @@ extends Interactive
 
 const opened_frame : int = 2;
 
-@onready var sprite : Sprite2D = $Sprite2D as Sprite2D;
 @onready var animation_player : AnimationPlayer = $AnimationPlayer as AnimationPlayer;
 @onready var open_button : Button = $OpenButton as Button;
 
@@ -17,7 +16,7 @@ func _ready() -> void:
 	assert(id, "ID must be provided!");
 	has_been_opened = GlobalState.treasure_chest_data.has_been_found(id);
 	if has_been_opened:
-		sprite.frame = opened_frame;
+		frame = opened_frame;
 
 func _interaction() -> void:
 	if not has_been_opened:

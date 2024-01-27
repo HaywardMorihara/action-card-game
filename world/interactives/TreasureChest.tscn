@@ -1,11 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://0xw7c534ahml"]
 
-[ext_resource type="PackedScene" uid="uid://cxkhujs6shlws" path="res://world/objects/interactives/Interactive.tscn" id="1_rqfc4"]
-[ext_resource type="Texture2D" uid="uid://bmdww35l5fmo7" path="res://world/objects/interactives/treasure_chest.png" id="2_1usgc"]
-[ext_resource type="Script" path="res://world/objects/interactives/TreasureChest.gd" id="2_4ur56"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i820r"]
-size = Vector2(15, 6)
+[ext_resource type="PackedScene" uid="uid://cxkhujs6shlws" path="res://world/interactives/Interactive.tscn" id="1_rqfc4"]
+[ext_resource type="Texture2D" uid="uid://bmdww35l5fmo7" path="res://world/interactives/treasure_chest.png" id="2_1usgc"]
+[ext_resource type="Script" path="res://world/interactives/TreasureChest.gd" id="2_4ur56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4o14"]
 size = Vector2(15, 3)
@@ -15,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +28,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +44,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -64,31 +61,28 @@ _data = {
 "opening": SubResource("Animation_0wkpr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i820r"]
+size = Vector2(15, 6)
+
 [node name="TreasureChest" groups=["treasure_chests"] instance=ExtResource("1_rqfc4")]
+texture = ExtResource("2_1usgc")
+hframes = 3
 script = ExtResource("2_4ur56")
 id = ""
 card_id = ""
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_1usgc")
-hframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_i820r")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_k4o14")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_m7wka")
 }
 
-[node name="OpenButton" type="Button" parent="." index="4"]
+[node name="OpenButton" type="Button" parent="." index="2"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -99,5 +93,9 @@ offset_right = 27.0
 offset_bottom = -8.0
 grow_horizontal = 2
 text = "Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_i820r")
 
 [connection signal="pressed" from="OpenButton" to="." method="_on_button_pressed"]
