@@ -1,9 +1,7 @@
 extends Node
 
 # TODO GET RID OF THIS
-
-# Note: This feels a lot like an ant-pattern that I shouldn't be doing.
-# See how it goes
+# ...and what should I do instead? I forgot what the plan was haha
 
 # This set in CardGame._ready()
 # Initializing so we can statically type

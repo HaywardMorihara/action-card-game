@@ -11,19 +11,30 @@ class_name Player extends CharacterBody2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer as AnimationPlayer;
 @onready var interactor : Area2D = $Interactor as Area2D;
 
+enum PlayerState {
+	ACTIVE,
+	DEAD,
+}
+
+var current_state : PlayerState = PlayerState.ACTIVE
 var speed : float
 
 func _ready():
 	speed = default_speed;
 
 func _physics_process(delta):	
+	if current_state == PlayerState.DEAD:
+		return
+	
 	var direction : Vector2 = _get_input_direction();
 	_point_interactor(direction);
 	velocity = direction * speed;
 	move_and_slide();
-#	_animate()
 
 func _process(delta: float) -> void:
+	if current_state == PlayerState.DEAD:
+		return
+	
 	if velocity.is_zero_approx():
 		if interactor.rotation_degrees == 0:
 				animation_player.play("idle_down");
@@ -50,9 +61,11 @@ func _get_input_direction() -> Vector2:
 	return Input.get_vector("move_left", "move_right", "move_up", "move_down");
 
 func damage(amount : int) -> void:
+	if current_state == PlayerState.DEAD:
+		return
 	health -= amount;
 	if health <= 0:
-		GlobalSignals.player_loses.emit();
+		_player_dies();
 
 func _point_interactor(direction : Vector2) -> void:
 	if abs(direction.x) > abs(direction.y):
@@ -65,6 +78,23 @@ func _point_interactor(direction : Vector2) -> void:
 			interactor.rotation_degrees = 0;
 		else:
 			interactor.rotation_degrees = 180;
+
+func _player_dies() -> void:
+	GlobalSignals.disable_hand.emit();
+	_set_player_state(PlayerState.DEAD);
+	animation_player.play("death");
+	await animation_player.animation_finished;
+	GlobalSignals.player_lost.emit();
+
+func _set_player_state(next_state : PlayerState) -> void:
+	match next_state:
+		PlayerState.ACTIVE:
+			set_process_input(true);
+			set_physics_process(true);
+		PlayerState.DEAD:
+			set_process_input(false);
+			set_physics_process(false);
+	current_state = next_state;
 
 #func _process(delta):
 #	if $Label.visible:

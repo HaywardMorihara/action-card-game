@@ -11,6 +11,7 @@ size = Vector2(22, 12)
 texture = ExtResource("2_g53f1")
 hframes = 4
 script = ExtResource("1_1j1y7")
+playmat_id = ""
 
 [node name="PlaymatOptions" type="Control" parent="." index="0"]
 visible = false

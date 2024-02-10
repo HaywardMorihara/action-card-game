@@ -28,7 +28,7 @@ func _ready() -> void:
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
 	GlobalSignals.scene_transition_to.connect(_on_scene_transition_to);
-	GlobalSignals.player_loses.connect(_on_player_loses);
+	GlobalSignals.player_lost.connect(_on_player_lost);
 	
 	if GlobalState.last_playmat_data.area_id != null:
 		var area_id := GlobalState.last_playmat_data.area_id;
@@ -139,6 +139,7 @@ func _transition_in() -> void:
 	await transition_effects.effect_finished;
 	transition_effects.visible = false;
 
-func _on_player_loses() -> void:
-	# TODO Game Over Menu and transition
-	get_tree().change_scene_to_file(main_menu_scene_path);
+# The signal is emitted _after_ the Player death animation is completed
+func _on_player_lost() -> void:
+	GlobalSignals.scene_transition_to.emit("res://ui/menus/GameOverMenu.tscn");
+
