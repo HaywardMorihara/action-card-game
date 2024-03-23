@@ -7,5 +7,5 @@ script = ExtResource("1_wlj1w")
 
 [node name="Interactive" type="Area2D" parent="."]
 
-[connection signal="area_entered" from="Interactive" to="Interactive" method="_on_area_entered"]
-[connection signal="area_exited" from="Interactive" to="Interactive" method="_on_area_exited"]
+[connection signal="area_entered" from="Interactive" to="." method="_on_interactive_area_entered"]
+[connection signal="area_exited" from="Interactive" to="." method="_on_interactive_area_exited"]

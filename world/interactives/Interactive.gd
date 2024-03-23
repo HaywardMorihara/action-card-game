@@ -7,10 +7,10 @@ func _exit_interaction() -> void:
 	# OPTIONAL: IMPLEMENT ME
 	pass;
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Interactor":
-		_interaction();
-	
-func _on_area_exited(area: Area2D) -> void:
+func _on_interactive_area_exited(area: Area2D) -> void:
 	if area.name == "Interactor":
 		_exit_interaction();
+
+func _on_interactive_area_entered(area: Area2D) -> void:
+	if area.name == "Interactor":
+		_interaction();
