@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dixa05st8m4cw"]
+[gd_scene load_steps=5 format=3 uid="uid://dixa05st8m4cw"]
 
 [ext_resource type="Script" path="res://card_game/card/Card.gd" id="1_41olx"]
 [ext_resource type="Texture2D" uid="uid://dtiqtg7mfxteo" path="res://card_game/card/card.png" id="2_bhi3b"]
+[ext_resource type="FontFile" uid="uid://bilurdi0qymxw" path="res://ui/font/yoster-island/yoster.ttf" id="3_obbtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xj0"]
 size = Vector2(80, 112)
@@ -19,6 +20,28 @@ position = Vector2(0, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d5xj0")
+
+[node name="CardDescription" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -64.0
+offset_right = 80.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("3_obbtl")
+theme_override_font_sizes/normal_font_size = 12
+text = "Card description goes here."
+fit_content = true
+scroll_active = false
+tab_size = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

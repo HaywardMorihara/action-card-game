@@ -5,6 +5,7 @@
 
 [node name="FireballCard" instance=ExtResource("1_wgiad")]
 card_name = "Fireball"
+card_description = "Shoots a ball of flame."
 effect_filepath = "res://card_game/effects/AimAndShootFireballEffect.gd"
 
 [node name="CardImage" parent="." index="1"]
