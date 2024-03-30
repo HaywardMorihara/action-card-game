@@ -10,6 +10,7 @@ signal move_finished
 
 @onready var card_image : Sprite2D = $CardImage as Sprite2D;
 @onready var collision_shape : CollisionShape2D = $CollisionShape2D as CollisionShape2D;
+@onready var card_description : RichTextLabel = $CardDescription as RichTextLabel;
 
 var animation_move_speed : float = 0.1
 var hover_scale : float = 2.0
@@ -80,6 +81,7 @@ func _on_mouse_entered() -> void:
 		return
 #	scale_to(hover_scale);
 	move_to_local_pos(resting_position + Vector2(0, -hover_displacement));
+	#_display_card_description();
 
 func _on_mouse_exited() -> void:
 	is_hovered_over = false;
@@ -98,3 +100,6 @@ func _overlaps_with_hand() -> bool:
 #	if rect.has_point(get_global_mouse_position() - oa.global_position):
 #		if oa.global_position.x > global_position.x:
 #			return
+
+func _display_card_description() -> void:
+	card_description.show();
