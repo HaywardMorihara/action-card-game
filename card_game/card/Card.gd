@@ -4,13 +4,14 @@ signal played(card : Card)
 signal move_finished
 
 @export var card_name : String;
+@export var card_description : String;
 
 @export_file("*.gd") var effect_filepath : String
 @onready var effect : CardEffect = load(effect_filepath).new();
 
 @onready var card_image : Sprite2D = $CardImage as Sprite2D;
 @onready var collision_shape : CollisionShape2D = $CollisionShape2D as CollisionShape2D;
-@onready var card_description : RichTextLabel = $CardDescription as RichTextLabel;
+@onready var card_description_label : RichTextLabel = $CardDescription as RichTextLabel;
 
 var animation_move_speed : float = 0.1
 var hover_scale : float = 2.0
@@ -20,6 +21,10 @@ var resting_position : Vector2
 
 var is_hovered_over := false
 var is_card_selected := false
+
+func _ready() -> void:
+	card_description_label.text = card_description;
+	card_description_label.hide();
 
 func play():
 	assert(effect, "Card effect must be set in order to play it!");
@@ -81,12 +86,13 @@ func _on_mouse_entered() -> void:
 		return
 #	scale_to(hover_scale);
 	move_to_local_pos(resting_position + Vector2(0, -hover_displacement));
-	#_display_card_description();
+	_display_card_description();
 
 func _on_mouse_exited() -> void:
 	is_hovered_over = false;
 #	scale_to(1.0);
 	move_to_local_pos(resting_position);
+	_hide_card_description();
 
 func _overlaps_with_hand() -> bool:
 	var overlapping_areas : Array[Area2D] = get_overlapping_areas();
@@ -102,4 +108,7 @@ func _overlaps_with_hand() -> bool:
 #			return
 
 func _display_card_description() -> void:
-	card_description.show();
+	card_description_label.show();
+
+func _hide_card_description() -> void:
+	card_description_label.hide();
