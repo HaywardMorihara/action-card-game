@@ -4,6 +4,8 @@
 
 [node name="CardOption" type="PanelContainer"]
 custom_minimum_size = Vector2(75, 75)
+size_flags_vertical = 4
+tooltip_text = "Card description goes here."
 script = ExtResource("1_7163k")
 
 [node name="CardImage" type="TextureRect" parent="."]

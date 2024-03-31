@@ -35,6 +35,7 @@ window/stretch/mode="viewport"
 fonts/dynamic_fonts/use_oversampling=false
 theme/custom="res://ui/ProjectTheme.tres"
 theme/custom_font="res://ui/font/yoster-island/yoster.ttf"
+timers/tooltip_delay_sec=0.25
 
 [input]
 

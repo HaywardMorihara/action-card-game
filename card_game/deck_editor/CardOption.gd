@@ -9,6 +9,7 @@ enum Collection {
 
 var card_id : String;
 var card_name : String;
+var card_description : String;
 var count : int;
 var card_image_path : String; 
 var collection : Collection;
@@ -23,12 +24,14 @@ func _ready() -> void:
 	card_image.texture = load(card_image_path);
 	card_name_label.text = card_name;
 	card_count_label.text = card_count_label_format % count;
+	tooltip_text = card_description;
 
 func initialize_from(card_id : String, count : int, collection : Collection) -> void:
 	self.card_id = card_id;
 	self.count = count;
 	self.card_image_path = CardDictionary.get_image_path_for_card(card_id);
 	self.card_name = CardDictionary.get_card_name(card_id);
+	self.card_description = CardDictionary.get_card_description(card_id);
 	self.collection = collection;
 
 func update_count(new_count : int) -> void:
