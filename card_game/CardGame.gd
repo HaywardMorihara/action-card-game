@@ -7,11 +7,10 @@ class_name CardGame extends Node2D
 @onready var hand : Hand = $Hand as Hand;
 @onready var discard_pile : DiscardPile = $DiscardPile as DiscardPile;
 
-
 func _ready():
 	GlobalAccess.card_game = self;
-	GlobalSignals.draw_cards.connect(draw_cards);
-	GlobalSignals.reshuffle.connect(reshuffle);
+	GlobalCardGame.draw_cards.connect(draw_cards);
+	GlobalCardGame.reshuffle.connect(reshuffle);
 
 	await shuffle_deck();
 	draw_cards(starting_hand_size);

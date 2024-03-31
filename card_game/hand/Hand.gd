@@ -10,10 +10,15 @@ var hover_displacement : float = 20.0
 
 var resting_position : Vector2
 
+var hovered_card : Card;
+var hover_queue : Array[Card] = [];
+
 func _ready() -> void:
 	resting_position = position;
-	GlobalSignals.disable_hand.connect(disable);
-	GlobalSignals.enable_hand.connect(enable);
+	GlobalCardGame.disable_hand.connect(disable);
+	GlobalCardGame.enable_hand.connect(enable);
+	GlobalCardGame.mouse_entered_card.connect(_mouse_entered);
+	GlobalCardGame.mouse_exited_card.connect(_mouse_exited);
 
 func get_size() -> int:
 	return contents.get_child_count();
@@ -57,6 +62,33 @@ func _rebalance():
 		cards_in_hand[i].resting_position = Vector2(x_diff, 0);
 		cards_in_hand[i].move_to_global_pos(new_pos);
 
+func _mouse_entered(card : Card):
+	if not hovered_card:
+		hovered_card = card;
+		hovered_card.hover();
+	else:
+		if card.get_index() > hovered_card.get_index():
+			hovered_card.unhover();
+			hover_queue.push_front(hovered_card);
+			hovered_card = card;
+			hovered_card.hover();
+		else:
+			hover_queue.push_back(card);
+	
+func _mouse_exited(card : Card):
+	if card == hovered_card:
+		hovered_card.unhover();
+		hovered_card = null;
+		var next_card_to_hover = hover_queue.pop_front();
+		if next_card_to_hover:
+			hovered_card = next_card_to_hover;
+			hovered_card.hover();
+	else:
+		print("The mouse is no longer over the card and it never had a chance to show")
+		var index = hover_queue.find(card);
+		if index >= 0:
+			hover_queue.remove_at(index);
+
 # TODO Remove
 func _input(event):
 	if event.is_action_pressed("ui_select"):
@@ -66,14 +98,14 @@ func _input(event):
 		children[0].play();
 
 func _on_mouse_entered() -> void:
-	GlobalSignals.hand_hovered_change.emit(true);
+	GlobalCardGame.hand_hovered_change.emit(true);
 	if position != resting_position:
 		return
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", position + Vector2(0,-hover_displacement), animation_speed);
 
 func _on_mouse_exited() -> void:
-	GlobalSignals.hand_hovered_change.emit(false);
+	GlobalCardGame.hand_hovered_change.emit(false);
 	var tween : Tween = create_tween() as Tween;
 	tween.tween_property(self, "position", resting_position, animation_speed);
 

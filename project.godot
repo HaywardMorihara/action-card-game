@@ -21,6 +21,7 @@ GlobalSignals="*res://GlobalSignals.gd"
 GlobalAccess="*res://GlobalAccess.gd"
 GlobalState="*res://GlobalState.gd"
 GlobalAreaRegistry="*res://world/areas/GlobalAreaRegistry.gd"
+GlobalCardGame="*res://card_game/GlobalCardGame.gd"
 
 [display]
 

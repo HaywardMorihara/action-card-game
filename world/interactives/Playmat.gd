@@ -24,7 +24,7 @@ func _exit_interaction() -> void:
 	save_button.position = default_save_button_pos;
 
 func _on_shuffle_button_pressed() -> void:
-	GlobalSignals.reshuffle.emit();
+	GlobalCardGame.reshuffle.emit();
 
 func _on_save_button_pressed() -> void:
 	GlobalState.last_playmat_data.playmat_id = playmat_id;

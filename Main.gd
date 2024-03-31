@@ -22,9 +22,9 @@ var world_pause_count := 0;
 
 func _ready() -> void:
 	# Card Effect Signals
-	GlobalSignals.execute.connect(_on_execute_call_card_effect);
+	GlobalCardGame.execute.connect(_on_execute_call_card_effect);
 	# CardGame Signals
-	GlobalSignals.hand_hovered_change.connect(_on_hand_hovered_change);
+	GlobalCardGame.hand_hovered_change.connect(_on_hand_hovered_change);
 	# World Signals
 	GlobalSignals.transition_to.connect(_on_area_transition);
 	GlobalSignals.scene_transition_to.connect(_on_scene_transition_to);
@@ -53,12 +53,12 @@ func _on_pause_menu_resume() -> void:
 	resume_game();
 
 func pause_game():
-	GlobalSignals.disable_hand.emit();
+	GlobalCardGame.disable_hand.emit();
 	pause_world();
 	pause_menu.show();
 
 func resume_game():
-	GlobalSignals.enable_hand.emit();
+	GlobalCardGame.enable_hand.emit();
 	resume_world();
 	pause_menu.hide();
 
@@ -86,7 +86,7 @@ func _on_hand_hovered_change(is_hovered : bool) -> void:
 
 # World Signals
 func _on_area_transition(next_area_scene : Resource, player_starting_id : String) -> void:
-	GlobalSignals.disable_hand.emit();
+	GlobalCardGame.disable_hand.emit();
 	pause_world();
 	
 	var tween : Tween = create_tween() as Tween;
@@ -106,7 +106,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_id : String
 	
 	transition_effects.play(TransitionEffects.Effect.DIM_IN);
 	
-	GlobalSignals.enable_hand.emit();
+	GlobalCardGame.enable_hand.emit();
 	resume_world();
 	
 	await transition_effects.effect_finished;
@@ -116,7 +116,7 @@ func _on_area_transition(next_area_scene : Resource, player_starting_id : String
 	tween.tween_property(card_game, "position", card_game_default_pos, card_game_transition_speed);
 
 func _on_scene_transition_to(next_scene_path : String) -> void:
-	GlobalSignals.disable_hand.emit();
+	GlobalCardGame.disable_hand.emit();
 	pause_world();
 	
 	var tween : Tween = create_tween() as Tween;
@@ -127,7 +127,7 @@ func _on_scene_transition_to(next_scene_path : String) -> void:
 	
 	await transition_effects.effect_finished
 	
-	GlobalSignals.enable_hand.emit();
+	GlobalCardGame.enable_hand.emit();
 	resume_world();
 	
 	get_tree().change_scene_to_file(next_scene_path);

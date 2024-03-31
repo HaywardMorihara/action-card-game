@@ -80,7 +80,7 @@ func _point_interactor(direction : Vector2) -> void:
 			interactor.rotation_degrees = 180;
 
 func _player_dies() -> void:
-	GlobalSignals.disable_hand.emit();
+	GlobalCardGame.disable_hand.emit();
 	_set_player_state(PlayerState.DEAD);
 	animation_player.play("death");
 	await animation_player.animation_finished;
