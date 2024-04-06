@@ -103,14 +103,8 @@ func _overlaps_with_hand() -> bool:
 	var overlapping_areas : Array[Area2D] = get_overlapping_areas();
 	for oa in overlapping_areas:
 		if oa is Hand:
-			return true
+			return true;
 	return false
-#	var cols : CollisionShape2D = oa.collision_shape as CollisionShape2D;
-#	var rect_shape = oa.collision_shape.shape as RectangleShape2D
-#	var rect : Rect2 = rect_shape.get_rect() as Rect2;
-#	if rect.has_point(get_global_mouse_position() - oa.global_position):
-#		if oa.global_position.x > global_position.x:
-#			return
 
 func _display_card_description() -> void:
 	card_description_label.show();

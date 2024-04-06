@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bilurdi0qymxw" path="res://ui/font/yoster-island/yoster.ttf" id="3_obbtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xj0"]
-size = Vector2(80, 112)
+size = Vector2(60, 84)
 
 [node name="Card" type="Area2D"]
 script = ExtResource("1_41olx")
