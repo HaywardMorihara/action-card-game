@@ -7,6 +7,9 @@ const area_id_to_scene_path := {
 	"demo_area_library": "res://world/areas/demo/buildings/LibraryArea.tscn",
 	"demo_area_house_1": "res://world/areas/demo/buildings/House1Area.tscn",
 	
+	"starting_area": "res://world/areas/starting_area/StartingArea.tscn",
+	"starting_area_home": "res://world/areas/starting_area/buildings/HomeArea.tscn",
+	
 	"christmas_area": "res://world/areas/christmas/ChristmasArea.tscn",
 	"christmas_area_library": "res://world/areas/christmas/buildings/LibraryArea.tscn",
 	"christmas_area_house_1": "res://world/areas/christmas/buildings/House1Area.tscn",
