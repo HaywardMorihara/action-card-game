@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://pkgy5wv8bhms"]
+
+[ext_resource type="PackedScene" uid="uid://b6ronjy3jk03g" path="res://world/buildings/BuildingEnterable.tscn" id="1_y8dlt"]
+[ext_resource type="Texture2D" uid="uid://3opdq4tfkrmi" path="res://world/buildings/house_1/house_1.png" id="2_thhxb"]
+
+[node name="House1" instance=ExtResource("1_y8dlt")]
+y_sort_enabled = true
+texture = ExtResource("2_thhxb")
+hframes = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+y_sort_enabled = true
+polygon = PackedVector2Array(-79, -34, 78, -34, 79, 34, 11, 34, 11, 4, -11, 4, -11, 34, -79, 34)
+
+[node name="AreaTransition" parent="." index="1"]
+position = Vector2(0, 16)

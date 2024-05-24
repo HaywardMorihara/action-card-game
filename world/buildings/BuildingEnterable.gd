@@ -1,4 +1,4 @@
-class_name Building extends Sprite2D
+class_name BuildingEnterable extends Sprite2D
 
 @export var entrance_id : String;
 @export_file var transitions_to : String;

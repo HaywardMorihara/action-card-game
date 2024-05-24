@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ps1tte43oov"]
+[gd_scene load_steps=6 format=3 uid="uid://0ps1tte43oov"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_16vk4"]
 [ext_resource type="TileSet" uid="uid://bsgcw3h0ohwd1" path="res://world/areas/tiles/OutdoorGrassAndPathwayTileSet.tres" id="2_6tbea"]
-[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="3_ihjjx"]
+[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1Enterable.tscn" id="3_ihjjx"]
+[ext_resource type="PackedScene" uid="uid://h0u0h2dtlyl3" path="res://world/buildings/house_1/House1.tscn" id="4_706i8"]
 [ext_resource type="PackedScene" uid="uid://cxbhbv0lpxc4n" path="res://world/objects/trees/Tree1.tscn" id="4_s4lv6"]
 
 [node name="StartingArea" instance=ExtResource("1_16vk4")]
@@ -18,12 +19,15 @@ entrance_id = "home_entrance"
 transitions_to = "res://world/areas/starting_area/buildings/HomeArea.tscn"
 exit_id = "entrance"
 
-[node name="House1" parent="Buildings" index="1" instance=ExtResource("3_ihjjx")]
+[node name="HouseEnterable1" parent="Buildings" index="1" instance=ExtResource("3_ihjjx")]
 position = Vector2(-206, -84)
-frame = 2
+frame = 4
 entrance_id = "house1_entrance"
 transitions_to = "res://world/areas/starting_area/buildings/House1Area.tscn"
 exit_id = "entrance"
+
+[node name="Building" parent="Buildings" index="2" instance=ExtResource("4_706i8")]
+position = Vector2(16, 160)
 
 [node name="Tree1" parent="Objects" index="0" instance=ExtResource("4_s4lv6")]
 position = Vector2(-274, -785)

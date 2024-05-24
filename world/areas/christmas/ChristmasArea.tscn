@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="3_43crv"]
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_p6gqn"]
 [ext_resource type="Texture2D" uid="uid://lxktnrg4g0nx" path="res://world/buildings/library/library-snow.png" id="4_0hhly"]
-[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="5_t8ny8"]
+[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1Enterable.tscn" id="5_t8ny8"]
 [ext_resource type="PackedScene" uid="uid://brve88sshis3s" path="res://world/objects/outdoor/Bench.tscn" id="7_huqvd"]
 [ext_resource type="PackedScene" uid="uid://c5ahj5heldsdj" path="res://world/objects/outdoor/Snowman.tscn" id="8_gkc68"]
 [ext_resource type="PackedScene" uid="uid://c3f1su13qqmwy" path="res://world/objects/outdoor/LampPost.tscn" id="9_gwmnu"]
@@ -483,7 +483,7 @@ exit_id = "entrance"
 
 [node name="House1" parent="Buildings" index="1" instance=ExtResource("5_t8ny8")]
 position = Vector2(-178, -111)
-frame = 1
+frame = 2
 entrance_id = "house_1_entrance"
 transitions_to = "res://world/areas/christmas/buildings/House1Area.tscn"
 exit_id = "entrance"

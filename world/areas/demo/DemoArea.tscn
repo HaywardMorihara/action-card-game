@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bsgcw3h0ohwd1" path="res://world/areas/tiles/OutdoorGrassAndPathwayTileSet.tres" id="2_n848a"]
 [ext_resource type="PackedScene" uid="uid://bu0qetju1koip" path="res://world/buildings/library/Library.tscn" id="3_k3lku"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="3_wm2hn"]
-[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1.tscn" id="4_fwp8s"]
+[ext_resource type="PackedScene" uid="uid://pkgy5wv8bhms" path="res://world/buildings/house_1/House1Enterable.tscn" id="4_fwp8s"]
 [ext_resource type="PackedScene" uid="uid://5wdxkxrmf4ng" path="res://world/objects/indoor/WoodTable.tscn" id="5_rch68"]
 [ext_resource type="PackedScene" uid="uid://0pcryys7xxl3" path="res://world/entities/monsters/blob/BlobMonster.tscn" id="6_v8ygi"]
 [ext_resource type="PackedScene" uid="uid://brve88sshis3s" path="res://world/objects/outdoor/Bench.tscn" id="7_08ak5"]
