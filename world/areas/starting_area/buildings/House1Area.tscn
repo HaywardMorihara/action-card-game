@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7s7a0ouiyihm"]
+
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_b03wh"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_t8ise"]
+
+[node name="House1Area" instance=ExtResource("1_b03wh")]
+area_id = "starting_area_house1"
+
+[node name="AreaTransition" parent="AreaTransitions" index="0" instance=ExtResource("2_t8ise")]
+id = "entrance"
+transitions_to = "res://world/areas/starting_area/StartingArea.tscn"
+linked_transition_area = "house1_entrance"

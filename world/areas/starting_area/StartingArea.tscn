@@ -18,5 +18,12 @@ entrance_id = "home_entrance"
 transitions_to = "res://world/areas/starting_area/buildings/HomeArea.tscn"
 exit_id = "entrance"
 
+[node name="House1" parent="Buildings" index="1" instance=ExtResource("3_ihjjx")]
+position = Vector2(-206, -84)
+frame = 2
+entrance_id = "house1_entrance"
+transitions_to = "res://world/areas/starting_area/buildings/House1Area.tscn"
+exit_id = "entrance"
+
 [node name="Tree1" parent="Objects" index="0" instance=ExtResource("4_s4lv6")]
 position = Vector2(-274, -785)
