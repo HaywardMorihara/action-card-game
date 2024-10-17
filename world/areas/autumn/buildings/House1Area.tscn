@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://dsgwbk7p0ve1n"]
+
+[ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_qbd6e"]
+[ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_63lcg"]
+[ext_resource type="TileSet" uid="uid://qc5lb5w17ci7" path="res://world/areas/tiles/InteriorTileSet.tres" id="2_otvt8"]
+[ext_resource type="PackedScene" uid="uid://cya8vrspqelbn" path="res://world/objects/outdoor/Pumpkin.tscn" id="4_47v2c"]
+
+[node name="House1Area" instance=ExtResource("1_qbd6e")]
+area_id = "autumn_area_house_1_area"
+
+[node name="Ground" parent="." index="0"]
+tile_map_data = PackedByteArray("AAADAP//AAACAAAAAAADAP7/AAACAAAAAAADAP3/AAACAAAAAAADAPz/AAACAAAAAAADAPv/AAACAAAAAAADAPr/AAACAAAAAAADAPn/AAACAAAAAAACAP//AAACAAAAAAACAP7/AAACAAAAAAACAP3/AAACAAAAAAACAPz/AAACAAAAAAACAPv/AAACAAAAAAACAPr/AAACAAAAAAACAPn/AAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAABAP3/AAACAAAAAAABAPz/AAACAAAAAAABAPv/AAACAAAAAAABAPr/AAACAAAAAAABAPn/AAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAAAAP3/AAACAAAAAAAAAPz/AAACAAAAAAAAAPv/AAACAAAAAAAAAPr/AAACAAAAAAAAAPn/AAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD///3/AAACAAAAAAD///z/AAACAAAAAAD///v/AAACAAAAAAD///r/AAACAAAAAAD///n/AAACAAAAAAD+////AAACAAAAAAD+//7/AAAHAAAAAAD+//3/AAACAAAAAAD+//z/AAACAAAAAAD+//v/AAAJAAAAAAD+//r/AAACAAAAAAD+//n/AAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAD9//3/AAACAAAAAAD9//z/AAACAAAAAAD9//v/AAACAAAAAAD9//r/AAACAAAAAAD9//n/AAACAAAAAAD8////AAACAAAAAAD8//7/AAACAAAAAAD8//3/AAACAAAAAAD8//z/AAACAAAAAAD8//v/AAACAAAAAAD8//r/AAACAAAAAAD8//n/AAACAAAAAAA=")
+tile_set = ExtResource("2_otvt8")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAD8//j/AgAEAAIAAAD9//j/AgAEAAIAAAD+//j/AgAEAAIAAAD///j/AgAEAAIAAAAAAPj/AgAEAAIAAAABAPj/AgAEAAIAAAACAPj/AgAEAAIAAAADAPj/AgAEAAIAAAD7//f/AgADAAAAAAAEAPf/AgAFAAAAAAD//wAAAgADAAMAAAAAAAAAAgAEAAMAAAD//wEAAgAFAAMAAAAAAAEAAgAAAAQAAAD+/wAAAgADAAIAAAD9/wAAAgADAAIAAAD8/wAAAgADAAIAAAABAAAAAgADAAIAAAACAAAAAgADAAIAAAADAAAAAgADAAIAAAD8//f/AgADAAIAAAD9//f/AgADAAIAAAD+//f/AgADAAIAAAD///f/AgADAAIAAAAAAPf/AgADAAIAAAABAPf/AgADAAIAAAACAPf/AgADAAIAAAADAPf/AgADAAIAAAD7//j/AgAAAAMAAAD7//n/AgAAAAMAAAD7//r/AgAAAAMAAAD7//v/AgAAAAMAAAD7//z/AgAAAAMAAAD7//3/AgAAAAMAAAD7//7/AgAAAAMAAAD7////AgAAAAMAAAAEAPj/AgABAAMAAAAEAPn/AgABAAMAAAAEAPr/AgABAAMAAAAEAPv/AgABAAMAAAAEAPz/AgABAAMAAAAEAP3/AgABAAMAAAAEAP7/AgABAAMAAAAEAP//AgABAAMAAAD7/wAAAgACAAEAAAAEAAAAAgAEAAEAAAD+/wEAAgAEAAIAAAD9/wEAAgAEAAIAAAD8/wEAAgAEAAIAAAABAAEAAgAEAAIAAAACAAEAAgAEAAIAAAADAAEAAgAEAAIAAAAEAAEAAgAFAAEAAAD7/wEAAgADAAEAAAA=")
+tile_set = ExtResource("2_otvt8")
+
+[node name="AreaTransitionEntrance" parent="AreaTransitions" index="0" instance=ExtResource("2_63lcg")]
+id = "entrance"
+transitions_to = "res://world/areas/autumn/AutumnArea.tscn"
+linked_transition_area = "house_1_entrance"
+
+[node name="Pumpkin" parent="Objects" index="0" instance=ExtResource("4_47v2c")]
+position = Vector2(-44, -101)
+
+[node name="Pumpkin2" parent="Objects" index="1" instance=ExtResource("4_47v2c")]
+position = Vector2(48, -101)

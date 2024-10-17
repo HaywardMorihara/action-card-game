@@ -42,7 +42,7 @@ tile_set = ExtResource("2_uvr4a")
 [node name="Player" parent="." index="3"]
 position = Vector2(-7, 13)
 
-[node name="AreatTransitionExit" parent="AreaTransitions" index="0" instance=ExtResource("2_30jfh")]
+[node name="AreatTransitionEntrance" parent="AreaTransitions" index="0" instance=ExtResource("2_30jfh")]
 position = Vector2(0, 16)
 id = "entrance"
 transitions_to = "res://world/areas/christmas/ChristmasArea.tscn"

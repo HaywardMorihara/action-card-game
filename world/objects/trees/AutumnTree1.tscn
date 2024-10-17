@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5t2e4abf0pp0"]
+
+[ext_resource type="PackedScene" uid="uid://d1scs5c32o8n" path="res://world/objects/Object.tscn" id="1_k3f8w"]
+[ext_resource type="Texture2D" uid="uid://wo430y3r83fh" path="res://world/objects/trees/tree1-autumn.png" id="2_81djg"]
+[ext_resource type="Script" path="res://world/objects/trees/AutumnTree1.gd" id="3_jg3tw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77gib"]
+radius = 3.0
+height = 26.0
+
+[node name="AutumnTree1" instance=ExtResource("1_k3f8w")]
+position = Vector2(0, -14)
+texture = ExtResource("2_81djg")
+hframes = 6
+script = ExtResource("3_jg3tw")
+common_frames = Array[int]([1, 2])
+uncommon_frames = Array[int]([0, 4, 5])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_77gib")

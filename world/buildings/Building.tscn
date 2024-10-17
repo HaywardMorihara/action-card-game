@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://byhahm1xfqoej"]
 
 [node name="Building" type="Sprite2D"]
+y_sort_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_odqr1"]
 
 [node name="BuildingEnterable" type="Sprite2D"]
+y_sort_enabled = true
 script = ExtResource("1_t7qmy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

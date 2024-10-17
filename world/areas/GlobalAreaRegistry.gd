@@ -1,6 +1,7 @@
 class_name AreaRegistry extends Node
 
 # TODO Ideally, auto-generate this, using the scene IDs as sources of truth
+# Shouldn't be setting the ID here _and_ on the scene itself
 # Note: It is possible (and should be) to have multiple area_id's pointing at the same scene
 const area_id_to_scene_path := {
 	"demo_area": "res://world/areas/demo/DemoArea.tscn",
@@ -10,6 +11,9 @@ const area_id_to_scene_path := {
 	"starting_area": "res://world/areas/starting_area/StartingArea.tscn",
 	"starting_area_home": "res://world/areas/starting_area/buildings/HomeArea.tscn",
 	"starting_area_house1": "res://world/areas/starting_area/buildings/House1Area.tscn",
+	
+	"autumn_area": "res://world/areas/autumn/AutumnArea.tscn",
+	"autumn_area_house_1_area": "res://world/areas/autumn/buildings/House1Area.tscn",
 	
 	"christmas_area": "res://world/areas/christmas/ChristmasArea.tscn",
 	"christmas_area_library": "res://world/areas/christmas/buildings/LibraryArea.tscn",

@@ -8,6 +8,7 @@ radius = 3.0
 height = 16.0
 
 [node name="Tree1" instance=ExtResource("1_3lfic")]
+position = Vector2(0, -14)
 texture = ExtResource("2_j1oyg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Object" index="0"]
