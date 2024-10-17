@@ -142,4 +142,3 @@ func _transition_in() -> void:
 # The signal is emitted _after_ the Player death animation is completed
 func _on_player_lost() -> void:
 	GlobalSignals.scene_transition_to.emit("res://ui/menus/GameOverMenu.tscn");
-
