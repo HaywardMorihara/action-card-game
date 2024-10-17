@@ -1,0 +1,111 @@
+#!/usr/bin/python3
+
+import os
+import re
+import argparse
+
+# WARNING: This doesn't work at all. The rules of conversion to the layer type are too complicated
+
+def find_tscn_files(root_dir):
+    """Recursively find all .tscn files under a directory."""
+    tscn_files = []
+    for dirpath, _, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if filename.endswith(".tscn"):
+                tscn_files.append(os.path.join(dirpath, filename))
+    return tscn_files
+
+def parse_tilemap_node(content):
+    """Find the TileMap node and extract tile_set and layers."""
+    # Match the TileMap node and capture everything inside it.
+    tilemap_pattern = (
+        r'(\[node\s+(?:name="TileMap"|type="TileMap")[^]]*]\n'
+        r'(.*?))(?=\[|\Z)'  # Capture all lines until the next node or end of file.
+    )
+    match = re.search(tilemap_pattern, content, re.DOTALL)
+
+    if not match:
+        return None  # No valid TileMap node found.
+
+    node_header = match.group(1)
+    node_body = match.group(2)
+
+    # Optional: Extract the tile_set value.
+    tile_set_match = re.search(r'tile_set\s*=\s*(.*)', node_body)
+    tile_set = tile_set_match.group(1).strip() if tile_set_match else None
+
+    # Extract all layer attributes like layer_0/name, layer_1/attribute, etc.
+    layer_pattern = r'(layer_\d+)/([^=\s]+)\s*=\s*(.*)'
+    layers = {}
+    for layer, attribute, value in re.findall(layer_pattern, node_body):
+        if layer not in layers:
+            layers[layer] = {}
+        layers[layer][attribute] = value.strip()
+
+    return node_header, tile_set, layers
+
+def transform_tilemap_to_layers(node_header, tile_set, layers):
+    """Convert the TileMap node into multiple TileMapLayer nodes."""
+    new_nodes = []
+
+    for idx, (layer_number, attributes) in enumerate(layers.items()):
+        # Use the 'name' attribute or a fallback name.
+        layer_node_name = attributes.pop("name", f"Layer{idx}").strip('"')
+       
+        # TODO
+        # If inherited, don't include the type AND include the user_parent_material = true property
+
+        # Create the new node string.
+        layer_node = f'[node name="{layer_node_name}" type="TileMapLayer" parent="." index="{idx}"]\n'
+        if tile_set:
+            layer_node += f'tile_set = {tile_set}\n'
+        # Add the rest of the attributes.
+        for attr, val in attributes.items():
+            layer_node += f'{attr} = {val}\n'
+        new_nodes.append(layer_node)
+
+    return '\n'.join(new_nodes) + '\n'
+
+def process_file(file_path, dry_run):
+    """Process a single .tscn file."""
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    result = parse_tilemap_node(content)
+    if result is None:
+        # Skipping; No TileMap node found
+        return
+
+    node_header, tile_set, layers = result
+
+    new_content = content.replace(node_header, transform_tilemap_to_layers(node_header, tile_set, layers))
+
+    if dry_run:
+        print(f"--- DRY RUN: {file_path} ---")
+        # print(new_content)
+        print("--- END DRY RUN ---\n")
+    else:
+        with open(file_path, 'w') as f:
+            f.write(new_content)
+        print(f"Modified {file_path}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Transform TileMap nodes into TileMapLayer nodes.")
+    parser.add_argument("directory", help="Root directory to search for .tscn files.")
+    parser.add_argument("--dry-run", action="store_true", help="Print changes instead of modifying files.")
+    args = parser.parse_args()
+
+    if args.directory.endswith(".tscn"):
+        tscn_files = [ args.directory ] 
+    else:
+        tscn_files = find_tscn_files(args.directory)
+    
+    if not tscn_files:
+        print("No .tscn files found.")
+        return
+
+    for file_path in tscn_files:
+        process_file(file_path, args.dry_run)
+
+if __name__ == "__main__":
+    main()

@@ -8,16 +8,13 @@ process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_yuf2n")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Ground" type="TileMapLayer" parent="."]
+z_index = -1
+tile_data = PackedInt32Array(-131070, 196608, 2, -65535, 196608, 2, -65536, 196608, 2, -1, 196608, 2, -2, 196608, 2, 65534, 196608, 2, 65535, 196608, 2, 0, 196608, 2)
+
+[node name="Walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-format = 2
-layer_0/name = "Ground"
-layer_0/z_index = -1
-layer_0/tile_data = PackedInt32Array(-131070, 196608, 2, -65535, 196608, 2, -65536, 196608, 2, -1, 196608, 2, -2, 196608, 2, 65534, 196608, 2, 65535, 196608, 2, 0, 196608, 2)
-layer_1/name = "Walls"
-layer_1/y_sort_enabled = true
-layer_1/navigation_enabled = false
-layer_1/tile_data = PackedInt32Array()
+tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_poops")]
 y_sort_enabled = true

@@ -1,0 +1,30 @@
+Write a Python script called "fix_tile_maps.py" that:
+
+1. Finds every nested *.tscn file under a directory, and for each file
+2. Checks if there is a "node" (a section) of 'type  = "TileMap"' OR with 'name = "TileMap"' in the file with the format:
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+some_attribute = true
+tile_set = ExtResource("some_value")
+layer_0/name = "SomeName"
+layer_0/attribute_1 = some_value
+layer_0/attribute_2 = another_value
+layer_1/name = "AnotherName"
+layer_1/attribute_1 = more_values
+layer_1/attribute_3 = even_more_different_values
+
+If the file does not contain a node like this, skip the file.
+
+Otherwise, transform that "node" in the file so that it is now multiple "nodes" of the format:
+
+[node name="SomeName" type="TileMapLayer" parent="." index="0"]
+tile_set = ExtResource("some_value")
+attribute_1 = some_value
+attribute_2 = another_value
+
+[node name="AnotherName" type="TileMapLayer" parent="." index="1"]
+tile_set = ExtResource("some_value")
+attribute_1 = more_values
+attribute_3 = even_more_different_values
+
+Also, make it so that this script can be run in "dry mode" where it prints the results rather than actually executing them

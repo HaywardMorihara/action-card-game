@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bscrxu3rrudxg"]
+[gd_scene load_steps=4 format=4 uid="uid://bscrxu3rrudxg"]
 
 [ext_resource type="PackedScene" uid="uid://vwhxvbmn0g7j" path="res://world/areas/Area.tscn" id="1_dkm3c"]
 [ext_resource type="PackedScene" uid="uid://co4r47y6dcuw7" path="res://world/areas/AreaTransition.tscn" id="2_110uo"]
@@ -7,9 +7,10 @@
 [node name="House1Area" instance=ExtResource("1_dkm3c")]
 area_id = "demo_area_house_1"
 
-[node name="TileMap" parent="." index="0"]
+[node name="Ground" parent="." index="0"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAP7/AAACAAAAAAABAP//AAAHAAAAAAAAAP//AAACAAAAAAD/////AAAHAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAAAAP7/AAACAAAAAAD///7/AAACAAAAAAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAABAAEAAAACAAAAAAABAAAAAAACAAAAAAABAP7/AAACAAAAAAD+/wEAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAD+/wIAAAACAAAAAAD+//7/AAACAAAAAAD+//3/AAACAAAAAAACAP//AAACAAAAAAACAAAAAAACAAAAAAACAAEAAAACAAAAAAABAP3/AAACAAAAAAAAAP3/AAACAAAAAAD///3/AAACAAAAAAACAP3/AAACAAAAAAD9//3/AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAA=")
 tile_set = ExtResource("2_178q2")
-layer_0/tile_data = PackedInt32Array(-131070, 131072, 0, -65535, 458752, 0, -65536, 131072, 0, -1, 458752, 0, -2, 131072, 0, 65534, 131072, 0, 65535, 131072, 0, 0, 131072, 0, -131072, 131072, 0, -65537, 131072, 0, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 0, 1, 131072, 0, -131071, 131072, 0, 131070, 131072, 0, 196607, 131072, 0, 131072, 131072, 0, 131073, 131072, 0, 131074, 131072, 0, 196606, 131072, 0, -65538, 131072, 0, -131074, 131072, 0, -65534, 131072, 0, 2, 131072, 0, 65538, 131072, 0, -196607, 131072, 0, -196608, 131072, 0, -131073, 131072, 0, -196606, 131072, 0, -131075, 131072, 0, -65539, 131072, 0, -3, 131072, 0, 65533, 131072, 0, 131069, 131072, 0, 196605, 131072, 0)
 
 [node name="AreatTransitionExit" parent="AreaTransitions" index="0" instance=ExtResource("2_110uo")]
 position = Vector2(3, 39)
