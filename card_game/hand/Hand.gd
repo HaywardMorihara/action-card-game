@@ -84,7 +84,6 @@ func _mouse_exited(card : Card):
 			hovered_card = next_card_to_hover;
 			hovered_card.hover();
 	else:
-		print("The mouse is no longer over the card and it never had a chance to show")
 		var index = hover_queue.find(card);
 		if index >= 0:
 			hover_queue.remove_at(index);
